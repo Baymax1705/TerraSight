@@ -238,10 +238,20 @@ export default function App() {
                                                             <span className="bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full">{items.length}</span>
                                                         </summary>
                                                         <div className="px-3 py-2 bg-white text-xs text-slate-600 border-t border-slate-100 max-h-40 overflow-y-auto">
-                                                            <ul className="list-disc pl-4 space-y-1">
-                                                                {items.map((fac: any, fIdx: number) => (
-                                                                    <li key={fIdx} className="line-clamp-1 truncate" title={fac.name}>{fac.name}</li>
-                                                                ))}
+                                                            <ul className="list-none space-y-1">
+                                                                {items.map((fac: any, fIdx: number) => {
+                                                                    const formattedName = fac.name.replace(/\b\w/g, (c: string) => c.toUpperCase());
+                                                                    return (
+                                                                        <li 
+                                                                            key={fIdx} 
+                                                                            onClick={() => setMapCenter([fac.lat, fac.lon])}
+                                                                            className="line-clamp-1 truncate hover:text-indigo-600 hover:bg-slate-50 cursor-pointer p-1 rounded transition-colors" 
+                                                                            title={formattedName}
+                                                                        >
+                                                                            • {formattedName}
+                                                                        </li>
+                                                                    );
+                                                                })}
                                                             </ul>
                                                         </div>
                                                     </details>

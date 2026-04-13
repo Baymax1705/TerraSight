@@ -45,10 +45,13 @@ export default function Map({
     const createFacilityIcon = (type: string) => {
         let color = '#3b82f6'; // default blue
         let emoji = '📍';
-        if (type === 'School') { color = '#eab308'; emoji = '🏫'; }
-        if (type === 'Hospital') { color = '#ef4444'; emoji = '🏥'; }
-        if (type === 'Market') { color = '#10b981'; emoji = '🛒'; }
-        if (type === 'Transit Station') { color = '#8b5cf6'; emoji = '🚇'; }
+        if (type === 'Education') { color = '#eab308'; emoji = '🏫'; }
+        else if (type === 'Medical') { color = '#ef4444'; emoji = '🏥'; }
+        else if (type === 'Market') { color = '#10b981'; emoji = '🛒'; }
+        else if (type === 'Transit Station') { color = '#8b5cf6'; emoji = '🚇'; }
+        else if (type === 'Gym') { color = '#f97316'; emoji = '🏋️'; }
+        else if (type === 'Park') { color = '#22c55e'; emoji = '🌳'; }
+        else if (type === 'Police') { color = '#0ea5e9'; emoji = '🚓'; }
 
         return L.divIcon({
             className: 'custom-facility-icon',

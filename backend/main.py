@@ -31,10 +31,15 @@ def get_nearby_facilities(lat: float = Query(...), lon: float = Query(...), radi
     overpass_query = f"""
     [out:json][timeout:25];
     (
-      node["amenity"="school"](around:{radius_m},{lat},{lon});
-      node["amenity"="hospital"](around:{radius_m},{lat},{lon});
+      node["amenity"~"school|college|university"](around:{radius_m},{lat},{lon});
+      node["amenity"~"hospital|clinic|pharmacy"](around:{radius_m},{lat},{lon});
       node["amenity"="marketplace"](around:{radius_m},{lat},{lon});
+      node["shop"~"supermarket|convenience|mall"](around:{radius_m},{lat},{lon});
       node["public_transport"="station"](around:{radius_m},{lat},{lon});
+      node["highway"="bus_stop"](around:{radius_m},{lat},{lon});
+      node["leisure"~"fitness_centre|sports_centre"](around:{radius_m},{lat},{lon});
+      node["leisure"="park"](around:{radius_m},{lat},{lon});
+      node["amenity"="police"](around:{radius_m},{lat},{lon});
     );
     out body;
     >;
@@ -49,38 +54,72 @@ def get_nearby_facilities(lat: float = Query(...), lon: float = Query(...), radi
         return {"error": "Overpass query failed", "details": response.text}
         
     data = response.json()
-    facilities = {"schools": 0, "hospitals": 0, "markets": 0, "transport": 0, "locations": [], "radius": radius_m}
+    
+    # Initialize categories
+    categories = {
+        "Schools & Colleges": [],
+        "Hospitals & Clinics": [],
+        "Marts & Markets": [],
+        "Public Transport": [],
+        "Gyms & Fitness": [],
+        "Parks": [],
+        "Police Stations": []
+    }
+    locations = []
     
     for element in data.get("elements", []):
         if element.get("type") == "node" and "tags" in element:
             tags = element["tags"]
-            amenity_type = tags.get("amenity")
-            transport_type = tags.get("public_transport")
-            name = tags.get("name", "Unknown")
+            name = tags.get("name", "Unknown Facility")
+            if name == "Unknown Facility": continue # Skip nameless things to avoid cluttering lists
             
-            if amenity_type == "school":
-                facilities["schools"] += 1
-                type_lbl = "School"
-            elif amenity_type == "hospital":
-                facilities["hospitals"] += 1
-                type_lbl = "Hospital"
-            elif amenity_type == "marketplace":
-                facilities["markets"] += 1
+            amenity = tags.get("amenity", "")
+            shop = tags.get("shop", "")
+            transport = tags.get("public_transport", "")
+            highway = tags.get("highway", "")
+            leisure = tags.get("leisure", "")
+            
+            type_lbl = None
+            category = None
+            
+            if amenity in ["school", "college", "university"]:
+                category = "Schools & Colleges"
+                type_lbl = "Education"
+            elif amenity in ["hospital", "clinic", "pharmacy"]:
+                category = "Hospitals & Clinics"
+                type_lbl = "Medical"
+            elif amenity == "marketplace" or shop in ["supermarket", "convenience", "mall"]:
+                category = "Marts & Markets"
                 type_lbl = "Market"
-            elif transport_type == "station":
-                facilities["transport"] += 1
+            elif transport == "station" or highway == "bus_stop":
+                category = "Public Transport"
                 type_lbl = "Transit Station"
-            else:
-                continue
+            elif leisure in ["fitness_centre", "sports_centre"]:
+                category = "Gyms & Fitness"
+                type_lbl = "Gym"
+            elif leisure == "park":
+                category = "Parks"
+                type_lbl = "Park"
+            elif amenity == "police":
+                category = "Police Stations"
+                type_lbl = "Police"
                 
-            facilities["locations"].append({
-                "name": name,
-                "type": type_lbl,
-                "lat": element.get("lat"),
-                "lon": element.get("lon")
-            })
-            
-    return facilities
+            if category and type_lbl:
+                fac_obj = {
+                    "name": name,
+                    "type": type_lbl,
+                    "lat": element.get("lat"),
+                    "lon": element.get("lon")
+                }
+                categories[category].append(fac_obj)
+                locations.append(fac_obj)
+                
+    return {
+        "categories": categories,
+        "locations": locations,
+        "total_facilities": len(locations),
+        "radius": radius_m
+    }
 
 import random
 

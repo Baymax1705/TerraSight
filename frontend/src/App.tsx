@@ -44,7 +44,7 @@ export default function App() {
             const res = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`);
             const data = await res.json();
             const placeName = data.display_name || `${lat.toFixed(4)}, ${lng.toFixed(4)}`;
-            setSearchQuery(placeName.split(',')[0]); // Take short name
+            setSearchQuery(placeName); // Use the Full Address!
         } catch(e) {
             console.error("Reverse geocode failed", e);
             setSearchQuery(`${lat.toFixed(4)}, ${lng.toFixed(4)}`);
@@ -78,11 +78,11 @@ export default function App() {
         
         // Compute Premium based on Facilities
         let premiumPercent = 0;
-        if (facilities) {
-            const totalFacs = facilities.schools + facilities.hospitals + facilities.markets + facilities.transport;
-            if (totalFacs > 15) premiumPercent = 35;
-            else if (totalFacs > 7) premiumPercent = 20;
-            else if (totalFacs > 3) premiumPercent = 10;
+        if (facilities && facilities.total_facilities) {
+            const totalFacs = facilities.total_facilities;
+            if (totalFacs > 30) premiumPercent = 35;
+            else if (totalFacs > 15) premiumPercent = 20;
+            else if (totalFacs > 5) premiumPercent = 10;
         }
         
         const marketRateSqm = insights.estimated_rate_sqm * (1 + premiumPercent / 100);
@@ -223,16 +223,30 @@ export default function App() {
 
                                 {/* Facilities UI */}
                                 <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
-                                    <div className="flex items-center gap-2 mb-3">
+                                    <div className="flex items-center gap-2 mb-3 border-b border-slate-100 pb-2">
                                         <MapPin size={18} className="text-blue-500"/> 
-                                        <h3 className="font-semibold text-sm text-slate-800">Nearby Facilities (2km radius)</h3>
+                                        <h3 className="font-semibold text-sm text-slate-800">Nearby Amenities ({facilities ? facilities.total_facilities : 0})</h3>
                                     </div>
-                                    {facilities ? (
-                                        <div className="flex flex-wrap gap-2">
-                                            <div className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1">🏫 {facilities.schools} Schools</div>
-                                            <div className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1">🏥 {facilities.hospitals} Hospitals</div>
-                                            <div className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1">🛒 {facilities.markets} Markets</div>
-                                            <div className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1">🚇 {facilities.transport} Transit Stops</div>
+                                    {facilities && facilities.categories ? (
+                                        <div className="flex flex-col gap-2">
+                                            {Object.entries(facilities.categories).map(([categoryName, items]: [string, any]) => {
+                                                if (items.length === 0) return null;
+                                                return (
+                                                    <details key={categoryName} className="group bg-slate-50 border border-slate-200 rounded-lg overflow-hidden cursor-pointer">
+                                                        <summary className="flex items-center justify-between px-3 py-2 text-xs font-semibold text-slate-700 select-none group-open:bg-indigo-50 hover:bg-slate-100 transition-colors">
+                                                            <span>{categoryName}</span>
+                                                            <span className="bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full">{items.length}</span>
+                                                        </summary>
+                                                        <div className="px-3 py-2 bg-white text-xs text-slate-600 border-t border-slate-100 max-h-40 overflow-y-auto">
+                                                            <ul className="list-disc pl-4 space-y-1">
+                                                                {items.map((fac: any, fIdx: number) => (
+                                                                    <li key={fIdx} className="line-clamp-1 truncate" title={fac.name}>{fac.name}</li>
+                                                                ))}
+                                                            </ul>
+                                                        </div>
+                                                    </details>
+                                                );
+                                            })}
                                         </div>
                                     ) : <p className="text-xs text-slate-500">No data loaded.</p>}
                                 </div>

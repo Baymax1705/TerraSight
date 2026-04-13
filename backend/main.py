@@ -31,13 +31,16 @@ def get_nearby_facilities(lat: float = Query(...), lon: float = Query(...), radi
     overpass_query = f"""
     [out:json][timeout:25];
     (
-      node["amenity"~"school|college|university"](around:{radius_m},{lat},{lon});
-      node["amenity"~"hospital|clinic|pharmacy"](around:{radius_m},{lat},{lon});
+      node["amenity"="school"](around:{radius_m},{lat},{lon});
+      node["amenity"="college"](around:{radius_m},{lat},{lon});
+      node["amenity"="hospital"](around:{radius_m},{lat},{lon});
+      node["amenity"="clinic"](around:{radius_m},{lat},{lon});
       node["amenity"="marketplace"](around:{radius_m},{lat},{lon});
-      node["shop"~"supermarket|convenience|mall"](around:{radius_m},{lat},{lon});
+      node["shop"="supermarket"](around:{radius_m},{lat},{lon});
+      node["shop"="mall"](around:{radius_m},{lat},{lon});
       node["public_transport"="station"](around:{radius_m},{lat},{lon});
       node["highway"="bus_stop"](around:{radius_m},{lat},{lon});
-      node["leisure"~"fitness_centre|sports_centre"](around:{radius_m},{lat},{lon});
+      node["leisure"="fitness_centre"](around:{radius_m},{lat},{lon});
       node["leisure"="park"](around:{radius_m},{lat},{lon});
       node["amenity"="police"](around:{radius_m},{lat},{lon});
     );

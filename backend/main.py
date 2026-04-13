@@ -81,3 +81,47 @@ def get_nearby_facilities(lat: float = Query(...), lon: float = Query(...), radi
             })
             
     return facilities
+
+import random
+
+UP_DISTRICTS = {
+    "lucknow": {"base_rate": 4500, "multiplier": 1.2, "growth": "High", "risk": "Moderate flood risk near Gomti river."},
+    "noida": {"base_rate": 8500, "multiplier": 1.5, "growth": "Very High", "risk": "Industrial zoning restrictions in some sectors."},
+    "kanpur": {"base_rate": 3500, "multiplier": 1.0, "growth": "Medium", "risk": "High pollution zone, leather tanning cluster."},
+    "varanasi": {"base_rate": 6000, "multiplier": 1.3, "growth": "High", "risk": "Heritage restriction zones."},
+    "agra": {"base_rate": 4000, "multiplier": 0.9, "growth": "Low", "risk": "Taj Trapezium Zone extreme restrictions."},
+}
+
+@app.get("/api/circle-rates")
+def get_circle_rates(query: str = Query(..., description="Location query to match UP district")):
+    query_lower = query.lower()
+    
+    matched_district = None
+    for district in UP_DISTRICTS.keys():
+        if district in query_lower:
+            matched_district = district
+            break
+            
+    if not matched_district:
+        # Default fallback
+        data = {"base_rate": random.randint(2000, 4000), "multiplier": 1.0, "growth": "Moderate", "risk": "Standard assessment. General agricultural / semi-urban."}
+    else:
+        data = UP_DISTRICTS[matched_district]
+        
+    variance = random.randint(-500, 500)
+    current_rate = data["base_rate"] * data["multiplier"] + variance
+    
+    # Generate Smart Insight
+    if data["growth"] in ["High", "Very High"]:
+        insight = f"This area shows strong investment potential. Government circle rates are averaging around ₹{int(current_rate)}/sq.m. Expected appreciation is robust."
+    else:
+        insight = f"Steady market. Current valuations hover around ₹{int(current_rate)}/sq.m. Caution advised regarding {data['risk'].lower()}"
+        
+    return {
+        "location": query.title(),
+        "estimated_rate_sqm": int(current_rate),
+        "growth_potential": data["growth"],
+        "risk_factors": data["risk"],
+        "smart_insight": insight,
+        "source": "UP IGRS Valuation (MVP Heuristic)"
+    }

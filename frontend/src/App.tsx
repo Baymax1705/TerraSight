@@ -7,7 +7,8 @@ export default function App() {
     const [searchResults, setSearchResults] = useState<any[]>([]);
     const [isSearching, setIsSearching] = useState(false);
     const [mapCenter, setMapCenter] = useState<[number, number]>([26.8467, 80.9462]); 
-    const [landArea, setLandArea] = useState<number>(500); // Default 500 sq meters
+    const [landArea, setLandArea] = useState<number>(1000); // Default 1000
+    const [areaUnit, setAreaUnit] = useState<'sq.ft' | 'sq.m' | 'sq.yd'>('sq.ft');
 
     // Data State
     const [insights, setInsights] = useState<any>(null);
@@ -32,32 +33,31 @@ export default function App() {
         setMapCenter([parseFloat(lat), parseFloat(lon)]);
         setSearchQuery(displayName);
         setSearchResults([]);
-        await runAnalytics(lat, lon, displayName);
+        // Analytics run paused until button is explicitly clicked
     };
 
     const handleMapClick = async (lat: number, lng: number) => {
         setMapCenter([lat, lng]);
         
-        // Reverse Geocode
+        // Reverse Geocode to update text only
         try {
             const res = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`);
             const data = await res.json();
             const placeName = data.display_name || `${lat.toFixed(4)}, ${lng.toFixed(4)}`;
             setSearchQuery(placeName.split(',')[0]); // Take short name
-            await runAnalytics(lat.toString(), lng.toString(), placeName);
         } catch(e) {
             console.error("Reverse geocode failed", e);
-            await runAnalytics(lat.toString(), lng.toString(), "Selected Pin");
+            setSearchQuery(`${lat.toFixed(4)}, ${lng.toFixed(4)}`);
         }
     };
 
-    const runAnalytics = async (lat: string, lon: string, queryName: string) => {
+    const triggerAnalytics = async () => {
         setIsLoadingInsights(true);
         try {
-            const rateRes = await fetch(`http://localhost:8000/api/circle-rates?query=${encodeURIComponent(queryName)}`);
+            const rateRes = await fetch(`http://localhost:8000/api/circle-rates?query=${encodeURIComponent(searchQuery)}`);
             if (rateRes.ok) setInsights(await rateRes.json());
 
-            const facRes = await fetch(`http://localhost:8000/api/facilities?lat=${lat}&lon=${lon}&radius_m=2000`);
+            const facRes = await fetch(`http://localhost:8000/api/facilities?lat=${mapCenter[0]}&lon=${mapCenter[1]}&radius_m=2000`);
             if (facRes.ok) setFacilities(await facRes.json());
         } catch (err) {
             console.error("Backend connection failed.", err);
@@ -68,7 +68,13 @@ export default function App() {
     // Calculate Valuations based on Area and Facilities
     const valuations = useMemo(() => {
         if (!insights) return null;
-        const govtRateTotal = insights.estimated_rate_sqm * landArea;
+        
+        // Convert Area to Sq Meters for valuation math
+        let areaInSqM = landArea;
+        if (areaUnit === 'sq.ft') areaInSqM = landArea / 10.764;
+        else if (areaUnit === 'sq.yd') areaInSqM = landArea / 1.196;
+
+        const govtRateTotal = insights.estimated_rate_sqm * areaInSqM;
         
         // Compute Premium based on Facilities
         let premiumPercent = 0;
@@ -80,7 +86,7 @@ export default function App() {
         }
         
         const marketRateSqm = insights.estimated_rate_sqm * (1 + premiumPercent / 100);
-        const marketRateTotal = marketRateSqm * landArea;
+        const marketRateTotal = marketRateSqm * areaInSqM;
 
         return {
             govtRateTotal,
@@ -88,7 +94,7 @@ export default function App() {
             marketRateTotal,
             premiumPercent
         };
-    }, [insights, facilities, landArea]);
+    }, [insights, facilities, landArea, areaUnit]);
 
     return (
         <main className="flex h-screen w-full bg-slate-50 text-slate-900 overflow-hidden font-sans">
@@ -139,24 +145,42 @@ export default function App() {
                                 ))}
                             </div>
                         )}
+                        
+                        <button 
+                            className="w-full bg-slate-900 hover:bg-slate-800 text-white py-3 rounded-xl font-medium transition-colors shadow-sm active:scale-95 mt-4"
+                            onClick={triggerAnalytics}
+                        >
+                            Run Smart Analytics
+                        </button>
                     </div>
 
                     {/* Dimensions Input */}
                     <div className="space-y-3 bg-indigo-50/50 p-4 rounded-xl border border-indigo-100">
-                        <div className="flex justify-between items-center">
+                        <div className="flex justify-between items-center mb-2">
                             <label className="text-sm font-semibold text-slate-700">Land Area Dimension</label>
-                            <span className="text-sm font-bold text-indigo-700 bg-white px-2 py-1 rounded shadow-sm border border-indigo-100">{landArea} sq.m.</span>
+                            
+                            {/* Unit Options Toggle */}
+                            <div className="flex bg-white rounded-md border border-indigo-200 shadow-sm overflow-hidden text-xs font-semibold">
+                                <button className={`px-2 py-1 transition-colors ${areaUnit === 'sq.ft' ? 'bg-indigo-600 text-white' : 'text-slate-500 hover:bg-slate-50'}`} onClick={() => setAreaUnit('sq.ft')}>Sq.Ft</button>
+                                <button className={`px-2 py-1 transition-colors border-l border-r border-indigo-100 ${areaUnit === 'sq.m' ? 'bg-indigo-600 text-white' : 'text-slate-500 hover:bg-slate-50'}`} onClick={() => setAreaUnit('sq.m')}>Sq.M</button>
+                                <button className={`px-2 py-1 transition-colors ${areaUnit === 'sq.yd' ? 'bg-indigo-600 text-white' : 'text-slate-500 hover:bg-slate-50'}`} onClick={() => setAreaUnit('sq.yd')}>Gaj</button>
+                            </div>
                         </div>
-                        <input 
-                            type="range" 
-                            min="50" max="10000" step="50"
-                            value={landArea}
-                            onChange={(e) => setLandArea(parseInt(e.target.value))}
-                            className="w-full cursor-pointer accent-indigo-600"
-                        />
-                        <div className="flex justify-between text-xs text-slate-400 font-medium">
-                            <span>50 sq.m</span>
-                            <span>10,000 sq.m</span>
+                        
+                        <div className="flex items-center gap-4">
+                            <input 
+                                type="number" 
+                                value={landArea} 
+                                onChange={(e) => setLandArea(Number(e.target.value) || 0)}
+                                className="w-24 px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm text-sm font-bold text-indigo-700 focus:ring-2 focus:ring-indigo-500 outline-none"
+                            />
+                            <input 
+                                type="range" 
+                                min="10" max={areaUnit === 'sq.ft' ? "100000" : "10000"} step={areaUnit === 'sq.ft' ? "100" : "50"}
+                                value={landArea}
+                                onChange={(e) => setLandArea(parseInt(e.target.value))}
+                                className="flex-1 cursor-pointer accent-indigo-600"
+                            />
                         </div>
                     </div>
 
@@ -172,8 +196,8 @@ export default function App() {
                                 <p className="text-sm font-medium text-slate-600">Generating Valuation Report...</p>
                             </div>
                         ) : !insights ? (
-                            <div className="bg-slate-50 border border-slate-100 rounded-xl p-8 text-center text-slate-500 text-sm">
-                                Drop a pin or run a search to calculate land values.
+                            <div className="bg-slate-50 border border-slate-100 rounded-xl p-8 text-center text-slate-500 text-sm leading-relaxed">
+                                Use the search bar or drop a map pin,<br/>then click <b>Run Smart Analytics</b>!
                             </div>
                         ) : (
                             <div className="flex flex-col gap-4 pb-4">
@@ -184,7 +208,7 @@ export default function App() {
                                         <div className="flex items-center gap-2 mb-2 text-slate-600">
                                             <Building size={16}/> <span className="text-xs font-semibold uppercase">Govt Rate</span>
                                         </div>
-                                        <p className="text-lg font-bold text-slate-800">₹{(valuations?.govtRateTotal || 0).toLocaleString()}</p>
+                                        <p className="text-lg font-bold text-slate-800">₹{Math.round(valuations?.govtRateTotal || 0).toLocaleString()}</p>
                                         <p className="text-[10px] text-slate-500 mt-1">₹{insights.estimated_rate_sqm.toLocaleString()}/sq.m base</p>
                                     </div>
                                     <div className="bg-indigo-600 border border-indigo-700 rounded-xl p-4 shadow-md flex flex-col justify-between text-white relative overflow-hidden">

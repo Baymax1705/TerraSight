@@ -1,6 +1,10 @@
 import requests
-from fastapi import FastAPI, Query
+from fastapi import FastAPI, Query, Depends
 from fastapi.middleware.cors import CORSMiddleware
+from sqlalchemy.orm import Session
+import datetime
+from database import get_db, CachedRate
+from scraper import scrape_real_estate_data
 
 app = FastAPI(
     title="Smart Land Intelligence API",
@@ -124,46 +128,58 @@ def get_nearby_facilities(lat: float = Query(...), lon: float = Query(...), radi
         "radius": radius_m
     }
 
-import random
-
-UP_DISTRICTS = {
-    "lucknow": {"base_rate": 4500, "multiplier": 1.2, "growth": "High", "risk": "Moderate flood risk near Gomti river."},
-    "noida": {"base_rate": 8500, "multiplier": 1.5, "growth": "Very High", "risk": "Industrial zoning restrictions in some sectors."},
-    "kanpur": {"base_rate": 3500, "multiplier": 1.0, "growth": "Medium", "risk": "High pollution zone, leather tanning cluster."},
-    "varanasi": {"base_rate": 6000, "multiplier": 1.3, "growth": "High", "risk": "Heritage restriction zones."},
-    "agra": {"base_rate": 4000, "multiplier": 0.9, "growth": "Low", "risk": "Taj Trapezium Zone extreme restrictions."},
-}
-
 @app.get("/api/circle-rates")
-def get_circle_rates(query: str = Query(..., description="Location query to match UP district")):
-    query_lower = query.lower()
+def get_circle_rates(
+    query: str = Query(..., description="Location query to match UP district"),
+    db: Session = Depends(get_db)
+):
+    query_lower = query.lower().strip()
     
-    matched_district = None
-    for district in UP_DISTRICTS.keys():
-        if district in query_lower:
-            matched_district = district
-            break
-            
-    if not matched_district:
-        # Default fallback
-        data = {"base_rate": random.randint(2000, 4000), "multiplier": 1.0, "growth": "Moderate", "risk": "Standard assessment. General agricultural / semi-urban."}
-    else:
-        data = UP_DISTRICTS[matched_district]
-        
-    variance = random.randint(-500, 500)
-    current_rate = data["base_rate"] * data["multiplier"] + variance
+    # 1. Check Database Cache First
+    cached_entry = db.query(CachedRate).filter(CachedRate.location_query == query_lower).first()
     
-    # Generate Smart Insight
-    if data["growth"] in ["High", "Very High"]:
-        insight = f"This area shows strong investment potential. Government circle rates are averaging around ₹{int(current_rate)}/sq.m. Expected appreciation is robust."
+    if cached_entry:
+        # Check if data is fresher than 30 days
+        age_in_days = (datetime.datetime.utcnow() - cached_entry.updated_at).days
+        if age_in_days < 30:
+            return {
+                "location": query.title(),
+                "estimated_rate_sqm": cached_entry.estimated_rate_sqm,
+                "growth_potential": cached_entry.growth_potential,
+                "risk_factors": cached_entry.risk_factors,
+                "smart_insight": cached_entry.smart_insight,
+                "source": "Database Cache (0 latency)"
+            }
+
+    # 2. Scrape Live Data (or fallback heuristic)
+    scraped_data = scrape_real_estate_data(query)
+    
+    # 3. Store / Update the Database
+    if cached_entry:
+        cached_entry.estimated_rate_sqm = scraped_data["estimated_rate_sqm"]
+        cached_entry.growth_potential = scraped_data["growth_potential"]
+        cached_entry.risk_factors = scraped_data["risk_factors"]
+        cached_entry.smart_insight = scraped_data["smart_insight"]
+        cached_entry.source = scraped_data["source"]
+        cached_entry.updated_at = datetime.datetime.utcnow()
     else:
-        insight = f"Steady market. Current valuations hover around ₹{int(current_rate)}/sq.m. Caution advised regarding {data['risk'].lower()}"
+        new_entry = CachedRate(
+            location_query=query_lower,
+            estimated_rate_sqm=scraped_data["estimated_rate_sqm"],
+            growth_potential=scraped_data["growth_potential"],
+            risk_factors=scraped_data["risk_factors"],
+            smart_insight=scraped_data["smart_insight"],
+            source=scraped_data["source"]
+        )
+        db.add(new_entry)
         
+    db.commit()
+    
     return {
         "location": query.title(),
-        "estimated_rate_sqm": int(current_rate),
-        "growth_potential": data["growth"],
-        "risk_factors": data["risk"],
-        "smart_insight": insight,
-        "source": "UP IGRS Valuation (MVP Heuristic)"
+        "estimated_rate_sqm": scraped_data["estimated_rate_sqm"],
+        "growth_potential": scraped_data["growth_potential"],
+        "risk_factors": scraped_data["risk_factors"],
+        "smart_insight": scraped_data["smart_insight"],
+        "source": scraped_data["source"]
     }

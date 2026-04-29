@@ -82,6 +82,14 @@ def get_nearby_facilities(lat: float = Query(...), lon: float = Query(...), radi
       
       nwr["sport"="fitness"](around:{radius_m},{lat},{lon});
       nwr["sport"="gymnastics"](around:{radius_m},{lat},{lon});
+      nwr["sport"="yoga"](around:{radius_m},{lat},{lon});
+      nwr["sport"="weightlifting"](around:{radius_m},{lat},{lon});
+      nwr["sport"="bodybuilding"](around:{radius_m},{lat},{lon});
+      
+      nwr["club"="sport"](around:{radius_m},{lat},{lon});
+      nwr["club"="gymnastics"](around:{radius_m},{lat},{lon});
+      
+      nwr["leisure"="dance"](around:{radius_m},{lat},{lon});
     );
     out center;
     """
@@ -150,7 +158,7 @@ def get_nearby_facilities(lat: float = Query(...), lon: float = Query(...), radi
             elif transport in ["station", "stop_position"] or highway == "bus_stop" or tags.get("railway") in ["station", "subway_entrance"] or amenity == "bus_station":
                 category = "Public Transport"
                 type_lbl = "Transit Station"
-            elif leisure in ["fitness_centre", "sports_centre"] or amenity == "gym" or sport in ["fitness", "gymnastics"]:
+            elif leisure in ["fitness_centre", "sports_centre", "dance"] or amenity == "gym" or sport in ["fitness", "gymnastics", "yoga", "weightlifting", "bodybuilding"] or tags.get("club") in ["sport", "gymnastics"]:
                 category = "Gyms & Fitness"
                 type_lbl = "Gym"
             elif leisure in ["park", "garden", "playground"]:

@@ -73,7 +73,21 @@ export default function App() {
             if (rateRes.ok) setInsights(await rateRes.json());
 
             const facRes = await fetch(`http://localhost:8000/api/facilities?lat=${targetLocation[0]}&lon=${targetLocation[1]}&radius_m=${searchRadius}`);
-            if (facRes.ok) setFacilities(await facRes.json());
+            if (facRes.ok) {
+                const facData = await facRes.json();
+                setFacilities(facData);
+                
+                // Auto-hide categories with > 20 items to prevent map clutter
+                const newHidden = new Set<string>();
+                if (facData.categories) {
+                    Object.entries(facData.categories).forEach(([catName, items]: [string, any]) => {
+                        if (items.length > 20) {
+                            newHidden.add(catName);
+                        }
+                    });
+                }
+                setHiddenCategories(newHidden);
+            }
         } catch (err) {
             console.error("Backend connection failed.", err);
         }

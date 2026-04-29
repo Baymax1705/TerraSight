@@ -46,12 +46,13 @@ def get_nearby_facilities(lat: float = Query(...), lon: float = Query(...), radi
     overpass_query = f"""
     [out:json][timeout:25];
     (
-      nwr["amenity"~"^(school|college|university|kindergarten|hospital|clinic|doctors|pharmacy|marketplace|police|bus_station)$"](around:{radius_m},{lat},{lon});
+      nwr["amenity"~"^(school|college|university|kindergarten|hospital|clinic|doctors|pharmacy|marketplace|police|bus_station|gym)$"](around:{radius_m},{lat},{lon});
       nwr["shop"~"^(supermarket|mall|department_store|convenience|clothes|bakery)$"](around:{radius_m},{lat},{lon});
       nwr["public_transport"~"^(station|stop_position)$"](around:{radius_m},{lat},{lon});
       nwr["highway"~"^(bus_stop)$"](around:{radius_m},{lat},{lon});
       nwr["railway"~"^(station|subway_entrance)$"](around:{radius_m},{lat},{lon});
       nwr["leisure"~"^(fitness_centre|sports_centre|park|garden|playground)$"](around:{radius_m},{lat},{lon});
+      nwr["sport"~"^(fitness|gymnastics)$"](around:{radius_m},{lat},{lon});
     );
     out center;
     """
@@ -103,6 +104,7 @@ def get_nearby_facilities(lat: float = Query(...), lon: float = Query(...), radi
             transport = tags.get("public_transport", "")
             highway = tags.get("highway", "")
             leisure = tags.get("leisure", "")
+            sport = tags.get("sport", "")
             
             type_lbl = None
             category = None
@@ -119,7 +121,7 @@ def get_nearby_facilities(lat: float = Query(...), lon: float = Query(...), radi
             elif transport in ["station", "stop_position"] or highway == "bus_stop" or tags.get("railway") in ["station", "subway_entrance"] or amenity == "bus_station":
                 category = "Public Transport"
                 type_lbl = "Transit Station"
-            elif leisure in ["fitness_centre", "sports_centre"]:
+            elif leisure in ["fitness_centre", "sports_centre"] or amenity == "gym" or sport in ["fitness", "gymnastics"]:
                 category = "Gyms & Fitness"
                 type_lbl = "Gym"
             elif leisure in ["park", "garden", "playground"]:

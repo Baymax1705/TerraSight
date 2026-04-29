@@ -13,6 +13,7 @@ export default function App() {
     const [hiddenCategories, setHiddenCategories] = useState<Set<string>>(new Set());
     const [landArea, setLandArea] = useState<number>(1000); // Default 1000
     const [areaUnit, setAreaUnit] = useState<'sq.ft' | 'sq.m' | 'sq.yd'>('sq.ft');
+    const [searchRadius, setSearchRadius] = useState<number>(2000); // Default 2km
 
     // Data State
     const [insights, setInsights] = useState<any>(null);
@@ -71,7 +72,7 @@ export default function App() {
             const rateRes = await fetch(`http://localhost:8000/api/circle-rates?query=${encodeURIComponent(searchQuery)}`);
             if (rateRes.ok) setInsights(await rateRes.json());
 
-            const facRes = await fetch(`http://localhost:8000/api/facilities?lat=${targetLocation[0]}&lon=${targetLocation[1]}&radius_m=2000`);
+            const facRes = await fetch(`http://localhost:8000/api/facilities?lat=${targetLocation[0]}&lon=${targetLocation[1]}&radius_m=${searchRadius}`);
             if (facRes.ok) setFacilities(await facRes.json());
         } catch (err) {
             console.error("Backend connection failed.", err);
@@ -213,6 +214,23 @@ export default function App() {
                         </div>
                     </div>
 
+                    {/* Radius Input */}
+                    <div className="space-y-3 bg-indigo-50/50 p-4 rounded-xl border border-indigo-100 mt-0">
+                        <div className="flex justify-between items-center mb-2">
+                            <label className="text-sm font-semibold text-slate-700">Search Radius</label>
+                            <span className="text-xs font-bold text-indigo-700 bg-white px-2 py-1 rounded-md shadow-sm border border-indigo-100">{(searchRadius / 1000).toFixed(1)} km</span>
+                        </div>
+                        <div className="flex items-center gap-4">
+                            <input 
+                                type="range" 
+                                min="500" max="5000" step="100"
+                                value={searchRadius}
+                                onChange={(e) => setSearchRadius(parseInt(e.target.value))}
+                                className="flex-1 cursor-pointer accent-indigo-600"
+                            />
+                        </div>
+                    </div>
+
                     <div className="h-px bg-slate-200 w-full rounded-full"></div>
 
                     {/* Analytics Dashboard */}
@@ -325,10 +343,11 @@ export default function App() {
                                                                                 setMapView([fac.lat, fac.lon]);
                                                                                 setSelectedFacility(fac);
                                                                             }}
-                                                                            className={`line-clamp-1 truncate cursor-pointer p-1.5 rounded-lg transition-all ${selectedFacility?.lat === fac.lat && selectedFacility?.lon === fac.lon ? 'bg-indigo-100 text-indigo-700 font-semibold pl-3 border-l-2 border-indigo-600' : 'hover:bg-slate-50 hover:text-indigo-600'}`}
+                                                                            className={`flex items-center justify-between cursor-pointer p-1.5 rounded-lg transition-all ${selectedFacility?.lat === fac.lat && selectedFacility?.lon === fac.lon ? 'bg-indigo-100 text-indigo-700 font-semibold pl-3 border-l-2 border-indigo-600' : 'hover:bg-slate-50 hover:text-indigo-600'}`}
                                                                             title={formattedName}
                                                                         >
-                                                                            • {formattedName}
+                                                                            <span className="line-clamp-1 truncate flex-1">• {formattedName}</span>
+                                                                            {fac.distance_m !== undefined && <span className="text-[10px] text-slate-400 font-medium ml-2 whitespace-nowrap">{fac.distance_m < 1000 ? `${fac.distance_m}m` : `${(fac.distance_m/1000).toFixed(1)}km`}</span>}
                                                                         </li>
                                                                     );
                                                                 })}
@@ -366,6 +385,7 @@ export default function App() {
                     onMapClick={handleMapClick}
                     facilities={filteredFacilitiesForMap}
                     selectedFacility={selectedFacility}
+                    searchRadius={searchRadius}
                 />
             </section>
         </main>

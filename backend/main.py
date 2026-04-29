@@ -3,6 +3,7 @@ from fastapi import FastAPI, Query, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 import datetime
+import math
 from database import get_db, CachedRate, OfficialCircleRate
 from scraper import scrape_real_estate_data
 
@@ -28,6 +29,16 @@ def read_root():
 @app.get("/health")
 def health_check():
     return {"status": "ok"}
+
+def haversine(lat1, lon1, lat2, lon2):
+    R = 6371000 # radius of Earth in meters
+    phi1 = math.radians(lat1)
+    phi2 = math.radians(lat2)
+    delta_phi = math.radians(lat2 - lat1)
+    delta_lambda = math.radians(lon2 - lon1)
+    a = math.sin(delta_phi / 2.0) ** 2 + math.cos(phi1) * math.cos(phi2) * math.sin(delta_lambda / 2.0) ** 2
+    c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
+    return R * c
 
 @app.get("/api/facilities")
 def get_nearby_facilities(lat: float = Query(...), lon: float = Query(...), radius_m: int = 2000):
@@ -119,14 +130,17 @@ def get_nearby_facilities(lat: float = Query(...), lon: float = Query(...), radi
                 type_lbl = "Police"
                 
             if category and type_lbl:
-                fac_obj = {
-                    "name": name,
-                    "type": type_lbl,
-                    "lat": f_lat,
-                    "lon": f_lon
-                }
-                categories[category].append(fac_obj)
-                locations.append(fac_obj)
+                dist_m = haversine(lat, lon, f_lat, f_lon)
+                if dist_m <= radius_m:  # Extra filter to ensure it's strictly within radius
+                    fac_obj = {
+                        "name": name,
+                        "type": type_lbl,
+                        "lat": f_lat,
+                        "lon": f_lon,
+                        "distance_m": round(dist_m)
+                    }
+                    categories[category].append(fac_obj)
+                    locations.append(fac_obj)
                 
     return {
         "categories": categories,

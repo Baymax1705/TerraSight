@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents, Circle } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import { Map as MapIcon, Satellite } from 'lucide-react';
@@ -27,7 +27,8 @@ export default function Map({
     zoom = 15,
     onMapClick,
     facilities = [],
-    selectedFacility = null
+    selectedFacility = null,
+    searchRadius = 2000
 }: { 
     targetPin: [number, number]; 
     mapView: [number, number]; 
@@ -35,6 +36,7 @@ export default function Map({
     onMapClick?: (lat: number, lng: number) => void;
     facilities?: any[];
     selectedFacility?: any;
+    searchRadius?: number;
 }) {
     const [mapType, setMapType] = useState<'street' | 'satellite'>('street');
 
@@ -106,7 +108,20 @@ export default function Map({
                     />
                 )}
 
-                {/* Target Pin */}
+                {/* Target Area Radius Circle */}
+            <Circle 
+                center={targetPin}
+                radius={searchRadius}
+                pathOptions={{
+                    color: '#4f46e5', // indigo-600
+                    fillColor: '#4f46e5',
+                    fillOpacity: 0.05,
+                    weight: 2,
+                    dashArray: '5, 5'
+                }}
+            />
+
+            {/* Target Pin */}
                 <Marker position={targetPin}>
                     <Popup>
                         <strong>Analysis Target</strong><br/>

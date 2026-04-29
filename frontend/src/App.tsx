@@ -18,6 +18,7 @@ export default function App() {
     // Data State
     const [insights, setInsights] = useState<any>(null);
     const [facilities, setFacilities] = useState<any>(null);
+    const [facilitiesError, setFacilitiesError] = useState<string | null>(null);
     const [isLoadingInsights, setIsLoadingInsights] = useState(false);
 
     // Dynamic bounded search for UP
@@ -75,18 +76,25 @@ export default function App() {
             const facRes = await fetch(`http://localhost:8000/api/facilities?lat=${targetLocation[0]}&lon=${targetLocation[1]}&radius_m=${searchRadius}`);
             if (facRes.ok) {
                 const facData = await facRes.json();
-                setFacilities(facData);
                 
-                // Auto-hide categories with > 20 items to prevent map clutter
-                const newHidden = new Set<string>();
-                if (facData.categories) {
-                    Object.entries(facData.categories).forEach(([catName, items]: [string, any]) => {
-                        if (items.length > 20) {
-                            newHidden.add(catName);
-                        }
-                    });
+                if (facData.error) {
+                    setFacilitiesError(facData.error);
+                    setFacilities(null);
+                } else {
+                    setFacilitiesError(null);
+                    setFacilities(facData);
+                    
+                    // Auto-hide categories with > 20 items to prevent map clutter
+                    const newHidden = new Set<string>();
+                    if (facData.categories) {
+                        Object.entries(facData.categories).forEach(([catName, items]: [string, any]) => {
+                            if (items.length > 20) {
+                                newHidden.add(catName);
+                            }
+                        });
+                    }
+                    setHiddenCategories(newHidden);
                 }
-                setHiddenCategories(newHidden);
             }
         } catch (err) {
             console.error("Backend connection failed.", err);
@@ -370,6 +378,10 @@ export default function App() {
                                                     </details>
                                                 );
                                             })}
+                                        </div>
+                                    ) : facilitiesError ? (
+                                        <div className="bg-red-50 border border-red-100 p-3 rounded-lg text-xs text-red-600 font-medium flex items-center gap-2">
+                                            <ShieldAlert size={14} /> {facilitiesError} (Try reducing the search radius or wait a moment)
                                         </div>
                                     ) : <p className="text-xs text-slate-500">No data loaded.</p>}
                                 </div>

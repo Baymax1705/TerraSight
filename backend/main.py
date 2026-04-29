@@ -42,7 +42,6 @@ def haversine(lat1, lon1, lat2, lon2):
 
 @app.get("/api/facilities")
 def get_nearby_facilities(lat: float = Query(...), lon: float = Query(...), radius_m: int = 2000):
-    overpass_url = "http://overpass-api.de/api/interpreter"
     overpass_query = f"""
     [out:json][timeout:25];
     (
@@ -93,19 +92,34 @@ def get_nearby_facilities(lat: float = Query(...), lon: float = Query(...), radi
     );
     out center;
     """
+    overpass_endpoints = [
+        "https://overpass-api.de/api/interpreter",
+        "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
+        "https://overpass.kumi.systems/api/interpreter"
+    ]
+    
     headers = {
         'User-Agent': 'GeoIntelUP/1.0 (Contact: local-dev)'
     }
-    try:
-        response = requests.post(overpass_url, data={'data': overpass_query}, headers=headers, timeout=10)
-    except requests.RequestException as e:
-         return {"error": "Failed to connect to Overpass API", "details": str(e)}
-
-    if response.status_code != 200:
-        return {"error": "Overpass query failed", "details": response.text}
-        
-    data = response.json()
     
+    data = None
+    last_error = ""
+    
+    for url in overpass_endpoints:
+        try:
+            response = requests.post(url, data={'data': overpass_query}, headers=headers, timeout=12)
+            if response.status_code == 200:
+                data = response.json()
+                break
+            else:
+                last_error = response.text
+        except requests.RequestException as e:
+             last_error = str(e)
+             continue
+
+    if not data:
+        return {"error": "All Overpass API endpoints failed", "details": last_error}
+        
     # Initialize categories
     categories = {
         "Schools & Colleges": [],

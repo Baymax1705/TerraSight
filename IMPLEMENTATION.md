@@ -30,6 +30,14 @@ Our initial goal was to build a robust, scalable, and visually premium full-stac
     *   **Interactive Expandable UI**: Completely scraped the static notification badges. Replaced them with pure HTML5/React `<details>` and `<summary>` components, generating interactive accordion dropdowns that categorize and list exact facility names.
     *   **Emoji Mapping**: Passed facility categories directly into the Leaflet DOM. Created an algorithmic mapping function `createFacilityIcon` that physically drops location markers onto the map (e.g., 🌳 for parks, 🏥 for clinics), matching the exact real-world dimensions.
 
+*   ### Minor Phase 4: Precision Data, Robustness, & Advanced UI
+    *   **Goal**: Transition from heuristic estimates to robust official data pipelines, while deeply enhancing the interactive user interface.
+    *   **Data Reliability (ETL Pipeline)**: Scaled the platform's accuracy by migrating from a purely heuristic engine to an SQLite database. Engineered an automated `etl_loader.py` script to ingest official government IGRS circle rate CSV data (seeded with ~800 real-world records across 12 major UP districts) for precision matching.
+    *   **Load Balancing & Error Handling**: Refactored the FastAPI backend to implement an automated load balancer that sequentially routes through three independent OpenStreetMap API mirrors. This practically eliminates timeouts and IP rate limits, surfacing any residual errors gracefully on the React frontend.
+    *   **Dynamic Radius & Proximity Logic**: Empowered the analytics engine with a precise Haversine mathematical algorithm to compute the exact distance between the target pin and every scraped facility. Linked this to a new variable Search Radius state in the frontend.
+    *   **Map Visualization Improvements**: Downloaded and cached an exact GeoJSON boundary polygon of Uttar Pradesh locally, rendering it dynamically as a dashed, semi-transparent indigo border across the map. 
+    *   **Advanced Premium Sliders & Toggles**: Re-architected both the "Plot Dimension" and "Catchment Radius" input sliders. Upgraded the standard DOM ranges with dynamic CSS linear-gradient tracking, custom illuminated tick marks, glassmorphism backdrops, and contextual travel emojis (🚶‍♂️/🚲/🚗). Introduced interactive "Eye" toggle icons next to amenity categories to dynamically hide/show map clutter, with auto-hide logic for dense datasets.
+
 ---
 
 *This document will be updated sequentially as we progress into future Major Phases.*

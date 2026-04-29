@@ -1,4 +1,4 @@
-import { Search, MapPin, Building, ShieldAlert, Loader2, Navigation, Target, TrendingUp, HandCoins } from 'lucide-react';
+import { Search, MapPin, Building, ShieldAlert, Loader2, Navigation, Target, TrendingUp, HandCoins, Eye, EyeOff } from 'lucide-react';
 import { useState, useMemo } from 'react';
 import Map from './components/Map';
 
@@ -10,6 +10,7 @@ export default function App() {
     const [mapView, setMapView] = useState<[number, number]>([26.8467, 80.9462]); 
     const [selectedFacility, setSelectedFacility] = useState<any>(null);
     const [activeCategoryFilter, setActiveCategoryFilter] = useState<string | null>(null);
+    const [hiddenCategories, setHiddenCategories] = useState<Set<string>>(new Set());
     const [landArea, setLandArea] = useState<number>(1000); // Default 1000
     const [areaUnit, setAreaUnit] = useState<'sq.ft' | 'sq.m' | 'sq.yd'>('sq.ft');
 
@@ -38,6 +39,7 @@ export default function App() {
         setMapView(newLoc);
         setSelectedFacility(null);
         setActiveCategoryFilter(null);
+        setHiddenCategories(new Set());
         setSearchQuery(displayName);
         setSearchResults([]);
         // Analytics run paused until button is explicitly clicked
@@ -49,6 +51,7 @@ export default function App() {
         setMapView(newLoc);
         setSelectedFacility(null);
         setActiveCategoryFilter(null);
+        setHiddenCategories(new Set());
         
         // Reverse Geocode to update text only
         try {
@@ -109,9 +112,18 @@ export default function App() {
 
     const filteredFacilitiesForMap = useMemo(() => {
         if (!facilities) return [];
-        if (!activeCategoryFilter) return facilities.locations;
-        return facilities.categories[activeCategoryFilter] || [];
-    }, [facilities, activeCategoryFilter]);
+        if (activeCategoryFilter) return facilities.categories[activeCategoryFilter] || [];
+        
+        let visible: any[] = [];
+        if (facilities.categories) {
+            Object.entries(facilities.categories).forEach(([catName, items]: [string, any]) => {
+                if (!hiddenCategories.has(catName)) {
+                    visible = [...visible, ...items];
+                }
+            });
+        }
+        return visible;
+    }, [facilities, activeCategoryFilter, hiddenCategories]);
 
     return (
         <main className="flex h-screen w-full bg-slate-50 text-slate-900 overflow-hidden font-sans">
@@ -281,8 +293,26 @@ export default function App() {
                                                 return (
                                                     <details key={categoryName} open={isOpen} className="group bg-slate-50 border border-slate-200 rounded-lg overflow-hidden cursor-pointer">
                                                         <summary className="flex items-center justify-between px-3 py-2 text-xs font-semibold text-slate-700 select-none group-open:bg-indigo-50 hover:bg-slate-100 transition-colors">
-                                                            <span>{categoryName}</span>
-                                                            <span className="bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full">{items.length}</span>
+                                                            <div className="flex items-center gap-2">
+                                                                <span 
+                                                                    className="text-slate-400 hover:text-indigo-600 transition-colors"
+                                                                    onClick={(e) => {
+                                                                        e.preventDefault(); // Stop accordion toggle
+                                                                        const newHidden = new Set(hiddenCategories);
+                                                                        if (newHidden.has(categoryName)) newHidden.delete(categoryName);
+                                                                        else newHidden.add(categoryName);
+                                                                        setHiddenCategories(newHidden);
+                                                                    }}
+                                                                >
+                                                                    {hiddenCategories.has(categoryName) ? <EyeOff size={14} className="text-slate-300"/> : <Eye size={14} />}
+                                                                </span>
+                                                                <span className={hiddenCategories.has(categoryName) ? "line-through text-slate-400 font-normal" : ""}>
+                                                                    {categoryName}
+                                                                </span>
+                                                            </div>
+                                                            <span className={`px-2 py-0.5 rounded-full ${hiddenCategories.has(categoryName) ? 'bg-slate-100 text-slate-400' : 'bg-indigo-100 text-indigo-700'}`}>
+                                                                {items.length}
+                                                            </span>
                                                         </summary>
                                                         <div className="px-3 py-2 bg-white text-xs text-slate-600 border-t border-slate-100 max-h-40 overflow-y-auto">
                                                             <ul className="list-none space-y-1">

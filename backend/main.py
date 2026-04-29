@@ -35,18 +35,12 @@ def get_nearby_facilities(lat: float = Query(...), lon: float = Query(...), radi
     overpass_query = f"""
     [out:json][timeout:25];
     (
-      nwr["amenity"="school"](around:{radius_m},{lat},{lon});
-      nwr["amenity"="college"](around:{radius_m},{lat},{lon});
-      nwr["amenity"="hospital"](around:{radius_m},{lat},{lon});
-      nwr["amenity"="clinic"](around:{radius_m},{lat},{lon});
-      nwr["amenity"="marketplace"](around:{radius_m},{lat},{lon});
-      nwr["shop"="supermarket"](around:{radius_m},{lat},{lon});
-      nwr["shop"="mall"](around:{radius_m},{lat},{lon});
-      nwr["public_transport"="station"](around:{radius_m},{lat},{lon});
-      nwr["highway"="bus_stop"](around:{radius_m},{lat},{lon});
-      nwr["leisure"="fitness_centre"](around:{radius_m},{lat},{lon});
-      nwr["leisure"="park"](around:{radius_m},{lat},{lon});
-      nwr["amenity"="police"](around:{radius_m},{lat},{lon});
+      nwr["amenity"~"^(school|college|university|kindergarten|hospital|clinic|doctors|pharmacy|marketplace|police|bus_station)$"](around:{radius_m},{lat},{lon});
+      nwr["shop"~"^(supermarket|mall|department_store|convenience|clothes|bakery)$"](around:{radius_m},{lat},{lon});
+      nwr["public_transport"~"^(station|stop_position)$"](around:{radius_m},{lat},{lon});
+      nwr["highway"~"^(bus_stop)$"](around:{radius_m},{lat},{lon});
+      nwr["railway"~"^(station|subway_entrance)$"](around:{radius_m},{lat},{lon});
+      nwr["leisure"~"^(fitness_centre|sports_centre|park|garden|playground)$"](around:{radius_m},{lat},{lon});
     );
     out center;
     """
@@ -102,22 +96,22 @@ def get_nearby_facilities(lat: float = Query(...), lon: float = Query(...), radi
             type_lbl = None
             category = None
             
-            if amenity in ["school", "college", "university"]:
+            if amenity in ["school", "college", "university", "kindergarten"]:
                 category = "Schools & Colleges"
                 type_lbl = "Education"
-            elif amenity in ["hospital", "clinic", "pharmacy"]:
+            elif amenity in ["hospital", "clinic", "pharmacy", "doctors"]:
                 category = "Hospitals & Clinics"
                 type_lbl = "Medical"
-            elif amenity == "marketplace" or shop in ["supermarket", "convenience", "mall"]:
+            elif amenity == "marketplace" or shop in ["supermarket", "convenience", "mall", "department_store", "clothes", "bakery"]:
                 category = "Marts & Markets"
                 type_lbl = "Market"
-            elif transport == "station" or highway == "bus_stop":
+            elif transport in ["station", "stop_position"] or highway == "bus_stop" or tags.get("railway") in ["station", "subway_entrance"] or amenity == "bus_station":
                 category = "Public Transport"
                 type_lbl = "Transit Station"
             elif leisure in ["fitness_centre", "sports_centre"]:
                 category = "Gyms & Fitness"
                 type_lbl = "Gym"
-            elif leisure == "park":
+            elif leisure in ["park", "garden", "playground"]:
                 category = "Parks"
                 type_lbl = "Park"
             elif amenity == "police":

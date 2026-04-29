@@ -52,8 +52,11 @@ def get_nearby_facilities(lat: float = Query(...), lon: float = Query(...), radi
     >;
     out skel qt;
     """
+    headers = {
+        'User-Agent': 'GeoIntelUP/1.0 (Contact: local-dev)'
+    }
     try:
-        response = requests.post(overpass_url, data={'data': overpass_query}, timeout=10)
+        response = requests.post(overpass_url, data={'data': overpass_query}, headers=headers, timeout=10)
     except requests.RequestException as e:
          return {"error": "Failed to connect to Overpass API", "details": str(e)}
 

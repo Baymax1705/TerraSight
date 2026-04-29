@@ -6,7 +6,9 @@ export default function App() {
     const [searchQuery, setSearchQuery] = useState('');
     const [searchResults, setSearchResults] = useState<any[]>([]);
     const [isSearching, setIsSearching] = useState(false);
-    const [mapCenter, setMapCenter] = useState<[number, number]>([26.8467, 80.9462]); 
+    const [targetLocation, setTargetLocation] = useState<[number, number]>([26.8467, 80.9462]); 
+    const [mapView, setMapView] = useState<[number, number]>([26.8467, 80.9462]); 
+    const [selectedFacility, setSelectedFacility] = useState<any>(null);
     const [landArea, setLandArea] = useState<number>(1000); // Default 1000
     const [areaUnit, setAreaUnit] = useState<'sq.ft' | 'sq.m' | 'sq.yd'>('sq.ft');
 
@@ -30,14 +32,20 @@ export default function App() {
     };
 
     const handleSelectLocation = async (lat: string, lon: string, displayName: string) => {
-        setMapCenter([parseFloat(lat), parseFloat(lon)]);
+        const newLoc: [number, number] = [parseFloat(lat), parseFloat(lon)];
+        setTargetLocation(newLoc);
+        setMapView(newLoc);
+        setSelectedFacility(null);
         setSearchQuery(displayName);
         setSearchResults([]);
         // Analytics run paused until button is explicitly clicked
     };
 
     const handleMapClick = async (lat: number, lng: number) => {
-        setMapCenter([lat, lng]);
+        const newLoc: [number, number] = [lat, lng];
+        setTargetLocation(newLoc);
+        setMapView(newLoc);
+        setSelectedFacility(null);
         
         // Reverse Geocode to update text only
         try {
@@ -57,7 +65,7 @@ export default function App() {
             const rateRes = await fetch(`http://localhost:8000/api/circle-rates?query=${encodeURIComponent(searchQuery)}`);
             if (rateRes.ok) setInsights(await rateRes.json());
 
-            const facRes = await fetch(`http://localhost:8000/api/facilities?lat=${mapCenter[0]}&lon=${mapCenter[1]}&radius_m=2000`);
+            const facRes = await fetch(`http://localhost:8000/api/facilities?lat=${targetLocation[0]}&lon=${targetLocation[1]}&radius_m=2000`);
             if (facRes.ok) setFacilities(await facRes.json());
         } catch (err) {
             console.error("Backend connection failed.", err);
@@ -209,7 +217,10 @@ export default function App() {
                                             <Building size={16}/> <span className="text-xs font-semibold uppercase">Govt Rate</span>
                                         </div>
                                         <p className="text-lg font-bold text-slate-800">₹{Math.round(valuations?.govtRateTotal || 0).toLocaleString()}</p>
-                                        <p className="text-[10px] text-slate-500 mt-1">₹{insights.estimated_rate_sqm.toLocaleString()}/sq.m base</p>
+                                        <div className="flex flex-col mt-1">
+                                            <p className="text-[10px] text-slate-500">₹{insights.estimated_rate_sqm.toLocaleString()}/sq.m base</p>
+                                            <p className="text-[9px] text-slate-400 mt-0.5 truncate" title={insights.source}>Data: {insights.source}</p>
+                                        </div>
                                     </div>
                                     <div className="bg-indigo-600 border border-indigo-700 rounded-xl p-4 shadow-md flex flex-col justify-between text-white relative overflow-hidden">
                                         <div className="absolute -right-3 -top-3 opacity-10"><TrendingUp size={64}/></div>
@@ -244,8 +255,11 @@ export default function App() {
                                                                     return (
                                                                         <li 
                                                                             key={fIdx} 
-                                                                            onClick={() => setMapCenter([fac.lat, fac.lon])}
-                                                                            className="line-clamp-1 truncate hover:text-indigo-600 hover:bg-slate-50 cursor-pointer p-1 rounded transition-colors" 
+                                                                            onClick={() => {
+                                                                                setMapView([fac.lat, fac.lon]);
+                                                                                setSelectedFacility(fac);
+                                                                            }}
+                                                                            className={`line-clamp-1 truncate cursor-pointer p-1.5 rounded-lg transition-all ${selectedFacility?.lat === fac.lat && selectedFacility?.lon === fac.lon ? 'bg-indigo-100 text-indigo-700 font-semibold pl-3 border-l-2 border-indigo-600' : 'hover:bg-slate-50 hover:text-indigo-600'}`}
                                                                             title={formattedName}
                                                                         >
                                                                             • {formattedName}
@@ -280,10 +294,12 @@ export default function App() {
             {/* Map Area */}
             <section className="flex-1 h-full relative z-0 bg-slate-200">
                 <Map 
-                    center={mapCenter} 
+                    targetPin={targetLocation} 
+                    mapView={mapView}
                     zoom={15} 
                     onMapClick={handleMapClick}
                     facilities={facilities?.locations || []}
+                    selectedFacility={selectedFacility}
                 />
             </section>
         </main>

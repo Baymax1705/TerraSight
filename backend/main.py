@@ -35,22 +35,20 @@ def get_nearby_facilities(lat: float = Query(...), lon: float = Query(...), radi
     overpass_query = f"""
     [out:json][timeout:25];
     (
-      node["amenity"="school"](around:{radius_m},{lat},{lon});
-      node["amenity"="college"](around:{radius_m},{lat},{lon});
-      node["amenity"="hospital"](around:{radius_m},{lat},{lon});
-      node["amenity"="clinic"](around:{radius_m},{lat},{lon});
-      node["amenity"="marketplace"](around:{radius_m},{lat},{lon});
-      node["shop"="supermarket"](around:{radius_m},{lat},{lon});
-      node["shop"="mall"](around:{radius_m},{lat},{lon});
-      node["public_transport"="station"](around:{radius_m},{lat},{lon});
-      node["highway"="bus_stop"](around:{radius_m},{lat},{lon});
-      node["leisure"="fitness_centre"](around:{radius_m},{lat},{lon});
-      node["leisure"="park"](around:{radius_m},{lat},{lon});
-      node["amenity"="police"](around:{radius_m},{lat},{lon});
+      nwr["amenity"="school"](around:{radius_m},{lat},{lon});
+      nwr["amenity"="college"](around:{radius_m},{lat},{lon});
+      nwr["amenity"="hospital"](around:{radius_m},{lat},{lon});
+      nwr["amenity"="clinic"](around:{radius_m},{lat},{lon});
+      nwr["amenity"="marketplace"](around:{radius_m},{lat},{lon});
+      nwr["shop"="supermarket"](around:{radius_m},{lat},{lon});
+      nwr["shop"="mall"](around:{radius_m},{lat},{lon});
+      nwr["public_transport"="station"](around:{radius_m},{lat},{lon});
+      nwr["highway"="bus_stop"](around:{radius_m},{lat},{lon});
+      nwr["leisure"="fitness_centre"](around:{radius_m},{lat},{lon});
+      nwr["leisure"="park"](around:{radius_m},{lat},{lon});
+      nwr["amenity"="police"](around:{radius_m},{lat},{lon});
     );
-    out body;
-    >;
-    out skel qt;
+    out center;
     """
     headers = {
         'User-Agent': 'GeoIntelUP/1.0 (Contact: local-dev)'
@@ -78,10 +76,22 @@ def get_nearby_facilities(lat: float = Query(...), lon: float = Query(...), radi
     locations = []
     
     for element in data.get("elements", []):
-        if element.get("type") == "node" and "tags" in element:
+        if element.get("type") in ["node", "way", "relation"] and "tags" in element:
             tags = element["tags"]
             name = tags.get("name", "Unknown Facility")
             if name == "Unknown Facility": continue # Skip nameless things to avoid cluttering lists
+            
+            # Extract Lat/Lon handling both Nodes and Ways/Relations (which use "center")
+            f_lat = element.get("lat")
+            f_lon = element.get("lon")
+            if not f_lat or not f_lon:
+                center_data = element.get("center")
+                if center_data:
+                    f_lat = center_data.get("lat")
+                    f_lon = center_data.get("lon")
+            
+            if not f_lat or not f_lon:
+                continue
             
             amenity = tags.get("amenity", "")
             shop = tags.get("shop", "")
@@ -118,8 +128,8 @@ def get_nearby_facilities(lat: float = Query(...), lon: float = Query(...), radi
                 fac_obj = {
                     "name": name,
                     "type": type_lbl,
-                    "lat": element.get("lat"),
-                    "lon": element.get("lon")
+                    "lat": f_lat,
+                    "lon": f_lon
                 }
                 categories[category].append(fac_obj)
                 locations.append(fac_obj)

@@ -46,13 +46,42 @@ def get_nearby_facilities(lat: float = Query(...), lon: float = Query(...), radi
     overpass_query = f"""
     [out:json][timeout:25];
     (
-      nwr["amenity"~"^(school|college|university|kindergarten|hospital|clinic|doctors|pharmacy|marketplace|police|bus_station|gym)$"](around:{radius_m},{lat},{lon});
-      nwr["shop"~"^(supermarket|mall|department_store|convenience|clothes|bakery)$"](around:{radius_m},{lat},{lon});
-      nwr["public_transport"~"^(station|stop_position)$"](around:{radius_m},{lat},{lon});
-      nwr["highway"~"^(bus_stop)$"](around:{radius_m},{lat},{lon});
-      nwr["railway"~"^(station|subway_entrance)$"](around:{radius_m},{lat},{lon});
-      nwr["leisure"~"^(fitness_centre|sports_centre|park|garden|playground)$"](around:{radius_m},{lat},{lon});
-      nwr["sport"~"^(fitness|gymnastics)$"](around:{radius_m},{lat},{lon});
+      nwr["amenity"="school"](around:{radius_m},{lat},{lon});
+      nwr["amenity"="college"](around:{radius_m},{lat},{lon});
+      nwr["amenity"="university"](around:{radius_m},{lat},{lon});
+      nwr["amenity"="kindergarten"](around:{radius_m},{lat},{lon});
+      nwr["amenity"="hospital"](around:{radius_m},{lat},{lon});
+      nwr["amenity"="clinic"](around:{radius_m},{lat},{lon});
+      nwr["amenity"="doctors"](around:{radius_m},{lat},{lon});
+      nwr["amenity"="pharmacy"](around:{radius_m},{lat},{lon});
+      nwr["amenity"="marketplace"](around:{radius_m},{lat},{lon});
+      nwr["amenity"="police"](around:{radius_m},{lat},{lon});
+      nwr["amenity"="bus_station"](around:{radius_m},{lat},{lon});
+      nwr["amenity"="gym"](around:{radius_m},{lat},{lon});
+      
+      nwr["shop"="supermarket"](around:{radius_m},{lat},{lon});
+      nwr["shop"="mall"](around:{radius_m},{lat},{lon});
+      nwr["shop"="department_store"](around:{radius_m},{lat},{lon});
+      nwr["shop"="convenience"](around:{radius_m},{lat},{lon});
+      nwr["shop"="clothes"](around:{radius_m},{lat},{lon});
+      nwr["shop"="bakery"](around:{radius_m},{lat},{lon});
+      
+      nwr["public_transport"="station"](around:{radius_m},{lat},{lon});
+      nwr["public_transport"="stop_position"](around:{radius_m},{lat},{lon});
+      
+      nwr["highway"="bus_stop"](around:{radius_m},{lat},{lon});
+      
+      nwr["railway"="station"](around:{radius_m},{lat},{lon});
+      nwr["railway"="subway_entrance"](around:{radius_m},{lat},{lon});
+      
+      nwr["leisure"="fitness_centre"](around:{radius_m},{lat},{lon});
+      nwr["leisure"="sports_centre"](around:{radius_m},{lat},{lon});
+      nwr["leisure"="park"](around:{radius_m},{lat},{lon});
+      nwr["leisure"="garden"](around:{radius_m},{lat},{lon});
+      nwr["leisure"="playground"](around:{radius_m},{lat},{lon});
+      
+      nwr["sport"="fitness"](around:{radius_m},{lat},{lon});
+      nwr["sport"="gymnastics"](around:{radius_m},{lat},{lon});
     );
     out center;
     """

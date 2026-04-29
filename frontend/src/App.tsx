@@ -9,6 +9,7 @@ export default function App() {
     const [targetLocation, setTargetLocation] = useState<[number, number]>([26.8467, 80.9462]); 
     const [mapView, setMapView] = useState<[number, number]>([26.8467, 80.9462]); 
     const [selectedFacility, setSelectedFacility] = useState<any>(null);
+    const [activeCategoryFilter, setActiveCategoryFilter] = useState<string | null>(null);
     const [landArea, setLandArea] = useState<number>(1000); // Default 1000
     const [areaUnit, setAreaUnit] = useState<'sq.ft' | 'sq.m' | 'sq.yd'>('sq.ft');
 
@@ -36,6 +37,7 @@ export default function App() {
         setTargetLocation(newLoc);
         setMapView(newLoc);
         setSelectedFacility(null);
+        setActiveCategoryFilter(null);
         setSearchQuery(displayName);
         setSearchResults([]);
         // Analytics run paused until button is explicitly clicked
@@ -46,6 +48,7 @@ export default function App() {
         setTargetLocation(newLoc);
         setMapView(newLoc);
         setSelectedFacility(null);
+        setActiveCategoryFilter(null);
         
         // Reverse Geocode to update text only
         try {
@@ -103,6 +106,12 @@ export default function App() {
             premiumPercent
         };
     }, [insights, facilities, landArea, areaUnit]);
+
+    const filteredFacilitiesForMap = useMemo(() => {
+        if (!facilities) return [];
+        if (!activeCategoryFilter) return facilities.locations;
+        return facilities.categories[activeCategoryFilter] || [];
+    }, [facilities, activeCategoryFilter]);
 
     return (
         <main className="flex h-screen w-full bg-slate-50 text-slate-900 overflow-hidden font-sans">
@@ -238,12 +247,39 @@ export default function App() {
                                         <MapPin size={18} className="text-blue-500"/> 
                                         <h3 className="font-semibold text-sm text-slate-800">Nearby Amenities ({facilities ? facilities.total_facilities : 0})</h3>
                                     </div>
+                                    
+                                    {/* Category Filter Pills */}
+                                    {facilities && facilities.categories && (
+                                        <div className="flex gap-2 overflow-x-auto hide-scrollbar pb-2 mb-2">
+                                            <button 
+                                                onClick={() => setActiveCategoryFilter(null)}
+                                                className={`whitespace-nowrap px-3 py-1.5 rounded-full text-[11px] font-bold transition-all shadow-sm ${activeCategoryFilter === null ? 'bg-indigo-600 text-white shadow-indigo-200' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
+                                            >
+                                                All
+                                            </button>
+                                            {Object.entries(facilities.categories).map(([catName, items]: [string, any]) => {
+                                                if (items.length === 0) return null;
+                                                return (
+                                                    <button 
+                                                        key={catName}
+                                                        onClick={() => setActiveCategoryFilter(catName)}
+                                                        className={`whitespace-nowrap px-3 py-1.5 rounded-full text-[11px] font-bold transition-all shadow-sm ${activeCategoryFilter === catName ? 'bg-indigo-600 text-white shadow-indigo-200' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
+                                                    >
+                                                        {catName.split(' & ')[0]} ({items.length})
+                                                    </button>
+                                                )
+                                            })}
+                                        </div>
+                                    )}
+
                                     {facilities && facilities.categories ? (
                                         <div className="flex flex-col gap-2">
                                             {Object.entries(facilities.categories).map(([categoryName, items]: [string, any]) => {
                                                 if (items.length === 0) return null;
+                                                if (activeCategoryFilter && activeCategoryFilter !== categoryName) return null;
+                                                const isOpen = activeCategoryFilter === categoryName;
                                                 return (
-                                                    <details key={categoryName} className="group bg-slate-50 border border-slate-200 rounded-lg overflow-hidden cursor-pointer">
+                                                    <details key={categoryName} open={isOpen} className="group bg-slate-50 border border-slate-200 rounded-lg overflow-hidden cursor-pointer">
                                                         <summary className="flex items-center justify-between px-3 py-2 text-xs font-semibold text-slate-700 select-none group-open:bg-indigo-50 hover:bg-slate-100 transition-colors">
                                                             <span>{categoryName}</span>
                                                             <span className="bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full">{items.length}</span>
@@ -298,7 +334,7 @@ export default function App() {
                     mapView={mapView}
                     zoom={15} 
                     onMapClick={handleMapClick}
-                    facilities={facilities?.locations || []}
+                    facilities={filteredFacilitiesForMap}
                     selectedFacility={selectedFacility}
                 />
             </section>

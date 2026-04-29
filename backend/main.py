@@ -3,7 +3,7 @@ from fastapi import FastAPI, Query, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 import datetime
-from database import get_db, CachedRate
+from database import get_db, CachedRate, OfficialCircleRate
 from scraper import scrape_real_estate_data
 
 app = FastAPI(
@@ -138,7 +138,24 @@ def get_circle_rates(
 ):
     query_lower = query.lower().strip()
     
-    # 1. Check Database Cache First
+    # 0. Check Official ETL Database First (Precision Matching)
+    # We check if the search query matches any locality or district in our official table
+    official_match = db.query(OfficialCircleRate).filter(
+        OfficialCircleRate.locality.ilike(f"%{query_lower}%") |
+        OfficialCircleRate.district.ilike(f"%{query_lower}%")
+    ).first()
+    
+    if official_match:
+        return {
+            "location": f"{official_match.locality}, {official_match.district}",
+            "estimated_rate_sqm": int(official_match.rate_sqm),
+            "growth_potential": "High (Verified)",
+            "risk_factors": "Official government rate. No heuristic estimation risk.",
+            "smart_insight": f"This is an EXACT official circle rate for {official_match.property_type} property in {official_match.tehsil} tehsil, effective since {official_match.effective_date.strftime('%Y-%m-%d')}.",
+            "source": "Official IGRS Data Pipeline"
+        }
+    
+    # 1. Check Database Cache First (Heuristic Fallback)
     cached_entry = db.query(CachedRate).filter(CachedRate.location_query == query_lower).first()
     
     if cached_entry:

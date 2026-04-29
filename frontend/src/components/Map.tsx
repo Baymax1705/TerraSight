@@ -66,7 +66,7 @@ export default function Map({
 
         return L.divIcon({
             className: 'custom-facility-icon',
-            html: `<div style="background-color: ${color}; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid white; ${dynamicStyle} font-size: 14px; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);">${emoji}</div>`,
+            html: `<div style="background-color: ${color}; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid white; ${dynamicStyle} font-size: 16px; text-shadow: 0px 1px 2px rgba(0,0,0,0.4); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);">${emoji}</div>`,
             iconSize: [28, 28],
             iconAnchor: [14, 14]
         });

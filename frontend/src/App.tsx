@@ -237,19 +237,50 @@ export default function App() {
                     </div>
 
                     {/* Radius Input */}
-                    <div className="space-y-3 bg-indigo-50/50 p-4 rounded-xl border border-indigo-100 mt-0">
-                        <div className="flex justify-between items-center mb-2">
-                            <label className="text-sm font-semibold text-slate-700">Search Radius</label>
-                            <span className="text-xs font-bold text-indigo-700 bg-white px-2 py-1 rounded-md shadow-sm border border-indigo-100">{(searchRadius / 1000).toFixed(1)} km</span>
+                    <div className="space-y-3 bg-gradient-to-br from-indigo-50 to-white p-4 rounded-xl border border-indigo-100 shadow-sm relative overflow-hidden group mt-0">
+                        <div className="absolute -right-6 -top-6 w-24 h-24 bg-indigo-100/40 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-700"></div>
+                        
+                        <div className="flex justify-between items-center mb-1 relative z-10">
+                            <label className="text-sm font-semibold text-slate-700 flex items-center gap-2">
+                                <Target size={14} className="text-indigo-500" /> Catchment Radius
+                            </label>
+                            <div className="flex items-center gap-2 bg-white px-2.5 py-1 rounded-lg shadow-sm border border-indigo-100/80">
+                                <span className="text-[13px] filter drop-shadow-sm">
+                                    {searchRadius <= 1000 ? '🚶‍♂️' : searchRadius <= 2500 ? '🚲' : '🚗'}
+                                </span>
+                                <span className="text-xs font-extrabold text-indigo-700">
+                                    {(searchRadius / 1000).toFixed(1)} km
+                                </span>
+                            </div>
                         </div>
-                        <div className="flex items-center gap-4">
+                        
+                        <div className="relative z-10 pt-2 pb-4">
                             <input 
                                 type="range" 
                                 min="500" max="5000" step="100"
                                 value={searchRadius}
                                 onChange={(e) => setSearchRadius(parseInt(e.target.value))}
-                                className="flex-1 cursor-pointer accent-indigo-600"
+                                className="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600 hover:accent-indigo-500 transition-all shadow-inner relative z-20"
+                                style={{
+                                    background: `linear-gradient(to right, #4f46e5 ${((searchRadius - 500) / 4500) * 100}%, #e2e8f0 ${((searchRadius - 500) / 4500) * 100}%)`
+                                }}
                             />
+                            
+                            {/* Dynamic Tick Marks & Labels */}
+                            <div className="relative w-full h-4 mt-2">
+                                {[500, 1000, 2000, 3000, 4000, 5000].map(val => (
+                                    <div 
+                                        key={val}
+                                        className="absolute top-0 flex flex-col items-center -translate-x-1/2 transition-all duration-300"
+                                        style={{ left: `${((val - 500) / 4500) * 100}%` }}
+                                    >
+                                        <div className={`w-[2px] h-1 rounded-full mb-0.5 transition-colors ${searchRadius >= val ? 'bg-indigo-400' : 'bg-slate-300'}`}></div>
+                                        <span className={`text-[9px] font-bold transition-colors ${searchRadius >= val ? 'text-indigo-600' : 'text-slate-400'}`}>
+                                            {val/1000}k
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
 

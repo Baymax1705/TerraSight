@@ -1,4 +1,4 @@
-import { Search, MapPin, Building, ShieldAlert, Loader2, Navigation, Target, TrendingUp, HandCoins, Eye, EyeOff } from 'lucide-react';
+import { Search, MapPin, Building, ShieldAlert, Loader2, Navigation, Target, TrendingUp, HandCoins, Eye, EyeOff, Maximize } from 'lucide-react';
 import { useState, useMemo } from 'react';
 import Map from './components/Map';
 
@@ -207,9 +207,14 @@ export default function App() {
                     </div>
 
                     {/* Dimensions Input */}
-                    <div className="space-y-3 bg-indigo-50/50 p-4 rounded-xl border border-indigo-100">
-                        <div className="flex justify-between items-center mb-2">
-                            <label className="text-sm font-semibold text-slate-700">Land Area Dimension</label>
+                    <div className="space-y-3 bg-gradient-to-br from-indigo-50 to-white p-4 rounded-xl border border-indigo-100 shadow-sm relative overflow-hidden group">
+                        {/* Decorative background element */}
+                        <div className="absolute -right-6 -top-6 w-24 h-24 bg-indigo-100/40 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-700"></div>
+                        
+                        <div className="flex justify-between items-center mb-2 relative z-10">
+                            <label className="text-sm font-semibold text-slate-700 flex items-center gap-2">
+                                <Maximize size={14} className="text-indigo-500" /> Plot Dimension
+                            </label>
                             
                             {/* Unit Options Toggle */}
                             <div className="flex bg-white rounded-md border border-indigo-200 shadow-sm overflow-hidden text-xs font-semibold">
@@ -219,20 +224,51 @@ export default function App() {
                             </div>
                         </div>
                         
-                        <div className="flex items-center gap-4">
-                            <input 
-                                type="number" 
-                                value={landArea} 
-                                onChange={(e) => setLandArea(Number(e.target.value) || 0)}
-                                className="w-24 px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm text-sm font-bold text-indigo-700 focus:ring-2 focus:ring-indigo-500 outline-none"
-                            />
-                            <input 
-                                type="range" 
-                                min="10" max={areaUnit === 'sq.ft' ? "100000" : "10000"} step={areaUnit === 'sq.ft' ? "100" : "50"}
-                                value={landArea}
-                                onChange={(e) => setLandArea(parseInt(e.target.value))}
-                                className="flex-1 cursor-pointer accent-indigo-600"
-                            />
+                        <div className="flex items-center gap-4 relative z-10 pt-2 pb-4">
+                            {/* Precise Numeric Input */}
+                            <div className="relative">
+                                <input 
+                                    type="number" 
+                                    value={landArea} 
+                                    onChange={(e) => setLandArea(Number(e.target.value) || 0)}
+                                    className="w-20 px-2 py-1.5 rounded-lg border border-indigo-200 shadow-inner text-sm font-bold text-indigo-700 focus:ring-2 focus:ring-indigo-500 outline-none bg-white/80 backdrop-blur-sm z-20 relative"
+                                />
+                            </div>
+
+                            {/* Dynamic Slider */}
+                            <div className="flex-1 relative mt-1">
+                                <input 
+                                    type="range" 
+                                    min="10" max={areaUnit === 'sq.ft' ? "100000" : "10000"} step={areaUnit === 'sq.ft' ? "100" : "50"}
+                                    value={landArea}
+                                    onChange={(e) => setLandArea(parseInt(e.target.value))}
+                                    className="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600 hover:accent-indigo-500 transition-all shadow-inner relative z-20"
+                                    style={{
+                                        background: `linear-gradient(to right, #4f46e5 ${Math.min(100, Math.max(0, ((landArea - 10) / ((areaUnit === 'sq.ft' ? 100000 : 10000) - 10)) * 100))}%, #e2e8f0 ${Math.min(100, Math.max(0, ((landArea - 10) / ((areaUnit === 'sq.ft' ? 100000 : 10000) - 10)) * 100))}%)`
+                                    }}
+                                />
+                                {/* Dynamic Tick Marks & Labels for Area */}
+                                <div className="relative w-full h-4 mt-2">
+                                    {[0.25, 0.5, 0.75, 1].map(percent => {
+                                        const maxVal = areaUnit === 'sq.ft' ? 100000 : 10000;
+                                        const val = percent * maxVal;
+                                        // Display formatting: 10000 -> 10k
+                                        const displayVal = val >= 1000 ? `${val/1000}k` : val;
+                                        return (
+                                            <div 
+                                                key={percent}
+                                                className="absolute top-0 flex flex-col items-center -translate-x-1/2 transition-all duration-300"
+                                                style={{ left: `${percent * 100}%` }}
+                                            >
+                                                <div className={`w-[2px] h-1 rounded-full mb-0.5 transition-colors ${landArea >= val ? 'bg-indigo-400' : 'bg-slate-300'}`}></div>
+                                                <span className={`text-[8px] font-bold transition-colors ${landArea >= val ? 'text-indigo-600' : 'text-slate-400'}`}>
+                                                    {displayVal}
+                                                </span>
+                                            </div>
+                                        )
+                                    })}
+                                </div>
+                            </div>
                         </div>
                     </div>
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents, Circle } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents, Circle, GeoJSON } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import { Map as MapIcon, Satellite } from 'lucide-react';
@@ -39,8 +39,15 @@ export default function Map({
     searchRadius?: number;
 }) {
     const [mapType, setMapType] = useState<'street' | 'satellite'>('street');
+    const [upGeoJSON, setUpGeoJSON] = useState<any>(null);
 
     useEffect(() => {
+        // Fetch UP boundary GeoJSON
+        fetch('/up_boundary.json')
+            .then(res => res.json())
+            .then(data => setUpGeoJSON(data))
+            .catch(err => console.error("Could not load UP boundary", err));
+            
         // Fix Leaflet base icons issue
         delete (L.Icon.Default.prototype as any)._getIconUrl;
         L.Icon.Default.mergeOptions({
@@ -105,6 +112,21 @@ export default function Map({
                     <TileLayer
                         attribution='Tiles &copy; Esri'
                         url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+                    />
+                )}
+
+                {/* UP State Boundary */}
+                {upGeoJSON && (
+                    <GeoJSON 
+                        data={upGeoJSON} 
+                        style={{
+                            color: '#4f46e5', // Indigo-600
+                            weight: 3,
+                            opacity: 0.6,
+                            fillColor: '#4f46e5',
+                            fillOpacity: 0.02,
+                            dashArray: '10, 10'
+                        }} 
                     />
                 )}
 

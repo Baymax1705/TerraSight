@@ -99,7 +99,7 @@ export default function Map({
                 </button>
             </div>
 
-            <MapContainer center={mapView} zoom={zoom} style={{ height: '100%', width: '100%', zIndex: 0 }}>
+            <MapContainer center={mapView} zoom={zoom} attributionControl={false} style={{ height: '100%', width: '100%', zIndex: 0 }}>
                 <ChangeView center={mapView} zoom={zoom} />
                 {onMapClick && <ClickHandler onClick={onMapClick} />}
                 

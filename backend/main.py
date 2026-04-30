@@ -216,13 +216,22 @@ def get_circle_rates(
     db: Session = Depends(get_db)
 ):
     query_lower = query.lower().strip()
+    query_parts = [p.strip() for p in query_lower.split(",") if len(p.strip()) > 2]
     
     # 0. Check Official ETL Database First (Precision Matching)
-    # We check if the search query matches any locality or district in our official table
-    official_match = db.query(OfficialCircleRate).filter(
-        OfficialCircleRate.locality.ilike(f"%{query_lower}%") |
-        OfficialCircleRate.district.ilike(f"%{query_lower}%")
-    ).first()
+    # Intelligently parse the comma-separated address (e.g. "Gomti Nagar, Lucknow, UP")
+    # and try to match the most specific geographic identifier first.
+    official_match = None
+    
+    for part in query_parts:
+        match = db.query(OfficialCircleRate).filter(
+            OfficialCircleRate.locality.ilike(f"%{part}%") |
+            OfficialCircleRate.district.ilike(f"%{part}%")
+        ).first()
+        
+        if match:
+            official_match = match
+            break
     
     if official_match:
         return {

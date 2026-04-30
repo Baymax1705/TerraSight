@@ -69,11 +69,12 @@ export default function App() {
 
     const triggerAnalytics = async () => {
         setIsLoadingInsights(true);
+        const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000';
         try {
-            const rateRes = await fetch(`http://localhost:8000/api/circle-rates?query=${encodeURIComponent(searchQuery)}`);
+            const rateRes = await fetch(`${API_BASE}/api/circle-rates?query=${encodeURIComponent(searchQuery)}`);
             if (rateRes.ok) setInsights(await rateRes.json());
 
-            const facRes = await fetch(`http://localhost:8000/api/facilities?lat=${targetLocation[0]}&lon=${targetLocation[1]}&radius_m=${searchRadius}`);
+            const facRes = await fetch(`${API_BASE}/api/facilities?lat=${targetLocation[0]}&lon=${targetLocation[1]}&radius_m=${searchRadius}`);
             if (facRes.ok) {
                 const facData = await facRes.json();
                 

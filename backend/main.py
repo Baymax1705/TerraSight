@@ -1,4 +1,6 @@
-import requests
+import os
+import httpx
+from dotenv import load_dotenv
 from fastapi import FastAPI, Query, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
@@ -7,16 +9,21 @@ import math
 from database import get_db, CachedRate, OfficialCircleRate
 from scraper import scrape_real_estate_data
 
+load_dotenv()
+
 app = FastAPI(
     title="Smart Land Intelligence API",
     description="Backend for querying real estate data, circle rates, and nearby facilities.",
     version="0.1.0"
 )
 
+# Read allowed origins from env, fallback to allow all for local dev
+ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "*").split(",")
+
 # CORS config
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # In production, restrict to frontend domain
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -41,7 +48,7 @@ def haversine(lat1, lon1, lat2, lon2):
     return R * c
 
 @app.get("/api/facilities")
-def get_nearby_facilities(lat: float = Query(...), lon: float = Query(...), radius_m: int = 2000):
+async def get_nearby_facilities(lat: float = Query(...), lon: float = Query(...), radius_m: int = 2000):
     overpass_query = f"""
     [out:json][timeout:25];
     (
@@ -105,17 +112,18 @@ def get_nearby_facilities(lat: float = Query(...), lon: float = Query(...), radi
     data = None
     last_error = ""
     
-    for url in overpass_endpoints:
-        try:
-            response = requests.post(url, data={'data': overpass_query}, headers=headers, timeout=12)
-            if response.status_code == 200:
-                data = response.json()
-                break
-            else:
-                last_error = response.text
-        except requests.RequestException as e:
-             last_error = str(e)
-             continue
+    async with httpx.AsyncClient(timeout=12.0) as client:
+        for url in overpass_endpoints:
+            try:
+                response = await client.post(url, data={'data': overpass_query}, headers=headers)
+                if response.status_code == 200:
+                    data = response.json()
+                    break
+                else:
+                    last_error = response.text
+            except httpx.RequestError as e:
+                 last_error = str(e)
+                 continue
 
     if not data:
         return {"error": "All Overpass API endpoints failed", "details": last_error}

@@ -150,10 +150,10 @@ export default function App() {
     }, [facilities, activeCategoryFilter, hiddenCategories]);
 
     return (
-        <main className="flex h-screen w-full bg-slate-50 text-slate-900 overflow-hidden font-sans">
+        <main className="flex flex-col-reverse md:flex-row h-screen w-full bg-slate-50 text-slate-900 overflow-hidden font-sans">
             {/* Sidebar */}
-            <aside className="w-[450px] bg-white shadow-xl z-20 flex flex-col h-full border-r border-slate-200 hide-scrollbar overflow-y-auto relative dropdown-container">
-                <div className="p-6 bg-gradient-to-br from-indigo-900 to-indigo-700 text-white shadow-md flex-shrink-0">
+            <aside className="w-full md:w-[450px] bg-white shadow-xl z-20 flex flex-col h-[60vh] md:h-full border-t md:border-t-0 md:border-r border-slate-200 hide-scrollbar overflow-y-auto relative dropdown-container flex-shrink-0">
+                <div className="p-4 md:p-6 bg-gradient-to-br from-indigo-900 to-indigo-700 text-white shadow-md flex-shrink-0">
                     <h1 className="text-2xl font-bold tracking-tight">GeoIntel<span className="text-indigo-300">UP</span></h1>
                     <p className="text-sm text-indigo-200 mt-1">Dual-Valuation Smart Engine</p>
                 </div>
@@ -471,7 +471,7 @@ export default function App() {
             </aside>
 
             {/* Map Area */}
-            <section className="flex-1 h-full relative z-0 bg-slate-200">
+            <section className="w-full md:flex-1 h-[40vh] md:h-full relative z-0 bg-slate-200 flex-shrink-0 md:flex-shrink">
                 <Map 
                     targetPin={targetLocation} 
                     mapView={mapView}

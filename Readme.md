@@ -74,8 +74,11 @@ npm run dev
 
 ---
 
+## ⚖️ Disclaimer
+TerraSight provides estimated land valuations based on public datasets and geospatial proximity analysis. All data provided is for informational purposes only and should not be considered as official legal or financial advice. Users are advised to verify all rates and property details with official government records before making any investment decisions.
+
 ## 📝 License
-This project is for demonstration purposes for the Geospatial Intelligence Platform MVP.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ---
 *Developed with ❤️ for Smart Land Intelligence.*

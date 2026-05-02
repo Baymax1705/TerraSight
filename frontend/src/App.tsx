@@ -20,6 +20,7 @@ export default function App() {
     const [facilities, setFacilities] = useState<any>(null);
     const [facilitiesError, setFacilitiesError] = useState<string | null>(null);
     const [isLoadingInsights, setIsLoadingInsights] = useState(false);
+    const [isMobilePanelExpanded, setIsMobilePanelExpanded] = useState(false);
 
     const handleSearch = async () => {
         if (!searchQuery) return;
@@ -175,9 +176,12 @@ export default function App() {
     return (
         <main className="flex h-screen w-full bg-slate-50 text-slate-900 overflow-hidden font-sans relative">
             {/* Sidebar (Bottom Sheet on Mobile, Left Panel on Desktop) */}
-            <aside className="absolute bottom-0 md:relative w-full md:w-[450px] h-[55vh] md:h-full bg-white/95 md:bg-white backdrop-blur-2xl md:backdrop-blur-none shadow-[0_-20px_40px_-15px_rgba(0,0,0,0.2)] md:shadow-xl z-20 flex flex-col border-t border-slate-200 md:border-t-0 md:border-r hide-scrollbar overflow-y-auto rounded-t-3xl md:rounded-none">
+            <aside className={`absolute bottom-0 md:relative w-full md:w-[450px] md:h-full bg-white/95 md:bg-white backdrop-blur-2xl md:backdrop-blur-none shadow-[0_-20px_40px_-15px_rgba(0,0,0,0.2)] md:shadow-xl z-20 flex flex-col border-t border-slate-200 md:border-t-0 md:border-r hide-scrollbar overflow-y-auto rounded-t-3xl md:rounded-none transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] ${isMobilePanelExpanded ? 'h-[85vh]' : 'h-[45vh]'}`}>
                 
-                <div className="relative px-5 pb-5 pt-5 md:p-6 bg-gradient-to-br from-indigo-900 to-indigo-700 text-white shadow-md flex-shrink-0">
+                <div 
+                    className="relative px-5 pb-5 pt-5 md:p-6 bg-gradient-to-br from-indigo-900 to-indigo-700 text-white shadow-md flex-shrink-0 cursor-pointer md:cursor-default"
+                    onClick={() => setIsMobilePanelExpanded(!isMobilePanelExpanded)}
+                >
                     {/* Mobile Handle */}
                     <div className="md:hidden absolute top-2 left-1/2 -translate-x-1/2 w-10 h-1.5 bg-white/30 rounded-full"></div>
                     

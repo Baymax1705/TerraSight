@@ -1,5 +1,5 @@
 import { Search, MapPin, Building, ShieldAlert, Loader2, Navigation, Target, TrendingUp, HandCoins, Eye, EyeOff, Maximize } from 'lucide-react';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { motion, useDragControls } from 'framer-motion';
 import Map from './components/Map';
 
@@ -22,6 +22,14 @@ export default function App() {
     const [isLoadingInsights, setIsLoadingInsights] = useState(false);
     const [isMobilePanelExpanded, setIsMobilePanelExpanded] = useState(false);
     const dragControls = useDragControls();
+    
+    // Track mobile view to prevent Framer Motion from breaking desktop layout
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 768);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const handleSearch = async () => {
         if (!searchQuery) return;
@@ -180,23 +188,24 @@ export default function App() {
             <motion.aside 
                 className="absolute bottom-0 md:relative w-full md:w-[450px] md:h-full bg-white/95 md:bg-white backdrop-blur-2xl md:backdrop-blur-none shadow-[0_-20px_40px_-15px_rgba(0,0,0,0.2)] md:shadow-xl z-20 flex flex-col border-t border-slate-200 md:border-t-0 md:border-r hide-scrollbar overflow-y-auto rounded-t-3xl md:rounded-none"
                 initial={false}
-                animate={{ height: isMobilePanelExpanded ? '85vh' : '45vh' }}
+                animate={{ height: isMobile ? (isMobilePanelExpanded ? '85vh' : '45vh') : '100%' }}
                 transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                drag="y"
+                drag={isMobile ? "y" : false}
                 dragControls={dragControls}
                 dragListener={false}
                 dragConstraints={{ top: 0, bottom: 0 }}
                 dragElastic={0.2}
                 onDragEnd={(e, { offset, velocity }) => {
+                    if (!isMobile) return;
                     if (offset.y < -50 || velocity.y < -200) setIsMobilePanelExpanded(true);
                     else if (offset.y > 50 || velocity.y > 200) setIsMobilePanelExpanded(false);
                 }}
             >
                 
                 <div 
-                    className="relative px-5 pb-5 pt-5 md:p-6 bg-gradient-to-br from-indigo-900 to-indigo-700 text-white shadow-md flex-shrink-0 cursor-pointer md:cursor-default touch-none"
-                    onPointerDown={(e) => dragControls.start(e)}
-                    onClick={() => setIsMobilePanelExpanded(!isMobilePanelExpanded)}
+                    className={`relative px-5 pb-5 pt-5 md:p-6 bg-gradient-to-br from-indigo-900 to-indigo-700 text-white shadow-md flex-shrink-0 ${isMobile ? 'cursor-pointer touch-none' : 'cursor-default'}`}
+                    onPointerDown={(e) => isMobile && dragControls.start(e)}
+                    onClick={() => isMobile && setIsMobilePanelExpanded(!isMobilePanelExpanded)}
                 >
                     {/* Mobile Handle */}
                     <div className="md:hidden absolute top-2 left-1/2 -translate-x-1/2 w-10 h-1.5 bg-white/30 rounded-full"></div>

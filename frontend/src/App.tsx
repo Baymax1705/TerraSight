@@ -1,5 +1,6 @@
 import { Search, MapPin, Building, ShieldAlert, Loader2, Navigation, Target, TrendingUp, HandCoins, Eye, EyeOff, Maximize } from 'lucide-react';
 import { useState, useMemo } from 'react';
+import { motion, useDragControls } from 'framer-motion';
 import Map from './components/Map';
 
 export default function App() {
@@ -18,10 +19,9 @@ export default function App() {
     // Data State
     const [insights, setInsights] = useState<any>(null);
     const [facilities, setFacilities] = useState<any>(null);
-    const [facilitiesError, setFacilitiesError] = useState<string | null>(null);
     const [isLoadingInsights, setIsLoadingInsights] = useState(false);
     const [isMobilePanelExpanded, setIsMobilePanelExpanded] = useState(false);
-    const [touchStartY, setTouchStartY] = useState(0);
+    const dragControls = useDragControls();
 
     const handleSearch = async () => {
         if (!searchQuery) return;
@@ -177,17 +177,26 @@ export default function App() {
     return (
         <main className="flex h-screen w-full bg-slate-50 text-slate-900 overflow-hidden font-sans relative">
             {/* Sidebar (Bottom Sheet on Mobile, Left Panel on Desktop) */}
-            <aside className={`absolute bottom-0 md:relative w-full md:w-[450px] md:h-full bg-white/95 md:bg-white backdrop-blur-2xl md:backdrop-blur-none shadow-[0_-20px_40px_-15px_rgba(0,0,0,0.2)] md:shadow-xl z-20 flex flex-col border-t border-slate-200 md:border-t-0 md:border-r hide-scrollbar overflow-y-auto rounded-t-3xl md:rounded-none transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] ${isMobilePanelExpanded ? 'h-[85vh]' : 'h-[45vh]'}`}>
+            <motion.aside 
+                className="absolute bottom-0 md:relative w-full md:w-[450px] md:h-full bg-white/95 md:bg-white backdrop-blur-2xl md:backdrop-blur-none shadow-[0_-20px_40px_-15px_rgba(0,0,0,0.2)] md:shadow-xl z-20 flex flex-col border-t border-slate-200 md:border-t-0 md:border-r hide-scrollbar overflow-y-auto rounded-t-3xl md:rounded-none"
+                initial={false}
+                animate={{ height: isMobilePanelExpanded ? '85vh' : '45vh' }}
+                transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                drag="y"
+                dragControls={dragControls}
+                dragListener={false}
+                dragConstraints={{ top: 0, bottom: 0 }}
+                dragElastic={0.2}
+                onDragEnd={(e, { offset, velocity }) => {
+                    if (offset.y < -50 || velocity.y < -200) setIsMobilePanelExpanded(true);
+                    else if (offset.y > 50 || velocity.y > 200) setIsMobilePanelExpanded(false);
+                }}
+            >
                 
                 <div 
-                    className="relative px-5 pb-5 pt-5 md:p-6 bg-gradient-to-br from-indigo-900 to-indigo-700 text-white shadow-md flex-shrink-0 cursor-pointer md:cursor-default"
+                    className="relative px-5 pb-5 pt-5 md:p-6 bg-gradient-to-br from-indigo-900 to-indigo-700 text-white shadow-md flex-shrink-0 cursor-pointer md:cursor-default touch-none"
+                    onPointerDown={(e) => dragControls.start(e)}
                     onClick={() => setIsMobilePanelExpanded(!isMobilePanelExpanded)}
-                    onTouchStart={(e) => setTouchStartY(e.touches[0].clientY)}
-                    onTouchEnd={(e) => {
-                        const touchEndY = e.changedTouches[0].clientY;
-                        if (touchStartY - touchEndY > 40) setIsMobilePanelExpanded(true); // Swipe Up
-                        else if (touchEndY - touchStartY > 40) setIsMobilePanelExpanded(false); // Swipe Down
-                    }}
                 >
                     {/* Mobile Handle */}
                     <div className="md:hidden absolute top-2 left-1/2 -translate-x-1/2 w-10 h-1.5 bg-white/30 rounded-full"></div>
@@ -512,7 +521,7 @@ export default function App() {
                         )}
                     </div>
                 </div>
-            </aside>
+            </motion.aside>
 
             {/* Map Area (Full Screen on Mobile, Flex on Desktop) */}
             <section className="absolute inset-0 md:relative md:flex-1 h-full w-full z-0 bg-slate-200">

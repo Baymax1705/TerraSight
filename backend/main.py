@@ -106,7 +106,7 @@ async def get_nearby_facilities(lat: float = Query(...), lon: float = Query(...)
     ]
     
     headers = {
-        'User-Agent': 'GeoIntelUP/1.0 (Contact: local-dev)'
+        'User-Agent': 'TerraSight/1.0 (Contact: local-dev)'
     }
     
     data = None

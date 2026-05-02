@@ -21,6 +21,7 @@ export default function App() {
     const [facilitiesError, setFacilitiesError] = useState<string | null>(null);
     const [isLoadingInsights, setIsLoadingInsights] = useState(false);
     const [isMobilePanelExpanded, setIsMobilePanelExpanded] = useState(false);
+    const [touchStartY, setTouchStartY] = useState(0);
 
     const handleSearch = async () => {
         if (!searchQuery) return;
@@ -181,6 +182,12 @@ export default function App() {
                 <div 
                     className="relative px-5 pb-5 pt-5 md:p-6 bg-gradient-to-br from-indigo-900 to-indigo-700 text-white shadow-md flex-shrink-0 cursor-pointer md:cursor-default"
                     onClick={() => setIsMobilePanelExpanded(!isMobilePanelExpanded)}
+                    onTouchStart={(e) => setTouchStartY(e.touches[0].clientY)}
+                    onTouchEnd={(e) => {
+                        const touchEndY = e.changedTouches[0].clientY;
+                        if (touchStartY - touchEndY > 40) setIsMobilePanelExpanded(true); // Swipe Up
+                        else if (touchEndY - touchStartY > 40) setIsMobilePanelExpanded(false); // Swipe Down
+                    }}
                 >
                     {/* Mobile Handle */}
                     <div className="md:hidden absolute top-2 left-1/2 -translate-x-1/2 w-10 h-1.5 bg-white/30 rounded-full"></div>

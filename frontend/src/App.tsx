@@ -177,13 +177,11 @@ export default function App() {
             {/* Sidebar (Bottom Sheet on Mobile, Left Panel on Desktop) */}
             <aside className="absolute bottom-0 md:relative w-full md:w-[450px] h-[55vh] md:h-full bg-white/95 md:bg-white backdrop-blur-2xl md:backdrop-blur-none shadow-[0_-20px_40px_-15px_rgba(0,0,0,0.2)] md:shadow-xl z-20 flex flex-col border-t border-slate-200 md:border-t-0 md:border-r hide-scrollbar overflow-y-auto rounded-t-3xl md:rounded-none">
                 
-                {/* Mobile Handle */}
-                <div className="md:hidden w-full flex justify-center pt-3 pb-1 bg-gradient-to-br from-indigo-900 to-indigo-700 shrink-0">
-                    <div className="w-10 h-1.5 bg-white/30 rounded-full"></div>
-                </div>
-
-                <div className="px-5 pb-5 pt-2 md:p-6 bg-gradient-to-br from-indigo-900 to-indigo-700 text-white shadow-md flex-shrink-0">
-                    <h1 className="text-2xl font-bold tracking-tight">Terra<span className="text-indigo-300">Sight</span></h1>
+                <div className="relative px-5 pb-5 pt-5 md:p-6 bg-gradient-to-br from-indigo-900 to-indigo-700 text-white shadow-md flex-shrink-0">
+                    {/* Mobile Handle */}
+                    <div className="md:hidden absolute top-2 left-1/2 -translate-x-1/2 w-10 h-1.5 bg-white/30 rounded-full"></div>
+                    
+                    <h1 className="text-2xl font-bold tracking-tight mt-1 md:mt-0">Terra<span className="text-indigo-300">Sight</span></h1>
                     <p className="text-sm text-indigo-200 mt-1">Dual-Valuation Smart Engine</p>
                 </div>
 

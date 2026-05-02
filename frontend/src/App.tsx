@@ -67,6 +67,21 @@ export default function App() {
         }
     };
 
+    const handleUnitChange = (newUnit: 'sq.ft' | 'sq.m' | 'sq.yd') => {
+        if (newUnit === areaUnit) return;
+        
+        let areaInSqFt = landArea;
+        if (areaUnit === 'sq.m') areaInSqFt = landArea * 10.76391;
+        else if (areaUnit === 'sq.yd') areaInSqFt = landArea * 9.0;
+        
+        let convertedArea = areaInSqFt;
+        if (newUnit === 'sq.m') convertedArea = areaInSqFt / 10.76391;
+        else if (newUnit === 'sq.yd') convertedArea = areaInSqFt / 9.0;
+        
+        setLandArea(Math.round(convertedArea));
+        setAreaUnit(newUnit);
+    };
+
     const triggerAnalytics = async () => {
         setIsLoadingInsights(true);
         const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000';

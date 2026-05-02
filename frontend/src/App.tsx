@@ -21,12 +21,20 @@ export default function App() {
     const [facilitiesError, setFacilitiesError] = useState<string | null>(null);
     const [isLoadingInsights, setIsLoadingInsights] = useState(false);
 
-    // Dynamic bounded search for UP
     const handleSearch = async () => {
         if (!searchQuery) return;
         setIsSearching(true);
         try {
-            const res = await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(searchQuery + ', Uttar Pradesh, India')}&format=json&limit=5`);
+            // Smart query construction to prevent duplicate state/country
+            const qLower = searchQuery.toLowerCase();
+            let finalQuery = searchQuery;
+            if (!qLower.includes('uttar') && !qLower.includes('up,')) {
+                finalQuery += ', Uttar Pradesh, India';
+            }
+
+            // Bias towards UP geography
+            const viewbox = '77.0,30.5,84.5,23.5';
+            const res = await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(finalQuery)}&format=json&addressdetails=1&limit=5&viewbox=${viewbox}`);
             const data = await res.json();
             setSearchResults(data);
         } catch (err) {
@@ -204,19 +212,27 @@ export default function App() {
 
                         {searchResults.length > 0 && (
                             <div className="absolute top-20 left-0 right-0 bg-white rounded-xl shadow-2xl border border-slate-100 overflow-hidden z-30 max-h-60 overflow-y-auto mt-2 mx-6">
-                                {searchResults.map((result, idx) => (
-                                    <div 
-                                        key={idx} 
-                                        onClick={() => handleSelectLocation(result.lat, result.lon, result.display_name)}
-                                        className="p-3 border-b border-slate-50 last:border-0 hover:bg-slate-50 cursor-pointer flex gap-3 items-start transition-colors"
-                                    >
-                                        <Navigation className="h-4 w-4 text-indigo-400 mt-0.5 flex-shrink-0" />
-                                        <div className="flex flex-col">
-                                            <span className="text-sm font-medium text-slate-800 line-clamp-1">{result.display_name.split(',')[0]}</span>
-                                            <span className="text-xs text-slate-500 line-clamp-1">{result.display_name}</span>
+                                {searchResults.map((result, idx) => {
+                                    // Intelligently parse the address object for a clean UI display
+                                    const addr = result.address || {};
+                                    const primaryText = addr.neighbourhood || addr.suburb || addr.village || addr.town || addr.city || result.name || "Unknown Location";
+                                    const secondaryParts = [addr.city_district, addr.city || addr.county || addr.state_district, addr.state].filter(Boolean);
+                                    const secondaryText = secondaryParts.length > 0 ? secondaryParts.join(', ') : result.display_name;
+                                    
+                                    return (
+                                        <div 
+                                            key={idx} 
+                                            onClick={() => handleSelectLocation(result.lat, result.lon, primaryText + ', ' + (addr.city || addr.state_district || 'UP'))}
+                                            className="p-3 border-b border-slate-50 last:border-0 hover:bg-slate-50 cursor-pointer flex gap-3 items-start transition-colors"
+                                        >
+                                            <Navigation className="h-4 w-4 text-indigo-400 mt-0.5 flex-shrink-0" />
+                                            <div className="flex flex-col">
+                                                <span className="text-sm font-bold text-slate-800 line-clamp-1">{primaryText}</span>
+                                                <span className="text-xs text-slate-500 line-clamp-1">{secondaryText}</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                ))}
+                                    );
+                                })}
                             </div>
                         )}
                         

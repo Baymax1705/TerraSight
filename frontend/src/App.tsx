@@ -225,9 +225,9 @@ export default function App() {
                             
                             {/* Unit Options Toggle */}
                             <div className="flex bg-white rounded-md border border-indigo-200 shadow-sm overflow-hidden text-xs font-semibold">
-                                <button className={`px-2 py-1 transition-colors ${areaUnit === 'sq.ft' ? 'bg-indigo-600 text-white' : 'text-slate-500 hover:bg-slate-50'}`} onClick={() => setAreaUnit('sq.ft')}>Sq.Ft</button>
-                                <button className={`px-2 py-1 transition-colors border-l border-r border-indigo-100 ${areaUnit === 'sq.m' ? 'bg-indigo-600 text-white' : 'text-slate-500 hover:bg-slate-50'}`} onClick={() => setAreaUnit('sq.m')}>Sq.M</button>
-                                <button className={`px-2 py-1 transition-colors ${areaUnit === 'sq.yd' ? 'bg-indigo-600 text-white' : 'text-slate-500 hover:bg-slate-50'}`} onClick={() => setAreaUnit('sq.yd')}>Gaj</button>
+                                <button className={`px-2 py-1 transition-colors ${areaUnit === 'sq.ft' ? 'bg-indigo-600 text-white' : 'text-slate-500 hover:bg-slate-50'}`} onClick={() => handleUnitChange('sq.ft')}>Sq.Ft</button>
+                                <button className={`px-2 py-1 transition-colors border-l border-r border-indigo-100 ${areaUnit === 'sq.m' ? 'bg-indigo-600 text-white' : 'text-slate-500 hover:bg-slate-50'}`} onClick={() => handleUnitChange('sq.m')}>Sq.M</button>
+                                <button className={`px-2 py-1 transition-colors ${areaUnit === 'sq.yd' ? 'bg-indigo-600 text-white' : 'text-slate-500 hover:bg-slate-50'}`} onClick={() => handleUnitChange('sq.yd')}>Gaj</button>
                             </div>
                         </div>
                         

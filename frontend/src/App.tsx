@@ -19,6 +19,7 @@ export default function App() {
     // Data State
     const [insights, setInsights] = useState<any>(null);
     const [facilities, setFacilities] = useState<any>(null);
+    const [facilitiesError, setFacilitiesError] = useState<string | null>(null);
     const [isLoadingInsights, setIsLoadingInsights] = useState(false);
     const [isMobilePanelExpanded, setIsMobilePanelExpanded] = useState(false);
     const dragControls = useDragControls();

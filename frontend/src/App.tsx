@@ -183,7 +183,7 @@ export default function App() {
                 </div>
 
                 <div className="px-5 pb-5 pt-2 md:p-6 bg-gradient-to-br from-indigo-900 to-indigo-700 text-white shadow-md flex-shrink-0">
-                    <h1 className="text-2xl font-bold tracking-tight">GeoIntel<span className="text-indigo-300">UP</span></h1>
+                    <h1 className="text-2xl font-bold tracking-tight">Terra<span className="text-indigo-300">Sight</span></h1>
                     <p className="text-sm text-indigo-200 mt-1">Dual-Valuation Smart Engine</p>
                 </div>
 

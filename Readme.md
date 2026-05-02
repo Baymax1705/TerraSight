@@ -1,7 +1,7 @@
 # TerraSight 🌍
 ### Dual-Valuation Smart Engine | Geospatial Intelligence Platform
 
-![TerraSight Hero Banner](file:///C:/Users/yashv/.gemini/antigravity/brain/0b8771ec-31b3-4971-8504-96570d2c3573/terrasight_hero_banner_1777747737467.png)
+![TerraSight Hero Banner](assets/hero_banner.png)
 
 TerraSight is a premium geospatial intelligence platform designed to revolutionize land valuation and investment analysis. By merging official government circle rates with real-time amenity density data, TerraSight provides a "Dual-Valuation" insight that helps investors identify undervalued land parcels and high-growth opportunities.
 

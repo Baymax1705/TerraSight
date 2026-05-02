@@ -196,7 +196,7 @@ export default function App() {
                 dragListener={false}
                 dragConstraints={{ top: 0, bottom: 0 }}
                 dragElastic={0.2}
-                onDragEnd={(e, { offset, velocity }) => {
+                onDragEnd={(_, { offset, velocity }) => {
                     if (!isMobile) return;
                     if (offset.y < -50 || velocity.y < -200) setIsMobilePanelExpanded(true);
                     else if (offset.y > 50 || velocity.y > 200) setIsMobilePanelExpanded(false);

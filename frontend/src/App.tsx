@@ -213,16 +213,14 @@ export default function App() {
                         {searchResults.length > 0 && (
                             <div className="absolute top-20 left-0 right-0 bg-white rounded-xl shadow-2xl border border-slate-100 overflow-hidden z-30 max-h-60 overflow-y-auto mt-2 mx-6">
                                 {searchResults.map((result, idx) => {
-                                    // Intelligently parse the address object for a clean UI display
                                     const addr = result.address || {};
-                                    const primaryText = addr.neighbourhood || addr.suburb || addr.village || addr.town || addr.city || result.name || "Unknown Location";
-                                    const secondaryParts = [addr.city_district, addr.city || addr.county || addr.state_district, addr.state].filter(Boolean);
-                                    const secondaryText = secondaryParts.length > 0 ? secondaryParts.join(', ') : result.display_name;
+                                    const primaryText = addr.neighbourhood || addr.suburb || addr.village || addr.town || addr.city || result.name || result.display_name.split(',')[0];
+                                    const secondaryText = result.display_name;
                                     
                                     return (
                                         <div 
                                             key={idx} 
-                                            onClick={() => handleSelectLocation(result.lat, result.lon, primaryText + ', ' + (addr.city || addr.state_district || 'UP'))}
+                                            onClick={() => handleSelectLocation(result.lat, result.lon, result.display_name)}
                                             className="p-3 border-b border-slate-50 last:border-0 hover:bg-slate-50 cursor-pointer flex gap-3 items-start transition-colors"
                                         >
                                             <Navigation className="h-4 w-4 text-indigo-400 mt-0.5 flex-shrink-0" />

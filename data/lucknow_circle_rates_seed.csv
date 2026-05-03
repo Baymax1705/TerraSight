@@ -1,765 +1,761 @@
 district,tehsil,locality,property_type,rate_sqm,effective_date
-Lucknow,Sadar,Gomti Nagar,Residential,6500,2023-08-01
-Lucknow,Sadar,Hazratganj,Commercial,15000,2023-08-01
-Noida,Gautam Buddha Nagar,Sector 18,Commercial,35000,2023-08-01
-Kanpur,Kanpur Nagar,Swaroop Nagar,Residential,8500,2023-08-01
-Varanasi,Varanasi,Lanka,Residential,7500,2023-08-01
-Lucknow,Mohanlalganj,Indira Colony,Commercial,13000,2023-08-01
-Lucknow,Malihabad,Vasant Vihar,Residential,4000,2023-08-01
-Lucknow,Sadar,Tagore Vihar,Residential,6400,2023-08-01
-Lucknow,Malihabad,Saraswati Khand,Residential,6900,2023-08-01
-Lucknow,BKT,Ganga Colony,Residential,4600,2023-08-01
-Lucknow,Malihabad,Indira Bagh,Commercial,17200,2023-08-01
-Lucknow,BKT,Saket Nagar,Commercial,10400,2023-08-01
-Lucknow,Sarojini Nagar,Subhash Enclave,Commercial,13800,2023-08-01
-Lucknow,BKT,Ram Bagh,Residential,6000,2023-08-01
-Lucknow,Sadar,Gandhi Bagh,Residential,6200,2023-08-01
-Lucknow,Malihabad,Rajiv Puram,Residential,7100,2023-08-01
-Lucknow,Mohanlalganj,Kalyan Vihar,Residential,7000,2023-08-01
-Lucknow,BKT,Ram City,Residential,5200,2023-08-01
-Lucknow,Sadar,Gandhi Colony,Residential,5000,2023-08-01
-Lucknow,Sarojini Nagar,Tagore Nagar,Residential,7100,2023-08-01
-Lucknow,BKT,Saket Puram,Residential,4100,2023-08-01
-Lucknow,Mohanlalganj,Saraswati Bagh,Residential,7000,2023-08-01
-Lucknow,BKT,Govind Vihar,Residential,4000,2023-08-01
-Lucknow,Sadar,Saket City,Commercial,14500,2023-08-01
-Lucknow,Mohanlalganj,Kalyan Colony,Residential,5400,2023-08-01
-Lucknow,Malihabad,Nehru Khand,Residential,5500,2023-08-01
-Lucknow,Sadar,Krishna City,Agricultural,1200,2023-08-01
-Lucknow,Sadar,Yamuna Vihar,Residential,5500,2023-08-01
-Lucknow,BKT,Shiv Puram,Commercial,13300,2023-08-01
-Lucknow,Sadar,Arya Nagar,Residential,4800,2023-08-01
-Lucknow,Mohanlalganj,Shastri City,Residential,5900,2023-08-01
-Lucknow,Mohanlalganj,Nehru Vihar,Residential,5800,2023-08-01
-Lucknow,Mohanlalganj,Yamuna Puram,Commercial,10600,2023-08-01
-Lucknow,Sarojini Nagar,Kalyan Bagh,Commercial,11800,2023-08-01
-Lucknow,Malihabad,Laxmi Nagar,Commercial,14200,2023-08-01
-Lucknow,Sadar,Shastri Khand,Commercial,18700,2023-08-01
-Lucknow,Mohanlalganj,Nehru Road,Commercial,18200,2023-08-01
-Lucknow,Sarojini Nagar,Arya Bagh,Residential,6600,2023-08-01
-Lucknow,BKT,Shiv Enclave,Residential,6600,2023-08-01
-Lucknow,BKT,Saraswati Road,Residential,6600,2023-08-01
-Lucknow,Malihabad,Patel City,Residential,5500,2023-08-01
-Lucknow,Sadar,Vivekananda Enclave,Commercial,13000,2023-08-01
-Lucknow,Sadar,Subhash Khand,Residential,5500,2023-08-01
-Lucknow,Sadar,Arya City,Residential,7300,2023-08-01
-Lucknow,Sadar,Vivekananda Bagh,Commercial,14000,2023-08-01
-Lucknow,Sadar,Nehru City,Commercial,14500,2023-08-01
-Lucknow,Sadar,Rajiv City,Residential,5400,2023-08-01
-Lucknow,Mohanlalganj,Shyam Enclave,Residential,6500,2023-08-01
-Lucknow,Mohanlalganj,Nehru Puram,Commercial,15900,2023-08-01
-Lucknow,Mohanlalganj,Subhash Road,Agricultural,1900,2023-08-01
-Lucknow,BKT,Shastri Puram,Residential,7400,2023-08-01
-Lucknow,Sadar,Ashok Colony,Residential,5000,2023-08-01
-Lucknow,Mohanlalganj,Subhash City,Residential,7000,2023-08-01
-Lucknow,Malihabad,Vasant Nagar,Residential,6800,2023-08-01
-Lucknow,Malihabad,Azad Road,Residential,6200,2023-08-01
-Lucknow,Sarojini Nagar,Ganga Nagar,Residential,5800,2023-08-01
-Lucknow,Mohanlalganj,Shastri Road,Residential,6100,2023-08-01
-Lucknow,Sarojini Nagar,Arya Khand,Residential,5700,2023-08-01
-Lucknow,Sadar,Ganga Enclave,Residential,5800,2023-08-01
-Lucknow,Sadar,Azad Ganj,Residential,4400,2023-08-01
-Lucknow,Sarojini Nagar,Saraswati Enclave,Agricultural,1900,2023-08-01
-Lucknow,Malihabad,Ganga Road,Residential,5700,2023-08-01
-Lucknow,Sarojini Nagar,Govind Road,Residential,4000,2023-08-01
-Lucknow,BKT,Yamuna Enclave,Residential,5900,2023-08-01
-Lucknow,Sadar,Gomti Enclave,Residential,5200,2023-08-01
-Lucknow,BKT,Kalyan Nagar,Residential,5600,2023-08-01
-Lucknow,Sarojini Nagar,Kalyan Khand,Commercial,14900,2023-08-01
-Lucknow,Sarojini Nagar,Vivekananda Khand,Residential,4800,2023-08-01
-Lucknow,BKT,Ashok Road,Residential,6700,2023-08-01
-Lucknow,Sadar,Ganga Bagh,Residential,7000,2023-08-01
-Lucknow,BKT,Ram Road,Residential,4400,2023-08-01
-Lucknow,BKT,Shastri Nagar,Residential,4700,2023-08-01
-Lucknow,Sadar,Laxmi Enclave,Residential,4600,2023-08-01
-Lucknow,Sarojini Nagar,Govind Ganj,Residential,7200,2023-08-01
-Lucknow,Sadar,Indira City,Residential,6900,2023-08-01
-Lucknow,Sadar,Arya Enclave,Residential,7200,2023-08-01
-Lucknow,Sadar,Laxmi City,Residential,5200,2023-08-01
-Lucknow,Malihabad,Vasant Colony,Agricultural,2200,2023-08-01
-Noida,Gautam Buddha Nagar,Sector 73,Residential,11200,2023-08-01
-Noida,Jewar,Phase 93,Residential,17800,2023-08-01
-Noida,Jewar,Rajiv Expressway ,Commercial,37700,2023-08-01
-Noida,Jewar,Ashok Expressway ,Residential,15600,2023-08-01
-Noida,Gautam Buddha Nagar,Sector 61,Residential,12400,2023-08-01
-Noida,Jewar,Ganga Tech Zone ,Residential,15700,2023-08-01
-Noida,Dadri,Vasant Extension ,Commercial,25700,2023-08-01
-Noida,Dadri,Sector 143,Residential,16100,2023-08-01
-Noida,Jewar,Sector 11,Commercial,33100,2023-08-01
-Noida,Jewar,Sector 34,Residential,17700,2023-08-01
-Noida,Dadri,Phase 46,Residential,13900,2023-08-01
-Noida,Gautam Buddha Nagar,Phase 127,Residential,15000,2023-08-01
-Noida,Dadri,Arya Tech Zone ,Commercial,36400,2023-08-01
-Noida,Gautam Buddha Nagar,Laxmi Tech Zone ,Residential,11900,2023-08-01
-Noida,Gautam Buddha Nagar,Tagore Extension ,Commercial,43800,2023-08-01
-Noida,Gautam Buddha Nagar,Phase 101,Residential,14300,2023-08-01
-Noida,Dadri,Indira Tech Zone ,Agricultural,4900,2023-08-01
-Noida,Gautam Buddha Nagar,Phase 82,Commercial,41300,2023-08-01
-Noida,Gautam Buddha Nagar,Sector 129,Residential,13900,2023-08-01
-Noida,Gautam Buddha Nagar,Phase 36,Residential,17000,2023-08-01
-Noida,Gautam Buddha Nagar,Sector 13,Residential,17600,2023-08-01
-Noida,Gautam Buddha Nagar,Vasant Tech Zone ,Commercial,36900,2023-08-01
-Noida,Jewar,Arya Expressway ,Commercial,26100,2023-08-01
-Noida,Gautam Buddha Nagar,Subhash Expressway ,Commercial,31100,2023-08-01
-Noida,Jewar,Govind Extension ,Residential,15100,2023-08-01
-Noida,Jewar,Ram Expressway ,Commercial,29900,2023-08-01
-Noida,Jewar,Phase 1,Residential,15700,2023-08-01
-Noida,Dadri,Sector 80,Commercial,36900,2023-08-01
-Noida,Gautam Buddha Nagar,Vasant Expressway ,Residential,13400,2023-08-01
-Noida,Dadri,Saket Extension ,Residential,16200,2023-08-01
-Noida,Jewar,Phase 7,Commercial,27600,2023-08-01
-Noida,Jewar,Rajiv Extension ,Residential,17000,2023-08-01
-Noida,Gautam Buddha Nagar,Azad Expressway ,Residential,17000,2023-08-01
-Noida,Gautam Buddha Nagar,Krishna Expressway ,Commercial,40900,2023-08-01
-Noida,Jewar,Sector 36,Agricultural,5300,2023-08-01
-Noida,Gautam Buddha Nagar,Vivekananda Tech Zone ,Residential,11000,2023-08-01
-Noida,Jewar,Phase 117,Residential,12500,2023-08-01
-Noida,Dadri,Gomti Extension ,Residential,14000,2023-08-01
-Noida,Gautam Buddha Nagar,Phase 147,Commercial,31100,2023-08-01
-Noida,Gautam Buddha Nagar,Vivekananda Extension ,Residential,13600,2023-08-01
-Noida,Dadri,Ashok Tech Zone ,Residential,12700,2023-08-01
-Noida,Gautam Buddha Nagar,Shiv Extension ,Residential,13900,2023-08-01
-Noida,Dadri,Phase 130,Residential,11900,2023-08-01
-Noida,Dadri,Saraswati Expressway ,Commercial,44300,2023-08-01
-Noida,Dadri,Saket Expressway ,Residential,17800,2023-08-01
-Noida,Jewar,Sector 120,Residential,12500,2023-08-01
-Noida,Dadri,Ganga Extension ,Commercial,37300,2023-08-01
-Noida,Gautam Buddha Nagar,Indira Extension ,Commercial,25900,2023-08-01
-Noida,Jewar,Sector 124,Residential,17700,2023-08-01
-Noida,Jewar,Phase 10,Residential,12700,2023-08-01
-Noida,Dadri,Shiv Expressway ,Residential,12200,2023-08-01
-Noida,Jewar,Gandhi Tech Zone ,Commercial,35300,2023-08-01
-Noida,Dadri,Phase 126,Commercial,26800,2023-08-01
-Noida,Dadri,Saraswati Extension ,Residential,16500,2023-08-01
-Noida,Dadri,Phase 90,Residential,10600,2023-08-01
-Noida,Gautam Buddha Nagar,Sector 3,Commercial,32500,2023-08-01
-Noida,Gautam Buddha Nagar,Tagore Tech Zone ,Residential,12900,2023-08-01
-Noida,Dadri,Kalyan Expressway ,Commercial,43600,2023-08-01
-Noida,Gautam Buddha Nagar,Azad Tech Zone ,Commercial,40600,2023-08-01
-Noida,Dadri,Gandhi Extension ,Commercial,42400,2023-08-01
-Noida,Jewar,Sector 119,Residential,10500,2023-08-01
-Noida,Dadri,Phase 134,Residential,15800,2023-08-01
-Noida,Dadri,Sector 144,Residential,15000,2023-08-01
-Noida,Gautam Buddha Nagar,Saraswati Tech Zone ,Agricultural,5200,2023-08-01
-Noida,Jewar,Saket Tech Zone ,Agricultural,3700,2023-08-01
-Noida,Jewar,Phase 71,Agricultural,4100,2023-08-01
-Noida,Dadri,Phase 77,Residential,16300,2023-08-01
-Noida,Dadri,Laxmi Extension ,Residential,13800,2023-08-01
-Noida,Jewar,Sector 141,Residential,14100,2023-08-01
-Noida,Gautam Buddha Nagar,Krishna Tech Zone ,Residential,12500,2023-08-01
-Kanpur,Ghatampur,Krishna Chauraha,Residential,4200,2023-08-01
-Kanpur,Bilhaur,Subhash Ghat,Residential,4500,2023-08-01
-Kanpur,Ghatampur,Shastri Ganj,Residential,6500,2023-08-01
-Kanpur,Bilhaur,Ram Ganj,Residential,5300,2023-08-01
-Kanpur,Kanpur Nagar,Krishna Nagar,Residential,6500,2023-08-01
-Kanpur,Bilhaur,Gomti Ghat,Residential,5000,2023-08-01
-Kanpur,Kanpur Nagar,Gomti Nagar,Commercial,9900,2023-08-01
-Kanpur,Bilhaur,Ashok Ganj,Residential,4700,2023-08-01
-Kanpur,Ghatampur,Saraswati Ganj,Residential,4600,2023-08-01
-Kanpur,Kanpur Nagar,Saraswati Ghat,Commercial,9900,2023-08-01
-Kanpur,Ghatampur,Ganga Ghat,Residential,3700,2023-08-01
-Kanpur,Ghatampur,Govind Kheda,Residential,6400,2023-08-01
-Kanpur,Ghatampur,Kalyan Nagar,Commercial,12700,2023-08-01
-Kanpur,Ghatampur,Nehru Ganj,Commercial,11700,2023-08-01
-Kanpur,Ghatampur,Vivekananda Pur,Commercial,15300,2023-08-01
-Kanpur,Ghatampur,Nehru Kheda,Residential,5800,2023-08-01
-Kanpur,Bilhaur,Subhash Pur,Commercial,16800,2023-08-01
-Kanpur,Bilhaur,Gandhi Ghat,Agricultural,1800,2023-08-01
-Kanpur,Kanpur Nagar,Arya Kheda,Residential,5000,2023-08-01
-Kanpur,Kanpur Nagar,Azad Chauraha,Commercial,12500,2023-08-01
-Kanpur,Ghatampur,Gandhi Pur,Commercial,12900,2023-08-01
-Kanpur,Bilhaur,Nehru Nagar,Commercial,16300,2023-08-01
-Kanpur,Ghatampur,Govind Ghat,Residential,4500,2023-08-01
-Kanpur,Ghatampur,Nehru Chauraha,Residential,3600,2023-08-01
-Kanpur,Ghatampur,Rajiv Ghat,Commercial,14700,2023-08-01
-Kanpur,Kanpur Nagar,Ashok Pur,Commercial,16100,2023-08-01
-Kanpur,Bilhaur,Patel Ghat,Residential,5800,2023-08-01
-Kanpur,Kanpur Nagar,Yamuna Kheda,Residential,3900,2023-08-01
-Kanpur,Kanpur Nagar,Ashok Chauraha,Residential,5300,2023-08-01
-Kanpur,Ghatampur,Ram Pur,Residential,4900,2023-08-01
-Kanpur,Kanpur Nagar,Saraswati Chauraha,Residential,6400,2023-08-01
-Kanpur,Kanpur Nagar,Ashok Nagar,Commercial,15200,2023-08-01
-Kanpur,Kanpur Nagar,Subhash Ganj,Residential,4900,2023-08-01
-Kanpur,Bilhaur,Shyam Ghat,Commercial,13100,2023-08-01
-Kanpur,Ghatampur,Ram Nagar,Residential,6100,2023-08-01
-Kanpur,Ghatampur,Shiv Chauraha,Residential,5600,2023-08-01
-Kanpur,Ghatampur,Vasant Pur,Commercial,9300,2023-08-01
-Kanpur,Ghatampur,Shyam Pur,Residential,5900,2023-08-01
-Kanpur,Ghatampur,Saket Pur,Commercial,16600,2023-08-01
-Kanpur,Ghatampur,Kalyan Ghat,Residential,5000,2023-08-01
-Kanpur,Bilhaur,Shastri Nagar,Commercial,12600,2023-08-01
-Kanpur,Kanpur Nagar,Shastri Ghat,Residential,5100,2023-08-01
-Kanpur,Bilhaur,Kalyan Kheda,Residential,4100,2023-08-01
-Kanpur,Bilhaur,Saket Chauraha,Commercial,12300,2023-08-01
-Kanpur,Bilhaur,Yamuna Ghat,Residential,5600,2023-08-01
-Kanpur,Kanpur Nagar,Laxmi Pur,Commercial,13100,2023-08-01
-Kanpur,Kanpur Nagar,Gomti Pur,Commercial,11200,2023-08-01
-Kanpur,Kanpur Nagar,Govind Pur,Residential,5200,2023-08-01
-Kanpur,Kanpur Nagar,Tagore Kheda,Residential,4600,2023-08-01
-Kanpur,Ghatampur,Vivekananda Ganj,Residential,3800,2023-08-01
-Kanpur,Bilhaur,Ram Kheda,Residential,6000,2023-08-01
-Kanpur,Kanpur Nagar,Laxmi Chauraha,Residential,5500,2023-08-01
-Kanpur,Bilhaur,Nehru Ghat,Commercial,16800,2023-08-01
-Kanpur,Bilhaur,Govind Chauraha,Agricultural,1900,2023-08-01
-Kanpur,Bilhaur,Patel Chauraha,Residential,4100,2023-08-01
-Kanpur,Ghatampur,Indira Ganj,Residential,4200,2023-08-01
-Kanpur,Ghatampur,Subhash Kheda,Residential,6700,2023-08-01
-Kanpur,Kanpur Nagar,Patel Nagar,Residential,4600,2023-08-01
-Kanpur,Bilhaur,Krishna Ghat,Commercial,9000,2023-08-01
-Varanasi,Raja Talab,Gomti Pur,Agricultural,2500,2023-08-01
-Varanasi,Pindra,Saraswati Nagar,Residential,7500,2023-08-01
-Varanasi,Varanasi,Ashok Pur,Residential,5800,2023-08-01
-Varanasi,Varanasi,Nehru Colony,Residential,8600,2023-08-01
-Varanasi,Varanasi,Shiv Pur,Commercial,15900,2023-08-01
-Varanasi,Raja Talab,Yamuna Ghat,Commercial,19000,2023-08-01
-Varanasi,Varanasi,Laxmi Ghat,Residential,6600,2023-08-01
-Varanasi,Raja Talab,Shiv Colony,Commercial,15400,2023-08-01
-Varanasi,Pindra,Gandhi Pur,Commercial,22300,2023-08-01
-Varanasi,Varanasi,Govind Market,Residential,6700,2023-08-01
-Varanasi,Raja Talab,Rajiv Pur,Residential,7200,2023-08-01
-Varanasi,Varanasi,Ram Nagar,Residential,6100,2023-08-01
-Varanasi,Pindra,Saket Nagar,Residential,6900,2023-08-01
-Varanasi,Varanasi,Nehru Ghat,Residential,4900,2023-08-01
-Varanasi,Varanasi,Yamuna Khand,Agricultural,1900,2023-08-01
-Varanasi,Pindra,Shastri Market,Commercial,16500,2023-08-01
-Varanasi,Varanasi,Subhash Nagar,Residential,8400,2023-08-01
-Varanasi,Raja Talab,Saket Khand,Residential,6000,2023-08-01
-Varanasi,Pindra,Gandhi Ghat,Residential,7300,2023-08-01
-Varanasi,Pindra,Laxmi Khand,Commercial,15700,2023-08-01
-Varanasi,Pindra,Tagore Market,Residential,6800,2023-08-01
-Varanasi,Pindra,Shyam Colony,Agricultural,1700,2023-08-01
-Varanasi,Pindra,Patel Khand,Commercial,16300,2023-08-01
-Varanasi,Pindra,Nehru Khand,Residential,7700,2023-08-01
-Varanasi,Varanasi,Shiv Khand,Residential,5500,2023-08-01
-Varanasi,Pindra,Vivekananda Nagar,Residential,7000,2023-08-01
-Varanasi,Raja Talab,Nehru Nagar,Residential,5600,2023-08-01
-Varanasi,Varanasi,Saraswati Market,Residential,7000,2023-08-01
-Varanasi,Varanasi,Azad Nagar,Residential,8700,2023-08-01
-Varanasi,Pindra,Arya Market,Residential,5800,2023-08-01
-Varanasi,Pindra,Patel Ghat,Commercial,21600,2023-08-01
-Varanasi,Raja Talab,Ram Ghat,Residential,8600,2023-08-01
-Varanasi,Raja Talab,Vasant Ghat,Residential,8400,2023-08-01
-Varanasi,Varanasi,Gomti Khand,Residential,7100,2023-08-01
-Varanasi,Pindra,Ashok Market,Residential,5500,2023-08-01
-Varanasi,Varanasi,Gandhi Khand,Residential,7600,2023-08-01
-Varanasi,Pindra,Tagore Colony,Residential,8300,2023-08-01
-Varanasi,Varanasi,Ram Colony,Residential,5400,2023-08-01
-Varanasi,Pindra,Ganga Pur,Residential,7700,2023-08-01
-Varanasi,Varanasi,Arya Nagar,Residential,7400,2023-08-01
-Varanasi,Raja Talab,Vasant Nagar,Commercial,13600,2023-08-01
-Varanasi,Raja Talab,Arya Pur,Residential,5100,2023-08-01
-Varanasi,Pindra,Vasant Market,Residential,5800,2023-08-01
-Varanasi,Pindra,Patel Market,Residential,5500,2023-08-01
-Varanasi,Varanasi,Vivekananda Market,Residential,8300,2023-08-01
-Varanasi,Pindra,Vasant Pur,Agricultural,2500,2023-08-01
-Varanasi,Varanasi,Patel Pur,Commercial,22400,2023-08-01
-Varanasi,Varanasi,Govind Colony,Agricultural,2500,2023-08-01
-Varanasi,Raja Talab,Ashok Colony,Commercial,14100,2023-08-01
-Varanasi,Pindra,Vivekananda Khand,Commercial,18700,2023-08-01
-Varanasi,Varanasi,Saket Colony,Commercial,12700,2023-08-01
-Varanasi,Pindra,Vivekananda Colony,Residential,6000,2023-08-01
-Varanasi,Pindra,Nehru Pur,Residential,5400,2023-08-01
-Varanasi,Pindra,Ashok Khand,Residential,7000,2023-08-01
-Varanasi,Varanasi,Krishna Nagar,Residential,8200,2023-08-01
-Varanasi,Pindra,Gomti Colony,Residential,6400,2023-08-01
-Varanasi,Raja Talab,Shyam Market,Residential,5000,2023-08-01
-Varanasi,Varanasi,Subhash Khand,Residential,5400,2023-08-01
-Varanasi,Varanasi,Gandhi Colony,Commercial,18600,2023-08-01
-Varanasi,Varanasi,Ram Market,Commercial,18600,2023-08-01
-Varanasi,Pindra,Ram Khand,Residential,7100,2023-08-01
-Varanasi,Pindra,Indira Colony,Residential,8500,2023-08-01
-Varanasi,Raja Talab,Shiv Ghat,Commercial,18200,2023-08-01
-Varanasi,Pindra,Govind Ghat,Residential,6800,2023-08-01
-Varanasi,Varanasi,Yamuna Nagar,Residential,7100,2023-08-01
-Agra,Kiraoli,Rajiv Vihar,Residential,3800,2023-08-01
-Agra,Fatehabad,Tagore Market,Residential,5400,2023-08-01
-Agra,Fatehabad,Laxmi Market,Residential,5200,2023-08-01
-Agra,Fatehabad,Gomti Khand,Residential,4000,2023-08-01
-Agra,Agra,Saraswati Khand,Residential,4500,2023-08-01
-Agra,Agra,Saraswati Ganj,Commercial,13900,2023-08-01
-Agra,Agra,Azad Vihar,Residential,5200,2023-08-01
-Agra,Kiraoli,Saraswati Vihar,Residential,3600,2023-08-01
-Agra,Fatehabad,Laxmi Ganj,Residential,5900,2023-08-01
-Agra,Kiraoli,Patel Market,Residential,3200,2023-08-01
-Agra,Fatehabad,Patel Khand,Commercial,9000,2023-08-01
-Agra,Fatehabad,Subhash Khand,Residential,5000,2023-08-01
-Agra,Fatehabad,Kalyan Ganj,Commercial,14200,2023-08-01
-Agra,Fatehabad,Azad Khand,Residential,4600,2023-08-01
-Agra,Fatehabad,Yamuna Bagh,Residential,3800,2023-08-01
-Agra,Fatehabad,Saraswati Bagh,Residential,4500,2023-08-01
-Agra,Fatehabad,Govind Ganj,Residential,4600,2023-08-01
-Agra,Fatehabad,Arya Market,Commercial,13800,2023-08-01
-Agra,Fatehabad,Gandhi Bagh,Commercial,10400,2023-08-01
-Agra,Kiraoli,Patel Vihar,Residential,3600,2023-08-01
-Agra,Agra,Vivekananda Nagar,Residential,3400,2023-08-01
-Agra,Fatehabad,Shastri Khand,Residential,5900,2023-08-01
-Agra,Fatehabad,Yamuna Market,Residential,5900,2023-08-01
-Agra,Kiraoli,Krishna Nagar,Commercial,8000,2023-08-01
-Agra,Kiraoli,Azad Ganj,Commercial,10000,2023-08-01
-Agra,Fatehabad,Saket Ganj,Commercial,13500,2023-08-01
-Agra,Kiraoli,Govind Nagar,Commercial,14900,2023-08-01
-Agra,Fatehabad,Vasant Khand,Commercial,8100,2023-08-01
-Agra,Agra,Arya Vihar,Commercial,14900,2023-08-01
-Agra,Fatehabad,Saket Bagh,Commercial,11200,2023-08-01
-Agra,Agra,Ram Market,Residential,3700,2023-08-01
-Agra,Kiraoli,Patel Nagar,Residential,3800,2023-08-01
-Agra,Agra,Gandhi Market,Residential,3700,2023-08-01
-Agra,Fatehabad,Shyam Nagar,Agricultural,1000,2023-08-01
-Agra,Kiraoli,Gomti Bagh,Residential,4500,2023-08-01
-Agra,Fatehabad,Gandhi Vihar,Residential,4800,2023-08-01
-Agra,Kiraoli,Azad Nagar,Agricultural,1000,2023-08-01
-Agra,Fatehabad,Vasant Nagar,Residential,5000,2023-08-01
-Agra,Agra,Shiv Khand,Agricultural,1700,2023-08-01
-Agra,Kiraoli,Vivekananda Khand,Residential,4300,2023-08-01
-Agra,Fatehabad,Indira Ganj,Commercial,10600,2023-08-01
-Agra,Fatehabad,Shiv Nagar,Residential,4900,2023-08-01
-Agra,Agra,Shiv Bagh,Agricultural,1600,2023-08-01
-Agra,Fatehabad,Krishna Vihar,Commercial,14200,2023-08-01
-Agra,Agra,Azad Bagh,Agricultural,1600,2023-08-01
-Agra,Agra,Rajiv Nagar,Commercial,9500,2023-08-01
-Agra,Fatehabad,Krishna Khand,Commercial,9400,2023-08-01
-Agra,Agra,Ashok Bagh,Residential,3500,2023-08-01
-Agra,Agra,Shastri Vihar,Residential,5400,2023-08-01
-Agra,Kiraoli,Vivekananda Vihar,Residential,4700,2023-08-01
-Agra,Agra,Shyam Vihar,Residential,4800,2023-08-01
-Agra,Agra,Laxmi Khand,Residential,3500,2023-08-01
-Agra,Fatehabad,Yamuna Khand,Agricultural,1600,2023-08-01
-Agra,Agra,Nehru Nagar,Residential,5100,2023-08-01
-Agra,Agra,Ganga Vihar,Residential,3200,2023-08-01
-Agra,Agra,Tagore Ganj,Commercial,9500,2023-08-01
-Agra,Agra,Gomti Ganj,Residential,3600,2023-08-01
-Agra,Agra,Vivekananda Ganj,Commercial,9600,2023-08-01
-Agra,Fatehabad,Indira Market,Commercial,8000,2023-08-01
-Agra,Kiraoli,Indira Vihar,Residential,4500,2023-08-01
-Agra,Kiraoli,Yamuna Vihar,Agricultural,1300,2023-08-01
-Agra,Kiraoli,Saraswati Market,Commercial,12100,2023-08-01
-Prayagraj,Sadar,Arya Nagar,Residential,4900,2023-08-01
-Prayagraj,Karchhana,Ganga Road,Residential,8100,2023-08-01
-Prayagraj,Phulpur,Shiv Ganj,Residential,4600,2023-08-01
-Prayagraj,Karchhana,Saket Road,Commercial,13200,2023-08-01
-Prayagraj,Karchhana,Vivekananda Ganj,Agricultural,1400,2023-08-01
-Prayagraj,Phulpur,Gandhi Chowk,Commercial,18500,2023-08-01
-Prayagraj,Sadar,Saraswati Puram,Residential,5600,2023-08-01
-Prayagraj,Karchhana,Nehru Road,Residential,5900,2023-08-01
-Prayagraj,Karchhana,Vivekananda Katra,Residential,5200,2023-08-01
-Prayagraj,Sadar,Shyam Puram,Residential,6700,2023-08-01
-Prayagraj,Sadar,Ashok Road,Residential,5500,2023-08-01
-Prayagraj,Karchhana,Kalyan Katra,Residential,5100,2023-08-01
-Prayagraj,Sadar,Indira Chowk,Agricultural,1700,2023-08-01
-Prayagraj,Sadar,Shiv Chowk,Residential,7700,2023-08-01
-Prayagraj,Karchhana,Shastri Chowk,Commercial,12700,2023-08-01
-Prayagraj,Phulpur,Govind Katra,Residential,8200,2023-08-01
-Prayagraj,Sadar,Arya Puram,Commercial,15300,2023-08-01
-Prayagraj,Sadar,Vivekananda Puram,Agricultural,1700,2023-08-01
-Prayagraj,Karchhana,Patel Ganj,Agricultural,1500,2023-08-01
-Prayagraj,Phulpur,Vasant Chowk,Agricultural,1400,2023-08-01
-Prayagraj,Karchhana,Patel Katra,Agricultural,1700,2023-08-01
-Prayagraj,Karchhana,Gomti Road,Residential,6900,2023-08-01
-Prayagraj,Karchhana,Patel Road,Commercial,14200,2023-08-01
-Prayagraj,Phulpur,Ganga Katra,Commercial,11500,2023-08-01
-Prayagraj,Sadar,Saket Puram,Residential,5700,2023-08-01
-Prayagraj,Karchhana,Govind Ganj,Commercial,17700,2023-08-01
-Prayagraj,Sadar,Tagore Chowk,Residential,6400,2023-08-01
-Prayagraj,Sadar,Govind Puram,Commercial,20200,2023-08-01
-Prayagraj,Karchhana,Krishna Katra,Residential,5700,2023-08-01
-Prayagraj,Sadar,Saraswati Nagar,Residential,5600,2023-08-01
-Prayagraj,Sadar,Yamuna Puram,Residential,5400,2023-08-01
-Prayagraj,Phulpur,Subhash Road,Agricultural,2100,2023-08-01
-Prayagraj,Karchhana,Vasant Ganj,Residential,8100,2023-08-01
-Prayagraj,Karchhana,Shiv Road,Commercial,18400,2023-08-01
-Prayagraj,Sadar,Ganga Chowk,Residential,5200,2023-08-01
-Prayagraj,Karchhana,Nehru Puram,Residential,7900,2023-08-01
-Prayagraj,Karchhana,Vasant Puram,Agricultural,1500,2023-08-01
-Prayagraj,Karchhana,Gomti Chowk,Commercial,15000,2023-08-01
-Prayagraj,Sadar,Laxmi Nagar,Residential,7400,2023-08-01
-Prayagraj,Sadar,Nehru Katra,Residential,4400,2023-08-01
-Prayagraj,Sadar,Ram Ganj,Commercial,18700,2023-08-01
-Prayagraj,Sadar,Indira Road,Residential,6900,2023-08-01
-Prayagraj,Phulpur,Shyam Ganj,Commercial,15200,2023-08-01
-Prayagraj,Karchhana,Kalyan Nagar,Residential,7100,2023-08-01
-Prayagraj,Karchhana,Shyam Road,Commercial,19400,2023-08-01
-Prayagraj,Sadar,Tagore Nagar,Residential,8100,2023-08-01
-Prayagraj,Sadar,Vivekananda Road,Residential,6600,2023-08-01
-Prayagraj,Karchhana,Shastri Road,Commercial,18600,2023-08-01
-Prayagraj,Phulpur,Kalyan Chowk,Residential,5300,2023-08-01
-Prayagraj,Sadar,Govind Nagar,Commercial,20100,2023-08-01
-Prayagraj,Karchhana,Gomti Katra,Commercial,12200,2023-08-01
-Prayagraj,Phulpur,Tagore Road,Residential,7900,2023-08-01
-Prayagraj,Karchhana,Gomti Nagar,Residential,7600,2023-08-01
-Prayagraj,Sadar,Ashok Nagar,Commercial,13000,2023-08-01
-Prayagraj,Phulpur,Tagore Katra,Residential,4900,2023-08-01
-Prayagraj,Phulpur,Ram Puram,Agricultural,1400,2023-08-01
-Prayagraj,Karchhana,Saraswati Ganj,Agricultural,1600,2023-08-01
-Prayagraj,Phulpur,Arya Road,Residential,5500,2023-08-01
-Prayagraj,Karchhana,Yamuna Nagar,Residential,7000,2023-08-01
-Meerut,Sardhana,Rajiv City,Residential,5100,2023-08-01
-Meerut,Mawana,Tagore City,Residential,4400,2023-08-01
-Meerut,Sardhana,Vivekananda City,Residential,5300,2023-08-01
-Meerut,Mawana,Gomti City,Residential,4700,2023-08-01
-Meerut,Meerut,Ashok Enclave,Residential,6100,2023-08-01
-Meerut,Meerut,Yamuna Nagar,Commercial,11800,2023-08-01
-Meerut,Meerut,Shastri Enclave,Agricultural,1100,2023-08-01
-Meerut,Mawana,Nehru Vihar,Residential,4800,2023-08-01
-Meerut,Meerut,Saket City,Residential,6400,2023-08-01
-Meerut,Meerut,Laxmi Nagar,Residential,5400,2023-08-01
-Meerut,Mawana,Ram Nagar,Commercial,15300,2023-08-01
-Meerut,Meerut,Ganga Vihar,Residential,4500,2023-08-01
-Meerut,Mawana,Gomti Road,Residential,6100,2023-08-01
-Meerut,Meerut,Ganga Nagar,Commercial,11300,2023-08-01
-Meerut,Mawana,Patel Road,Residential,6500,2023-08-01
-Meerut,Meerut,Nehru City,Commercial,9700,2023-08-01
-Meerut,Meerut,Ram Vihar,Residential,6600,2023-08-01
-Meerut,Sardhana,Azad City,Commercial,10800,2023-08-01
-Meerut,Sardhana,Nehru Enclave,Residential,4100,2023-08-01
-Meerut,Sardhana,Rajiv Road,Agricultural,1300,2023-08-01
-Meerut,Sardhana,Vasant Nagar,Residential,3700,2023-08-01
-Meerut,Mawana,Kalyan Enclave,Commercial,10400,2023-08-01
-Meerut,Mawana,Ram Enclave,Residential,6300,2023-08-01
-Meerut,Mawana,Saket Vihar,Residential,4700,2023-08-01
-Meerut,Meerut,Yamuna Vihar,Residential,4400,2023-08-01
-Meerut,Mawana,Gandhi Road,Commercial,14300,2023-08-01
-Meerut,Mawana,Ganga Road,Commercial,11900,2023-08-01
-Meerut,Sardhana,Shyam Enclave,Agricultural,1700,2023-08-01
-Meerut,Sardhana,Govind Enclave,Residential,5000,2023-08-01
-Meerut,Mawana,Govind Nagar,Commercial,10500,2023-08-01
-Meerut,Meerut,Kalyan Road,Residential,5500,2023-08-01
-Meerut,Sardhana,Arya City,Residential,6600,2023-08-01
-Meerut,Meerut,Arya Enclave,Commercial,11800,2023-08-01
-Meerut,Sardhana,Arya Nagar,Residential,5600,2023-08-01
-Meerut,Meerut,Shyam Vihar,Residential,6700,2023-08-01
-Meerut,Mawana,Govind Vihar,Residential,4000,2023-08-01
-Meerut,Mawana,Saket Nagar,Agricultural,1900,2023-08-01
-Meerut,Mawana,Gandhi Nagar,Residential,5900,2023-08-01
-Meerut,Sardhana,Tagore Vihar,Residential,5900,2023-08-01
-Meerut,Meerut,Subhash Nagar,Commercial,9300,2023-08-01
-Meerut,Mawana,Kalyan City,Agricultural,1300,2023-08-01
-Meerut,Mawana,Vasant City,Residential,3800,2023-08-01
-Meerut,Sardhana,Ram City,Agricultural,1300,2023-08-01
-Meerut,Mawana,Vasant Enclave,Residential,6100,2023-08-01
-Meerut,Sardhana,Indira Enclave,Residential,6700,2023-08-01
-Meerut,Mawana,Shyam Road,Commercial,15100,2023-08-01
-Meerut,Sardhana,Shiv Road,Residential,4600,2023-08-01
-Meerut,Sardhana,Saket Road,Commercial,15500,2023-08-01
-Meerut,Sardhana,Nehru Road,Commercial,15400,2023-08-01
-Meerut,Mawana,Vivekananda Vihar,Residential,4900,2023-08-01
-Meerut,Meerut,Tagore Nagar,Residential,6000,2023-08-01
-Meerut,Mawana,Shiv Nagar,Residential,6500,2023-08-01
-Meerut,Sardhana,Govind Road,Residential,4400,2023-08-01
-Meerut,Meerut,Yamuna Enclave,Commercial,11600,2023-08-01
-Meerut,Sardhana,Patel Vihar,Commercial,14100,2023-08-01
-Meerut,Mawana,Subhash City,Residential,5100,2023-08-01
-Meerut,Sardhana,Indira Vihar,Residential,5400,2023-08-01
-Meerut,Sardhana,Saraswati Road,Residential,4500,2023-08-01
-Meerut,Sardhana,Tagore Road,Residential,6500,2023-08-01
-Ghaziabad,Ghaziabad,Yamuna Khand ,Residential,10700,2023-08-01
-Ghaziabad,Loni,Subhash Nagar,Residential,13900,2023-08-01
-Ghaziabad,Loni,Sector 126,Commercial,31100,2023-08-01
-Ghaziabad,Ghaziabad,Yamuna Puram ,Residential,13000,2023-08-01
-Ghaziabad,Ghaziabad,Sector 106,Residential,12000,2023-08-01
-Ghaziabad,Loni,Laxmi Puram ,Commercial,33800,2023-08-01
-Ghaziabad,Ghaziabad,Vivekananda Vihar,Residential,10600,2023-08-01
-Ghaziabad,Ghaziabad,Azad Puram ,Commercial,34200,2023-08-01
-Ghaziabad,Ghaziabad,Sector 69,Agricultural,4300,2023-08-01
-Ghaziabad,Ghaziabad,Indira Extension,Residential,14800,2023-08-01
-Ghaziabad,Loni,Sector 104,Commercial,34000,2023-08-01
-Ghaziabad,Ghaziabad,Subhash Vihar,Residential,12800,2023-08-01
-Ghaziabad,Modinagar,Sector 60,Residential,11700,2023-08-01
-Ghaziabad,Modinagar,Laxmi Vihar,Residential,8600,2023-08-01
-Ghaziabad,Loni,Shyam Extension,Commercial,26500,2023-08-01
-Ghaziabad,Loni,Tagore Extension,Agricultural,4100,2023-08-01
-Ghaziabad,Loni,Gomti Puram ,Residential,13300,2023-08-01
-Ghaziabad,Loni,Arya Vihar,Commercial,25000,2023-08-01
-Ghaziabad,Ghaziabad,Sector 3,Residential,14500,2023-08-01
-Ghaziabad,Modinagar,Ganga Nagar,Residential,12800,2023-08-01
-Ghaziabad,Modinagar,Rajiv Puram ,Residential,13600,2023-08-01
-Ghaziabad,Ghaziabad,Rajiv Nagar,Residential,13600,2023-08-01
-Ghaziabad,Loni,Vivekananda Khand ,Residential,14600,2023-08-01
-Ghaziabad,Loni,Sector 86,Commercial,36400,2023-08-01
-Ghaziabad,Loni,Ram Extension,Residential,13900,2023-08-01
-Ghaziabad,Modinagar,Sector 56,Residential,10300,2023-08-01
-Ghaziabad,Modinagar,Saraswati Nagar,Residential,10300,2023-08-01
-Ghaziabad,Modinagar,Saket Extension,Agricultural,3500,2023-08-01
-Ghaziabad,Modinagar,Sector 7,Agricultural,3200,2023-08-01
-Ghaziabad,Loni,Vivekananda Nagar,Residential,12300,2023-08-01
-Ghaziabad,Loni,Vasant Nagar,Residential,13300,2023-08-01
-Ghaziabad,Loni,Laxmi Khand ,Commercial,28100,2023-08-01
-Ghaziabad,Ghaziabad,Gomti Khand ,Residential,13900,2023-08-01
-Ghaziabad,Modinagar,Sector 105,Residential,10400,2023-08-01
-Ghaziabad,Modinagar,Rajiv Extension,Residential,13700,2023-08-01
-Ghaziabad,Loni,Kalyan Puram ,Commercial,31900,2023-08-01
-Ghaziabad,Ghaziabad,Saket Khand ,Commercial,22500,2023-08-01
-Ghaziabad,Ghaziabad,Laxmi Extension,Residential,8500,2023-08-01
-Ghaziabad,Loni,Gandhi Nagar,Residential,9200,2023-08-01
-Ghaziabad,Loni,Ganga Vihar,Residential,10800,2023-08-01
-Ghaziabad,Ghaziabad,Shyam Khand ,Commercial,28100,2023-08-01
-Ghaziabad,Loni,Saket Nagar,Commercial,20600,2023-08-01
-Ghaziabad,Loni,Gomti Nagar,Residential,12400,2023-08-01
-Ghaziabad,Modinagar,Shiv Extension,Residential,14200,2023-08-01
-Ghaziabad,Ghaziabad,Shyam Vihar,Residential,12600,2023-08-01
-Ghaziabad,Ghaziabad,Krishna Puram ,Residential,11000,2023-08-01
-Ghaziabad,Loni,Gandhi Extension,Commercial,31600,2023-08-01
-Ghaziabad,Modinagar,Azad Nagar,Commercial,23900,2023-08-01
-Ghaziabad,Loni,Sector 74,Commercial,22400,2023-08-01
-Ghaziabad,Ghaziabad,Vasant Puram ,Agricultural,3500,2023-08-01
-Ghaziabad,Ghaziabad,Saket Vihar,Residential,9800,2023-08-01
-Ghaziabad,Ghaziabad,Arya Puram ,Residential,9600,2023-08-01
-Ghaziabad,Loni,Sector 78,Residential,8200,2023-08-01
-Ghaziabad,Loni,Sector 33,Residential,13400,2023-08-01
-Ghaziabad,Modinagar,Sector 63,Residential,11800,2023-08-01
-Ghaziabad,Modinagar,Vivekananda Puram ,Residential,14400,2023-08-01
-Ghaziabad,Ghaziabad,Sector 113,Commercial,33900,2023-08-01
-Ghaziabad,Ghaziabad,Tagore Nagar,Residential,13900,2023-08-01
-Ghaziabad,Loni,Ashok Khand ,Commercial,37200,2023-08-01
-Ghaziabad,Modinagar,Sector 79,Commercial,21900,2023-08-01
-Ghaziabad,Loni,Shiv Khand ,Residential,14200,2023-08-01
-Ghaziabad,Loni,Patel Vihar,Agricultural,3400,2023-08-01
-Ghaziabad,Ghaziabad,Sector 98,Commercial,30900,2023-08-01
-Ghaziabad,Ghaziabad,Govind Vihar,Commercial,29400,2023-08-01
-Ghaziabad,Ghaziabad,Gomti Extension,Residential,11500,2023-08-01
-Ghaziabad,Modinagar,Shyam Nagar,Agricultural,2400,2023-08-01
-Ghaziabad,Modinagar,Indira Vihar,Commercial,33400,2023-08-01
-Ghaziabad,Modinagar,Sector 82,Residential,12500,2023-08-01
-Ghaziabad,Ghaziabad,Ashok Extension,Residential,12100,2023-08-01
-Bareilly,Faridpur,Saraswati Nagar,Commercial,7400,2023-08-01
-Bareilly,Bareilly,Nehru Pur,Commercial,10800,2023-08-01
-Bareilly,Faridpur,Vivekananda Colony,Residential,4400,2023-08-01
-Bareilly,Aonla,Ram Pur,Residential,2900,2023-08-01
-Bareilly,Bareilly,Ganga Pur,Residential,5200,2023-08-01
-Bareilly,Faridpur,Yamuna Vihar,Agricultural,1300,2023-08-01
-Bareilly,Bareilly,Gandhi Colony,Commercial,12400,2023-08-01
-Bareilly,Faridpur,Ram Colony,Residential,4300,2023-08-01
-Bareilly,Faridpur,Vasant Pur,Commercial,10000,2023-08-01
-Bareilly,Bareilly,Ram Vihar,Commercial,8700,2023-08-01
-Bareilly,Faridpur,Shiv Vihar,Agricultural,1200,2023-08-01
-Bareilly,Aonla,Azad Colony,Commercial,10100,2023-08-01
-Bareilly,Aonla,Saket Colony,Residential,3100,2023-08-01
-Bareilly,Faridpur,Vivekananda Vihar,Residential,3300,2023-08-01
-Bareilly,Faridpur,Govind Vihar,Commercial,10300,2023-08-01
-Bareilly,Faridpur,Ganga Nagar,Commercial,7700,2023-08-01
-Bareilly,Faridpur,Arya Vihar,Commercial,8200,2023-08-01
-Bareilly,Bareilly,Tagore Colony,Residential,4900,2023-08-01
-Bareilly,Aonla,Kalyan Ganj,Agricultural,1400,2023-08-01
-Bareilly,Faridpur,Subhash Vihar,Residential,3400,2023-08-01
-Bareilly,Faridpur,Patel Ganj,Commercial,9400,2023-08-01
-Bareilly,Bareilly,Govind Ganj,Agricultural,1000,2023-08-01
-Bareilly,Bareilly,Gandhi Nagar,Residential,3300,2023-08-01
-Bareilly,Aonla,Yamuna Nagar,Agricultural,1400,2023-08-01
-Bareilly,Bareilly,Indira Ganj,Residential,4100,2023-08-01
-Bareilly,Bareilly,Ram Ganj,Residential,5100,2023-08-01
-Bareilly,Aonla,Shiv Nagar,Residential,3600,2023-08-01
-Bareilly,Faridpur,Vasant Nagar,Residential,3500,2023-08-01
-Bareilly,Faridpur,Shastri Nagar,Residential,4900,2023-08-01
-Bareilly,Bareilly,Shiv Pur,Commercial,11300,2023-08-01
-Bareilly,Aonla,Vivekananda Ganj,Residential,3000,2023-08-01
-Bareilly,Bareilly,Gomti Vihar,Residential,3400,2023-08-01
-Bareilly,Aonla,Gomti Colony,Commercial,12900,2023-08-01
-Bareilly,Bareilly,Patel Vihar,Residential,4700,2023-08-01
-Bareilly,Aonla,Rajiv Colony,Commercial,9500,2023-08-01
-Bareilly,Faridpur,Shyam Vihar,Commercial,8600,2023-08-01
-Bareilly,Aonla,Gandhi Pur,Residential,4500,2023-08-01
-Bareilly,Aonla,Saket Pur,Residential,4500,2023-08-01
-Bareilly,Faridpur,Yamuna Colony,Commercial,12700,2023-08-01
-Bareilly,Faridpur,Vivekananda Nagar,Commercial,11700,2023-08-01
-Bareilly,Faridpur,Vasant Vihar,Residential,3000,2023-08-01
-Bareilly,Bareilly,Ashok Nagar,Agricultural,1100,2023-08-01
-Bareilly,Aonla,Tagore Vihar,Commercial,8300,2023-08-01
-Bareilly,Aonla,Krishna Nagar,Residential,4200,2023-08-01
-Bareilly,Bareilly,Subhash Ganj,Residential,3100,2023-08-01
-Bareilly,Faridpur,Krishna Pur,Residential,4000,2023-08-01
-Bareilly,Bareilly,Gandhi Ganj,Residential,3800,2023-08-01
-Bareilly,Faridpur,Laxmi Pur,Residential,3300,2023-08-01
-Bareilly,Bareilly,Azad Ganj,Residential,2800,2023-08-01
-Bareilly,Aonla,Govind Nagar,Residential,3300,2023-08-01
-Bareilly,Faridpur,Govind Pur,Residential,3100,2023-08-01
-Bareilly,Aonla,Arya Pur,Residential,5200,2023-08-01
-Bareilly,Faridpur,Indira Colony,Commercial,10100,2023-08-01
-Bareilly,Aonla,Saket Ganj,Residential,5100,2023-08-01
-Bareilly,Bareilly,Krishna Ganj,Commercial,11400,2023-08-01
-Bareilly,Aonla,Rajiv Vihar,Residential,4700,2023-08-01
-Bareilly,Bareilly,Shastri Vihar,Residential,3300,2023-08-01
-Bareilly,Bareilly,Kalyan Vihar,Agricultural,1100,2023-08-01
-Bareilly,Aonla,Shyam Pur,Residential,5200,2023-08-01
-Bareilly,Aonla,Azad Vihar,Residential,2900,2023-08-01
-Bareilly,Faridpur,Yamuna Ganj,Residential,3700,2023-08-01
-Aligarh,Khair,Vasant Nagar,Residential,4000,2023-08-01
-Aligarh,Atrauli,Laxmi Road,Residential,4100,2023-08-01
-Aligarh,Koil,Rajiv Gate,Commercial,12800,2023-08-01
-Aligarh,Khair,Azad Nagar,Residential,4100,2023-08-01
-Aligarh,Khair,Nehru Nagar,Commercial,12300,2023-08-01
-Aligarh,Atrauli,Tagore Road,Residential,3300,2023-08-01
-Aligarh,Koil,Shyam Market,Residential,5100,2023-08-01
-Aligarh,Atrauli,Govind Road,Commercial,8400,2023-08-01
-Aligarh,Khair,Shiv Nagar,Commercial,8900,2023-08-01
-Aligarh,Khair,Gandhi Market,Agricultural,1600,2023-08-01
-Aligarh,Koil,Gomti Gate,Residential,5500,2023-08-01
-Aligarh,Khair,Shastri Vihar,Residential,4600,2023-08-01
-Aligarh,Koil,Ashok Market,Commercial,11300,2023-08-01
-Aligarh,Koil,Saraswati Road,Residential,5300,2023-08-01
-Aligarh,Atrauli,Gandhi Nagar,Commercial,13000,2023-08-01
-Aligarh,Atrauli,Laxmi Gate,Residential,4000,2023-08-01
-Aligarh,Koil,Vasant Gate,Commercial,9700,2023-08-01
-Aligarh,Atrauli,Saraswati Market,Commercial,12500,2023-08-01
-Aligarh,Khair,Vivekananda Market,Residential,5200,2023-08-01
-Aligarh,Koil,Vivekananda Vihar,Commercial,11800,2023-08-01
-Aligarh,Khair,Arya Gate,Commercial,12600,2023-08-01
-Aligarh,Atrauli,Ganga Market,Residential,3200,2023-08-01
-Aligarh,Koil,Krishna Gate,Residential,4500,2023-08-01
-Aligarh,Atrauli,Ganga Vihar,Agricultural,900,2023-08-01
-Aligarh,Khair,Ashok Vihar,Residential,4400,2023-08-01
-Aligarh,Khair,Tagore Vihar,Residential,3100,2023-08-01
-Aligarh,Khair,Vasant Road,Residential,4500,2023-08-01
-Aligarh,Atrauli,Rajiv Market,Residential,4300,2023-08-01
-Aligarh,Koil,Saket Nagar,Residential,5600,2023-08-01
-Aligarh,Atrauli,Laxmi Market,Residential,4500,2023-08-01
-Aligarh,Koil,Saket Gate,Residential,4700,2023-08-01
-Aligarh,Atrauli,Kalyan Road,Residential,3100,2023-08-01
-Aligarh,Atrauli,Yamuna Nagar,Residential,3000,2023-08-01
-Aligarh,Atrauli,Ashok Road,Residential,3100,2023-08-01
-Aligarh,Khair,Ganga Gate,Commercial,13400,2023-08-01
-Aligarh,Koil,Ram Gate,Residential,3900,2023-08-01
-Aligarh,Koil,Nehru Market,Commercial,7700,2023-08-01
-Aligarh,Koil,Ashok Nagar,Residential,3100,2023-08-01
-Aligarh,Khair,Patel Nagar,Commercial,10500,2023-08-01
-Aligarh,Khair,Shiv Vihar,Commercial,12400,2023-08-01
-Aligarh,Khair,Krishna Nagar,Residential,4000,2023-08-01
-Aligarh,Atrauli,Shastri Nagar,Residential,4200,2023-08-01
-Aligarh,Khair,Saket Market,Residential,3100,2023-08-01
-Aligarh,Khair,Arya Road,Commercial,12800,2023-08-01
-Aligarh,Atrauli,Nehru Vihar,Commercial,8600,2023-08-01
-Aligarh,Koil,Patel Market,Residential,3400,2023-08-01
-Aligarh,Atrauli,Ashok Gate,Commercial,8800,2023-08-01
-Aligarh,Atrauli,Govind Market,Commercial,10300,2023-08-01
-Aligarh,Khair,Vasant Market,Commercial,12200,2023-08-01
-Aligarh,Khair,Patel Gate,Commercial,8800,2023-08-01
-Aligarh,Atrauli,Saraswati Nagar,Residential,5300,2023-08-01
-Aligarh,Khair,Laxmi Nagar,Residential,5100,2023-08-01
-Aligarh,Koil,Gomti Road,Commercial,11300,2023-08-01
-Aligarh,Koil,Subhash Gate,Residential,5500,2023-08-01
-Aligarh,Koil,Azad Vihar,Commercial,10600,2023-08-01
-Aligarh,Atrauli,Ganga Road,Agricultural,1000,2023-08-01
-Aligarh,Koil,Krishna Market,Residential,3600,2023-08-01
-Aligarh,Koil,Yamuna Vihar,Commercial,13300,2023-08-01
-Aligarh,Koil,Saraswati Gate,Residential,4200,2023-08-01
-Aligarh,Khair,Laxmi Vihar,Commercial,13400,2023-08-01
-Aligarh,Khair,Subhash Vihar,Commercial,12700,2023-08-01
-Aligarh,Khair,Krishna Vihar,Residential,3500,2023-08-01
-Gorakhpur,Sahjanwa,Vasant Ganj,Commercial,13300,2023-08-01
-Gorakhpur,Campierganj,Saraswati Chowk,Residential,4100,2023-08-01
-Gorakhpur,Campierganj,Saraswati Nagar,Residential,5600,2023-08-01
-Gorakhpur,Sahjanwa,Saraswati Ganj,Residential,5800,2023-08-01
-Gorakhpur,Campierganj,Indira Nagar,Residential,5500,2023-08-01
-Gorakhpur,Gorakhpur,Kalyan Chowk,Residential,4400,2023-08-01
-Gorakhpur,Campierganj,Tagore Vihar,Commercial,10500,2023-08-01
-Gorakhpur,Gorakhpur,Govind Ganj,Commercial,12500,2023-08-01
-Gorakhpur,Campierganj,Vasant Nagar,Residential,3300,2023-08-01
-Gorakhpur,Gorakhpur,Vasant Pur,Residential,5400,2023-08-01
-Gorakhpur,Sahjanwa,Laxmi Vihar,Residential,3400,2023-08-01
-Gorakhpur,Campierganj,Subhash Chowk,Commercial,14200,2023-08-01
-Gorakhpur,Gorakhpur,Nehru Vihar,Residential,5500,2023-08-01
-Gorakhpur,Sahjanwa,Krishna Pur,Residential,3500,2023-08-01
-Gorakhpur,Gorakhpur,Shyam Vihar,Residential,3600,2023-08-01
-Gorakhpur,Sahjanwa,Ashok Nagar,Commercial,12100,2023-08-01
-Gorakhpur,Gorakhpur,Subhash Pur,Residential,3300,2023-08-01
-Gorakhpur,Sahjanwa,Vivekananda Nagar,Residential,5900,2023-08-01
-Gorakhpur,Gorakhpur,Ashok Chowk,Residential,4700,2023-08-01
-Gorakhpur,Sahjanwa,Arya Pur,Commercial,8800,2023-08-01
-Gorakhpur,Campierganj,Shiv Nagar,Residential,5300,2023-08-01
-Gorakhpur,Campierganj,Shiv Chowk,Commercial,11900,2023-08-01
-Gorakhpur,Campierganj,Govind Vihar,Residential,4300,2023-08-01
-Gorakhpur,Campierganj,Ram Vihar,Residential,4100,2023-08-01
-Gorakhpur,Sahjanwa,Yamuna Nagar,Residential,4500,2023-08-01
-Gorakhpur,Sahjanwa,Govind Chowk,Residential,3900,2023-08-01
-Gorakhpur,Campierganj,Rajiv Pur,Commercial,14900,2023-08-01
-Gorakhpur,Sahjanwa,Krishna Chowk,Residential,3300,2023-08-01
-Gorakhpur,Campierganj,Patel Chowk,Commercial,10900,2023-08-01
-Gorakhpur,Gorakhpur,Rajiv Ganj,Residential,4100,2023-08-01
-Gorakhpur,Campierganj,Tagore Pur,Residential,4800,2023-08-01
-Gorakhpur,Sahjanwa,Tagore Chowk,Residential,3400,2023-08-01
-Gorakhpur,Sahjanwa,Kalyan Vihar,Residential,4100,2023-08-01
-Gorakhpur,Sahjanwa,Shyam Pur,Commercial,14200,2023-08-01
-Gorakhpur,Sahjanwa,Ram Pur,Residential,4100,2023-08-01
-Gorakhpur,Sahjanwa,Gandhi Nagar,Agricultural,1500,2023-08-01
-Gorakhpur,Gorakhpur,Vivekananda Ganj,Commercial,14400,2023-08-01
-Gorakhpur,Campierganj,Rajiv Vihar,Residential,4800,2023-08-01
-Gorakhpur,Campierganj,Ashok Vihar,Commercial,14900,2023-08-01
-Gorakhpur,Campierganj,Yamuna Ganj,Commercial,8200,2023-08-01
-Gorakhpur,Sahjanwa,Ram Nagar,Commercial,8100,2023-08-01
-Gorakhpur,Sahjanwa,Laxmi Chowk,Residential,4200,2023-08-01
-Gorakhpur,Gorakhpur,Vasant Chowk,Residential,5400,2023-08-01
-Gorakhpur,Campierganj,Gomti Pur,Commercial,10100,2023-08-01
-Gorakhpur,Campierganj,Arya Nagar,Residential,3600,2023-08-01
-Gorakhpur,Gorakhpur,Krishna Nagar,Commercial,13500,2023-08-01
-Gorakhpur,Sahjanwa,Shyam Nagar,Residential,4200,2023-08-01
-Gorakhpur,Campierganj,Vivekananda Chowk,Residential,5100,2023-08-01
-Gorakhpur,Campierganj,Nehru Nagar,Commercial,13300,2023-08-01
-Gorakhpur,Campierganj,Ashok Ganj,Agricultural,1400,2023-08-01
-Gorakhpur,Gorakhpur,Subhash Ganj,Commercial,14200,2023-08-01
-Gorakhpur,Campierganj,Gomti Chowk,Residential,4500,2023-08-01
-Gorakhpur,Sahjanwa,Shiv Ganj,Residential,3700,2023-08-01
-Gorakhpur,Campierganj,Krishna Ganj,Residential,4300,2023-08-01
-Gorakhpur,Campierganj,Laxmi Ganj,Residential,3800,2023-08-01
-Gorakhpur,Campierganj,Ganga Nagar,Residential,4600,2023-08-01
-Gorakhpur,Campierganj,Gomti Nagar,Residential,4000,2023-08-01
-Gorakhpur,Campierganj,Yamuna Pur,Residential,4900,2023-08-01
-Gorakhpur,Campierganj,Laxmi Nagar,Residential,3400,2023-08-01
-Gorakhpur,Campierganj,Shastri Nagar,Residential,5300,2023-08-01
-Gorakhpur,Gorakhpur,Tagore Ganj,Commercial,10500,2023-08-01
-Ayodhya,Bikapur,Shastri Market,Residential,4000,2023-08-01
-Ayodhya,SoHawal,Saraswati Pur,Commercial,14400,2023-08-01
-Ayodhya,SoHawal,Yamuna Pur,Commercial,14000,2023-08-01
-Ayodhya,Bikapur,Vasant Market,Residential,4700,2023-08-01
-Ayodhya,Sadar,Arya Ghat,Agricultural,1100,2023-08-01
-Ayodhya,SoHawal,Yamuna Khand,Residential,6500,2023-08-01
-Ayodhya,Sadar,Gandhi Pur,Residential,5800,2023-08-01
-Ayodhya,SoHawal,Azad Khand,Residential,3700,2023-08-01
-Ayodhya,Sadar,Vasant Pur,Residential,6400,2023-08-01
-Ayodhya,Bikapur,Patel Ghat,Residential,4200,2023-08-01
-Ayodhya,SoHawal,Azad Ghat,Residential,3700,2023-08-01
-Ayodhya,SoHawal,Rajiv Ghat,Commercial,10800,2023-08-01
-Ayodhya,SoHawal,Saket Nagar,Commercial,15700,2023-08-01
-Ayodhya,Sadar,Tagore Khand,Residential,5300,2023-08-01
-Ayodhya,Bikapur,Vivekananda Market,Agricultural,1600,2023-08-01
-Ayodhya,Sadar,Ashok Pur,Commercial,12600,2023-08-01
-Ayodhya,Bikapur,Gandhi Khand,Agricultural,1500,2023-08-01
-Ayodhya,Sadar,Saraswati Khand,Residential,4500,2023-08-01
-Ayodhya,Bikapur,Kalyan Nagar,Residential,6600,2023-08-01
-Ayodhya,Bikapur,Shyam Khand,Residential,4600,2023-08-01
-Ayodhya,Bikapur,Kalyan Ghat,Residential,6700,2023-08-01
-Ayodhya,Sadar,Shiv Market,Commercial,12100,2023-08-01
-Ayodhya,SoHawal,Ganga Ghat,Residential,6100,2023-08-01
-Ayodhya,Bikapur,Saket Ghat,Residential,5400,2023-08-01
-Ayodhya,Bikapur,Saraswati Ghat,Commercial,12700,2023-08-01
-Ayodhya,SoHawal,Patel Market,Residential,5100,2023-08-01
-Ayodhya,Sadar,Kalyan Khand,Residential,5300,2023-08-01
-Ayodhya,Bikapur,Vivekananda Khand,Commercial,13200,2023-08-01
-Ayodhya,Sadar,Saket Market,Commercial,14300,2023-08-01
-Ayodhya,Sadar,Ram Khand,Commercial,13800,2023-08-01
-Ayodhya,Bikapur,Arya Pur,Residential,4700,2023-08-01
-Ayodhya,Sadar,Patel Khand,Residential,4400,2023-08-01
-Ayodhya,Sadar,Shastri Ghat,Residential,5800,2023-08-01
-Ayodhya,Bikapur,Kalyan Market,Residential,4300,2023-08-01
-Ayodhya,SoHawal,Ram Pur,Residential,5200,2023-08-01
-Ayodhya,Bikapur,Govind Ghat,Residential,5600,2023-08-01
-Ayodhya,Sadar,Arya Market,Residential,5900,2023-08-01
-Ayodhya,SoHawal,Arya Khand,Residential,6100,2023-08-01
-Ayodhya,SoHawal,Saraswati Market,Residential,4700,2023-08-01
-Ayodhya,SoHawal,Shiv Nagar,Residential,5700,2023-08-01
-Ayodhya,SoHawal,Gomti Ghat,Commercial,12300,2023-08-01
-Ayodhya,SoHawal,Laxmi Pur,Residential,5000,2023-08-01
-Ayodhya,Bikapur,Arya Nagar,Commercial,9800,2023-08-01
-Ayodhya,SoHawal,Gandhi Ghat,Residential,6600,2023-08-01
-Ayodhya,SoHawal,Laxmi Market,Commercial,12800,2023-08-01
-Ayodhya,Bikapur,Ram Market,Residential,5700,2023-08-01
-Ayodhya,Sadar,Govind Market,Commercial,10900,2023-08-01
-Ayodhya,Sadar,Nehru Market,Commercial,9000,2023-08-01
-Ayodhya,Bikapur,Rajiv Khand,Commercial,13400,2023-08-01
-Ayodhya,Bikapur,Tagore Nagar,Commercial,15500,2023-08-01
-Ayodhya,Bikapur,Azad Nagar,Commercial,9800,2023-08-01
-Ayodhya,SoHawal,Vivekananda Pur,Residential,5200,2023-08-01
-Ayodhya,Bikapur,Shiv Pur,Commercial,16700,2023-08-01
-Ayodhya,Sadar,Ganga Nagar,Commercial,9800,2023-08-01
-Ayodhya,SoHawal,Shastri Nagar,Residential,4300,2023-08-01
-Ayodhya,Bikapur,Saket Pur,Commercial,10900,2023-08-01
-Ayodhya,SoHawal,Saraswati Nagar,Commercial,16200,2023-08-01
-Ayodhya,Bikapur,Indira Khand,Commercial,15900,2023-08-01
-Ayodhya,SoHawal,Subhash Khand,Residential,5800,2023-08-01
+Lucknow,Sadar,Gomti Nagar,Residential,52000,2023-08-01
+Lucknow,Sadar,Hazratganj,Commercial,95000,2023-08-01
+Lucknow,Sadar,Indira Nagar,Residential,45000,2023-08-01
+Lucknow,Sadar,Rajaji Puram,Residential,30000,2023-08-01
+Lucknow,Sadar,Aliganj,Residential,38000,2023-08-01
+Lucknow,Sadar,Alambagh,Residential,28000,2023-08-01
+Lucknow,BKT,Chinhat,Residential,20000,2023-08-01
+Noida,Gautam Buddha Nagar,Sector 18,Commercial,120000,2023-08-01
+Noida,Gautam Buddha Nagar,Sector 62,Residential,75000,2023-08-01
+Noida,Gautam Buddha Nagar,Sector 137,Residential,55000,2023-08-01
+Kanpur,Kanpur Nagar,Swaroop Nagar,Residential,28000,2023-08-01
+Kanpur,Kanpur Nagar,Kidwai Nagar,Residential,25000,2023-08-01
+Varanasi,Varanasi,Lanka,Residential,42000,2023-08-01
+Varanasi,Varanasi,Sigra,Residential,38000,2023-08-01
+Ghaziabad,Ghaziabad,Indirapuram,Residential,58000,2023-08-01
+Ghaziabad,Ghaziabad,Raj Nagar,Residential,50000,2023-08-01
+Lucknow,Sadar,Indira Vihar,Residential,41000,2023-08-01
+Lucknow,Malihabad,Shiv Colony,Commercial,107000,2023-08-01
+Lucknow,Mohanlalganj,Tagore Vihar,Residential,44000,2023-08-01
+Lucknow,Mohanlalganj,Rajiv Road,Residential,35000,2023-08-01
+Lucknow,Mohanlalganj,Saket City,Residential,35000,2023-08-01
+Lucknow,Malihabad,Shiv City,Commercial,84000,2023-08-01
+Lucknow,BKT,Tagore Colony,Residential,29000,2023-08-01
+Lucknow,Malihabad,Ashok Enclave,Commercial,69000,2023-08-01
+Lucknow,Mohanlalganj,Rajiv Khand,Residential,41000,2023-08-01
+Lucknow,Sadar,Gomti Colony,Residential,33000,2023-08-01
+Lucknow,BKT,Subhash Colony,Commercial,90000,2023-08-01
+Lucknow,Malihabad,Kalyan Bagh,Residential,41000,2023-08-01
+Lucknow,Sarojini Nagar,Krishna Puram,Residential,33000,2023-08-01
+Lucknow,BKT,Ashok City,Residential,27000,2023-08-01
+Lucknow,Malihabad,Saket Nagar,Commercial,96000,2023-08-01
+Lucknow,Mohanlalganj,Gandhi Vihar,Residential,28000,2023-08-01
+Lucknow,Sarojini Nagar,Ram Enclave,Residential,37000,2023-08-01
+Lucknow,Malihabad,Yamuna Road,Agricultural,7000,2023-08-01
+Lucknow,BKT,Saraswati Vihar,Commercial,80000,2023-08-01
+Lucknow,BKT,Arya Ganj,Residential,33000,2023-08-01
+Lucknow,Sadar,Shastri Puram,Residential,33000,2023-08-01
+Lucknow,Malihabad,Saket Colony,Agricultural,9000,2023-08-01
+Lucknow,Sadar,Ashok Road,Residential,34000,2023-08-01
+Lucknow,Sarojini Nagar,Gomti City,Commercial,69000,2023-08-01
+Lucknow,Sarojini Nagar,Patel City,Commercial,73000,2023-08-01
+Lucknow,Sarojini Nagar,Krishna Enclave,Commercial,83000,2023-08-01
+Lucknow,Sarojini Nagar,Tagore Road,Residential,32000,2023-08-01
+Lucknow,Mohanlalganj,Shastri Ganj,Residential,37000,2023-08-01
+Lucknow,Mohanlalganj,Ram Bagh,Commercial,95000,2023-08-01
+Lucknow,Malihabad,Ganga Puram,Residential,27000,2023-08-01
+Lucknow,Sarojini Nagar,Ganga City,Residential,28000,2023-08-01
+Lucknow,BKT,Arya City,Commercial,70000,2023-08-01
+Lucknow,BKT,Shyam Road,Commercial,86000,2023-08-01
+Lucknow,BKT,Arya Enclave,Commercial,71000,2023-08-01
+Lucknow,Sadar,Ashok Nagar,Residential,25000,2023-08-01
+Lucknow,BKT,Krishna Road,Commercial,97000,2023-08-01
+Lucknow,Sarojini Nagar,Subhash City,Commercial,78000,2023-08-01
+Lucknow,Mohanlalganj,Indira City,Commercial,104000,2023-08-01
+Lucknow,Sarojini Nagar,Saraswati Khand,Commercial,98000,2023-08-01
+Lucknow,Malihabad,Vasant Vihar,Residential,36000,2023-08-01
+Lucknow,Mohanlalganj,Nehru Khand,Residential,33000,2023-08-01
+Lucknow,Sadar,Yamuna City,Commercial,103000,2023-08-01
+Lucknow,BKT,Saraswati Ganj,Agricultural,10000,2023-08-01
+Lucknow,Sadar,Azad Khand,Residential,30000,2023-08-01
+Lucknow,Mohanlalganj,Nehru Enclave,Commercial,65000,2023-08-01
+Lucknow,BKT,Shiv Enclave,Residential,40000,2023-08-01
+Lucknow,Sarojini Nagar,Azad Ganj,Residential,44000,2023-08-01
+Lucknow,BKT,Arya Khand,Residential,27000,2023-08-01
+Lucknow,Mohanlalganj,Yamuna Nagar,Commercial,108000,2023-08-01
+Lucknow,Malihabad,Rajiv Bagh,Residential,28000,2023-08-01
+Lucknow,Sadar,Shiv Khand,Residential,38000,2023-08-01
+Lucknow,BKT,Vivekananda Vihar,Residential,40000,2023-08-01
+Lucknow,Malihabad,Shiv Puram,Residential,39000,2023-08-01
+Lucknow,Sadar,Subhash Puram,Residential,30000,2023-08-01
+Lucknow,Sarojini Nagar,Saket Ganj,Commercial,77000,2023-08-01
+Lucknow,Mohanlalganj,Ganga Enclave,Commercial,104000,2023-08-01
+Lucknow,Sarojini Nagar,Patel Nagar,Residential,32000,2023-08-01
+Lucknow,Malihabad,Vivekananda City,Residential,26000,2023-08-01
+Lucknow,Malihabad,Laxmi Vihar,Residential,40000,2023-08-01
+Lucknow,Mohanlalganj,Indira Puram,Commercial,101000,2023-08-01
+Lucknow,BKT,Shyam Puram,Residential,39000,2023-08-01
+Lucknow,BKT,Tagore Bagh,Residential,28000,2023-08-01
+Lucknow,Sadar,Yamuna Ganj,Residential,34000,2023-08-01
+Lucknow,Sarojini Nagar,Gandhi Ganj,Residential,31000,2023-08-01
+Noida,Jewar,Ram Tech Zone ,Residential,55000,2023-08-01
+Noida,Jewar,Laxmi Extension ,Residential,85000,2023-08-01
+Noida,Jewar,Phase 126,Residential,91000,2023-08-01
+Noida,Dadri,Yamuna Expressway ,Commercial,241000,2023-08-01
+Noida,Gautam Buddha Nagar,Vasant Extension ,Residential,55000,2023-08-01
+Noida,Dadri,Saket Extension ,Residential,62000,2023-08-01
+Noida,Jewar,Sector 76,Commercial,223000,2023-08-01
+Noida,Dadri,Phase 3,Residential,76000,2023-08-01
+Noida,Dadri,Krishna Extension ,Residential,94000,2023-08-01
+Noida,Jewar,Sector 149,Residential,82000,2023-08-01
+Noida,Dadri,Krishna Expressway ,Commercial,145000,2023-08-01
+Noida,Jewar,Sector 128,Commercial,136000,2023-08-01
+Noida,Dadri,Saket Expressway ,Commercial,191000,2023-08-01
+Noida,Dadri,Saraswati Tech Zone ,Commercial,178000,2023-08-01
+Noida,Gautam Buddha Nagar,Sector 44,Residential,92000,2023-08-01
+Noida,Dadri,Phase 131,Residential,73000,2023-08-01
+Noida,Dadri,Saraswati Expressway ,Residential,66000,2023-08-01
+Noida,Gautam Buddha Nagar,Sector 91,Residential,96000,2023-08-01
+Noida,Jewar,Phase 98,Agricultural,19000,2023-08-01
+Noida,Gautam Buddha Nagar,Patel Expressway ,Agricultural,22000,2023-08-01
+Noida,Gautam Buddha Nagar,Vivekananda Tech Zone ,Residential,77000,2023-08-01
+Noida,Gautam Buddha Nagar,Phase 13,Residential,52000,2023-08-01
+Noida,Jewar,Yamuna Extension ,Commercial,215000,2023-08-01
+Noida,Gautam Buddha Nagar,Shiv Tech Zone ,Residential,93000,2023-08-01
+Noida,Gautam Buddha Nagar,Shyam Tech Zone ,Residential,66000,2023-08-01
+Noida,Jewar,Shastri Expressway ,Commercial,140000,2023-08-01
+Noida,Dadri,Govind Tech Zone ,Residential,65000,2023-08-01
+Noida,Jewar,Phase 62,Residential,88000,2023-08-01
+Noida,Gautam Buddha Nagar,Subhash Tech Zone ,Agricultural,15000,2023-08-01
+Noida,Gautam Buddha Nagar,Gomti Expressway ,Residential,74000,2023-08-01
+Noida,Gautam Buddha Nagar,Sector 13,Residential,58000,2023-08-01
+Noida,Dadri,Sector 35,Residential,96000,2023-08-01
+Noida,Gautam Buddha Nagar,Vasant Tech Zone ,Residential,91000,2023-08-01
+Noida,Dadri,Sector 43,Commercial,217000,2023-08-01
+Noida,Jewar,Laxmi Tech Zone ,Commercial,230000,2023-08-01
+Noida,Dadri,Phase 24,Residential,57000,2023-08-01
+Noida,Jewar,Sector 102,Agricultural,23000,2023-08-01
+Noida,Jewar,Sector 61,Commercial,198000,2023-08-01
+Noida,Dadri,Shyam Expressway ,Residential,53000,2023-08-01
+Noida,Dadri,Phase 114,Agricultural,22000,2023-08-01
+Noida,Jewar,Shastri Tech Zone ,Residential,69000,2023-08-01
+Noida,Jewar,Laxmi Expressway ,Agricultural,27000,2023-08-01
+Noida,Dadri,Sector 60,Residential,61000,2023-08-01
+Noida,Jewar,Subhash Expressway ,Residential,87000,2023-08-01
+Noida,Gautam Buddha Nagar,Ashok Tech Zone ,Commercial,242000,2023-08-01
+Noida,Jewar,Patel Extension ,Commercial,178000,2023-08-01
+Noida,Dadri,Phase 123,Residential,78000,2023-08-01
+Noida,Gautam Buddha Nagar,Subhash Extension ,Residential,90000,2023-08-01
+Noida,Gautam Buddha Nagar,Phase 76,Commercial,148000,2023-08-01
+Noida,Gautam Buddha Nagar,Sector 111,Residential,96000,2023-08-01
+Noida,Gautam Buddha Nagar,Phase 103,Residential,56000,2023-08-01
+Noida,Gautam Buddha Nagar,Rajiv Extension ,Residential,75000,2023-08-01
+Noida,Gautam Buddha Nagar,Arya Tech Zone ,Commercial,174000,2023-08-01
+Noida,Dadri,Sector 130,Agricultural,18000,2023-08-01
+Noida,Dadri,Kalyan Expressway ,Residential,70000,2023-08-01
+Noida,Jewar,Gandhi Tech Zone ,Agricultural,24000,2023-08-01
+Noida,Jewar,Ashok Expressway ,Residential,86000,2023-08-01
+Noida,Jewar,Phase 115,Agricultural,15000,2023-08-01
+Noida,Jewar,Shiv Expressway ,Residential,52000,2023-08-01
+Noida,Dadri,Phase 108,Residential,81000,2023-08-01
+Noida,Dadri,Phase 16,Commercial,182000,2023-08-01
+Noida,Dadri,Nehru Tech Zone ,Residential,93000,2023-08-01
+Noida,Gautam Buddha Nagar,Sector 40,Residential,89000,2023-08-01
+Noida,Dadri,Sector 55,Commercial,143000,2023-08-01
+Noida,Jewar,Phase 85,Commercial,216000,2023-08-01
+Kanpur,Bilhaur,Ram Chauraha,Residential,30000,2023-08-01
+Kanpur,Ghatampur,Subhash Ganj,Residential,31000,2023-08-01
+Kanpur,Ghatampur,Shiv Pur,Commercial,64000,2023-08-01
+Kanpur,Ghatampur,Vivekananda Pur,Residential,28000,2023-08-01
+Kanpur,Bilhaur,Ashok Pur,Agricultural,6000,2023-08-01
+Kanpur,Ghatampur,Gomti Pur,Commercial,69000,2023-08-01
+Kanpur,Kanpur Nagar,Saraswati Ganj,Agricultural,8000,2023-08-01
+Kanpur,Ghatampur,Rajiv Pur,Commercial,44000,2023-08-01
+Kanpur,Bilhaur,Gandhi Ganj,Residential,19000,2023-08-01
+Kanpur,Bilhaur,Tagore Ghat,Commercial,74000,2023-08-01
+Kanpur,Ghatampur,Patel Pur,Agricultural,7000,2023-08-01
+Kanpur,Kanpur Nagar,Krishna Ghat,Residential,19000,2023-08-01
+Kanpur,Bilhaur,Saket Pur,Residential,30000,2023-08-01
+Kanpur,Kanpur Nagar,Nehru Pur,Commercial,56000,2023-08-01
+Kanpur,Bilhaur,Patel Chauraha,Residential,19000,2023-08-01
+Kanpur,Kanpur Nagar,Saket Nagar,Residential,26000,2023-08-01
+Kanpur,Bilhaur,Gomti Kheda,Residential,31000,2023-08-01
+Kanpur,Kanpur Nagar,Tagore Kheda,Residential,27000,2023-08-01
+Kanpur,Bilhaur,Shyam Ganj,Commercial,47000,2023-08-01
+Kanpur,Ghatampur,Indira Pur,Residential,26000,2023-08-01
+Kanpur,Kanpur Nagar,Yamuna Chauraha,Commercial,80000,2023-08-01
+Kanpur,Kanpur Nagar,Vivekananda Chauraha,Residential,27000,2023-08-01
+Kanpur,Kanpur Nagar,Tagore Nagar,Residential,22000,2023-08-01
+Kanpur,Ghatampur,Vivekananda Kheda,Residential,22000,2023-08-01
+Kanpur,Bilhaur,Shyam Chauraha,Commercial,49000,2023-08-01
+Kanpur,Kanpur Nagar,Ganga Chauraha,Agricultural,8000,2023-08-01
+Kanpur,Kanpur Nagar,Shyam Ghat,Commercial,54000,2023-08-01
+Kanpur,Bilhaur,Gomti Chauraha,Commercial,61000,2023-08-01
+Kanpur,Kanpur Nagar,Gandhi Chauraha,Commercial,53000,2023-08-01
+Kanpur,Bilhaur,Patel Ghat,Residential,29000,2023-08-01
+Kanpur,Ghatampur,Yamuna Ganj,Commercial,79000,2023-08-01
+Kanpur,Ghatampur,Shiv Nagar,Commercial,63000,2023-08-01
+Kanpur,Bilhaur,Rajiv Ganj,Residential,19000,2023-08-01
+Kanpur,Kanpur Nagar,Gomti Ghat,Residential,20000,2023-08-01
+Kanpur,Kanpur Nagar,Krishna Chauraha,Commercial,81000,2023-08-01
+Kanpur,Bilhaur,Saket Kheda,Residential,25000,2023-08-01
+Kanpur,Ghatampur,Rajiv Kheda,Commercial,47000,2023-08-01
+Kanpur,Ghatampur,Gomti Nagar,Residential,21000,2023-08-01
+Kanpur,Kanpur Nagar,Ram Kheda,Residential,29000,2023-08-01
+Kanpur,Bilhaur,Azad Chauraha,Commercial,71000,2023-08-01
+Kanpur,Bilhaur,Ram Nagar,Residential,22000,2023-08-01
+Kanpur,Bilhaur,Yamuna Kheda,Residential,30000,2023-08-01
+Kanpur,Bilhaur,Shastri Nagar,Commercial,52000,2023-08-01
+Kanpur,Bilhaur,Arya Kheda,Residential,22000,2023-08-01
+Kanpur,Ghatampur,Ram Ganj,Residential,29000,2023-08-01
+Kanpur,Bilhaur,Shyam Nagar,Agricultural,7000,2023-08-01
+Kanpur,Bilhaur,Saket Chauraha,Residential,28000,2023-08-01
+Kanpur,Ghatampur,Ashok Ghat,Residential,17000,2023-08-01
+Kanpur,Bilhaur,Shiv Chauraha,Agricultural,9000,2023-08-01
+Kanpur,Ghatampur,Ganga Nagar,Residential,25000,2023-08-01
+Kanpur,Ghatampur,Ashok Chauraha,Residential,29000,2023-08-01
+Kanpur,Bilhaur,Shastri Kheda,Residential,18000,2023-08-01
+Kanpur,Kanpur Nagar,Kalyan Kheda,Residential,18000,2023-08-01
+Kanpur,Bilhaur,Subhash Pur,Residential,29000,2023-08-01
+Kanpur,Ghatampur,Patel Kheda,Commercial,61000,2023-08-01
+Kanpur,Bilhaur,Vasant Chauraha,Commercial,71000,2023-08-01
+Kanpur,Bilhaur,Ganga Ghat,Residential,31000,2023-08-01
+Kanpur,Ghatampur,Govind Nagar,Residential,21000,2023-08-01
+Kanpur,Kanpur Nagar,Shastri Ganj,Residential,30000,2023-08-01
+Kanpur,Bilhaur,Laxmi Kheda,Commercial,63000,2023-08-01
+Kanpur,Ghatampur,Govind Ghat,Residential,23000,2023-08-01
+Kanpur,Kanpur Nagar,Shastri Chauraha,Commercial,80000,2023-08-01
+Kanpur,Kanpur Nagar,Tagore Pur,Agricultural,8000,2023-08-01
+Kanpur,Ghatampur,Rajiv Chauraha,Residential,19000,2023-08-01
+Varanasi,Pindra,Shyam Pur,Residential,30000,2023-08-01
+Varanasi,Pindra,Kalyan Khand,Residential,29000,2023-08-01
+Varanasi,Varanasi,Vasant Khand,Residential,31000,2023-08-01
+Varanasi,Varanasi,Ashok Khand,Residential,38000,2023-08-01
+Varanasi,Varanasi,Shiv Market,Agricultural,12000,2023-08-01
+Varanasi,Pindra,Nehru Colony,Commercial,129000,2023-08-01
+Varanasi,Pindra,Shastri Ghat,Residential,50000,2023-08-01
+Varanasi,Pindra,Govind Khand,Residential,50000,2023-08-01
+Varanasi,Pindra,Indira Ghat,Residential,48000,2023-08-01
+Varanasi,Pindra,Vasant Pur,Commercial,75000,2023-08-01
+Varanasi,Pindra,Shiv Ghat,Commercial,70000,2023-08-01
+Varanasi,Raja Talab,Krishna Nagar,Residential,28000,2023-08-01
+Varanasi,Pindra,Azad Colony,Residential,31000,2023-08-01
+Varanasi,Raja Talab,Arya Pur,Residential,31000,2023-08-01
+Varanasi,Raja Talab,Ganga Ghat,Residential,37000,2023-08-01
+Varanasi,Raja Talab,Ram Khand,Residential,45000,2023-08-01
+Varanasi,Raja Talab,Gomti Nagar,Residential,29000,2023-08-01
+Varanasi,Pindra,Patel Colony,Residential,29000,2023-08-01
+Varanasi,Raja Talab,Ashok Nagar,Residential,50000,2023-08-01
+Varanasi,Pindra,Azad Khand,Agricultural,12000,2023-08-01
+Varanasi,Raja Talab,Tagore Colony,Agricultural,8000,2023-08-01
+Varanasi,Pindra,Saket Market,Commercial,102000,2023-08-01
+Varanasi,Pindra,Rajiv Colony,Commercial,124000,2023-08-01
+Varanasi,Varanasi,Krishna Market,Residential,40000,2023-08-01
+Varanasi,Varanasi,Ganga Khand,Residential,36000,2023-08-01
+Varanasi,Varanasi,Shyam Khand,Agricultural,13000,2023-08-01
+Varanasi,Varanasi,Govind Ghat,Agricultural,8000,2023-08-01
+Varanasi,Varanasi,Ganga Colony,Agricultural,12000,2023-08-01
+Varanasi,Raja Talab,Rajiv Ghat,Agricultural,15000,2023-08-01
+Varanasi,Pindra,Yamuna Pur,Residential,31000,2023-08-01
+Varanasi,Raja Talab,Saraswati Ghat,Residential,28000,2023-08-01
+Varanasi,Pindra,Krishna Pur,Residential,46000,2023-08-01
+Varanasi,Varanasi,Nehru Nagar,Agricultural,13000,2023-08-01
+Varanasi,Pindra,Patel Pur,Residential,33000,2023-08-01
+Varanasi,Varanasi,Saket Colony,Residential,39000,2023-08-01
+Varanasi,Pindra,Ashok Pur,Commercial,82000,2023-08-01
+Varanasi,Varanasi,Vasant Market,Residential,38000,2023-08-01
+Varanasi,Pindra,Shiv Pur,Residential,37000,2023-08-01
+Varanasi,Raja Talab,Rajiv Nagar,Residential,38000,2023-08-01
+Varanasi,Varanasi,Laxmi Nagar,Residential,32000,2023-08-01
+Varanasi,Pindra,Tagore Khand,Residential,46000,2023-08-01
+Varanasi,Pindra,Subhash Ghat,Residential,32000,2023-08-01
+Varanasi,Pindra,Shastri Khand,Agricultural,10000,2023-08-01
+Varanasi,Varanasi,Ashok Ghat,Residential,33000,2023-08-01
+Varanasi,Varanasi,Saraswati Nagar,Residential,42000,2023-08-01
+Varanasi,Raja Talab,Azad Ghat,Residential,29000,2023-08-01
+Varanasi,Varanasi,Ram Nagar,Residential,50000,2023-08-01
+Varanasi,Pindra,Rajiv Khand,Residential,44000,2023-08-01
+Varanasi,Pindra,Shastri Pur,Residential,37000,2023-08-01
+Varanasi,Raja Talab,Shiv Nagar,Commercial,117000,2023-08-01
+Varanasi,Raja Talab,Ram Market,Residential,48000,2023-08-01
+Varanasi,Varanasi,Subhash Colony,Commercial,115000,2023-08-01
+Varanasi,Raja Talab,Kalyan Colony,Commercial,116000,2023-08-01
+Varanasi,Raja Talab,Vivekananda Khand,Commercial,88000,2023-08-01
+Varanasi,Pindra,Ganga Nagar,Residential,44000,2023-08-01
+Varanasi,Raja Talab,Vivekananda Market,Residential,30000,2023-08-01
+Varanasi,Raja Talab,Tagore Pur,Commercial,116000,2023-08-01
+Varanasi,Raja Talab,Gomti Pur,Commercial,105000,2023-08-01
+Varanasi,Varanasi,Ram Pur,Commercial,70000,2023-08-01
+Varanasi,Varanasi,Kalyan Ghat,Commercial,96000,2023-08-01
+Varanasi,Pindra,Yamuna Colony,Residential,36000,2023-08-01
+Varanasi,Raja Talab,Vivekananda Nagar,Residential,52000,2023-08-01
+Varanasi,Pindra,Kalyan Pur,Commercial,106000,2023-08-01
+Agra,Kiraoli,Shiv Market,Commercial,71000,2023-08-01
+Agra,Kiraoli,Krishna Bagh,Residential,23000,2023-08-01
+Agra,Agra,Arya Ganj,Commercial,65000,2023-08-01
+Agra,Kiraoli,Shastri Khand,Commercial,51000,2023-08-01
+Agra,Fatehabad,Yamuna Ganj,Residential,28000,2023-08-01
+Agra,Fatehabad,Rajiv Ganj,Residential,33000,2023-08-01
+Agra,Fatehabad,Vasant Nagar,Residential,31000,2023-08-01
+Agra,Kiraoli,Indira Market,Residential,25000,2023-08-01
+Agra,Fatehabad,Azad Nagar,Residential,37000,2023-08-01
+Agra,Fatehabad,Saket Khand,Residential,36000,2023-08-01
+Agra,Agra,Nehru Bagh,Residential,27000,2023-08-01
+Agra,Fatehabad,Laxmi Bagh,Residential,36000,2023-08-01
+Agra,Agra,Shiv Vihar,Residential,31000,2023-08-01
+Agra,Agra,Patel Market,Commercial,50000,2023-08-01
+Agra,Agra,Krishna Khand,Residential,25000,2023-08-01
+Agra,Agra,Govind Ganj,Commercial,61000,2023-08-01
+Agra,Kiraoli,Kalyan Nagar,Residential,32000,2023-08-01
+Agra,Kiraoli,Saket Ganj,Residential,31000,2023-08-01
+Agra,Agra,Arya Bagh,Commercial,62000,2023-08-01
+Agra,Agra,Indira Nagar,Residential,30000,2023-08-01
+Agra,Kiraoli,Gomti Market,Residential,25000,2023-08-01
+Agra,Fatehabad,Subhash Market,Residential,25000,2023-08-01
+Agra,Agra,Tagore Vihar,Commercial,83000,2023-08-01
+Agra,Fatehabad,Shyam Ganj,Commercial,50000,2023-08-01
+Agra,Kiraoli,Saraswati Market,Residential,31000,2023-08-01
+Agra,Kiraoli,Shyam Nagar,Residential,36000,2023-08-01
+Agra,Agra,Gomti Khand,Agricultural,9000,2023-08-01
+Agra,Fatehabad,Krishna Vihar,Commercial,54000,2023-08-01
+Agra,Agra,Indira Khand,Residential,34000,2023-08-01
+Agra,Fatehabad,Govind Khand,Commercial,70000,2023-08-01
+Agra,Kiraoli,Patel Vihar,Commercial,61000,2023-08-01
+Agra,Kiraoli,Shastri Ganj,Commercial,70000,2023-08-01
+Agra,Kiraoli,Shiv Khand,Residential,28000,2023-08-01
+Agra,Agra,Yamuna Vihar,Commercial,78000,2023-08-01
+Agra,Kiraoli,Tagore Ganj,Commercial,84000,2023-08-01
+Agra,Agra,Ashok Ganj,Residential,25000,2023-08-01
+Agra,Kiraoli,Tagore Nagar,Residential,24000,2023-08-01
+Agra,Kiraoli,Indira Ganj,Agricultural,10000,2023-08-01
+Agra,Fatehabad,Shiv Bagh,Commercial,63000,2023-08-01
+Agra,Agra,Saraswati Bagh,Residential,24000,2023-08-01
+Agra,Agra,Gandhi Bagh,Residential,20000,2023-08-01
+Agra,Agra,Shyam Vihar,Commercial,53000,2023-08-01
+Agra,Kiraoli,Ganga Khand,Residential,22000,2023-08-01
+Agra,Agra,Saket Bagh,Residential,22000,2023-08-01
+Agra,Agra,Nehru Khand,Agricultural,6000,2023-08-01
+Agra,Kiraoli,Gomti Ganj,Commercial,63000,2023-08-01
+Agra,Agra,Gandhi Market,Residential,34000,2023-08-01
+Agra,Fatehabad,Saraswati Nagar,Residential,25000,2023-08-01
+Agra,Agra,Patel Bagh,Commercial,56000,2023-08-01
+Agra,Kiraoli,Azad Ganj,Residential,20000,2023-08-01
+Agra,Agra,Shiv Nagar,Residential,25000,2023-08-01
+Agra,Agra,Ganga Vihar,Residential,23000,2023-08-01
+Agra,Fatehabad,Tagore Khand,Agricultural,6000,2023-08-01
+Agra,Agra,Patel Ganj,Commercial,66000,2023-08-01
+Agra,Agra,Rajiv Bagh,Agricultural,7000,2023-08-01
+Agra,Agra,Rajiv Vihar,Residential,25000,2023-08-01
+Agra,Fatehabad,Shyam Market,Commercial,77000,2023-08-01
+Agra,Agra,Subhash Nagar,Residential,26000,2023-08-01
+Agra,Kiraoli,Saraswati Ganj,Residential,30000,2023-08-01
+Agra,Kiraoli,Ram Khand,Residential,30000,2023-08-01
+Prayagraj,Phulpur,Indira Ganj,Agricultural,10000,2023-08-01
+Prayagraj,Sadar,Arya Puram,Residential,28000,2023-08-01
+Prayagraj,Sadar,Shyam Road,Residential,35000,2023-08-01
+Prayagraj,Phulpur,Vasant Katra,Residential,36000,2023-08-01
+Prayagraj,Karchhana,Arya Katra,Commercial,76000,2023-08-01
+Prayagraj,Karchhana,Kalyan Road,Residential,34000,2023-08-01
+Prayagraj,Sadar,Subhash Chowk,Residential,40000,2023-08-01
+Prayagraj,Phulpur,Shyam Puram,Residential,26000,2023-08-01
+Prayagraj,Karchhana,Vasant Chowk,Residential,34000,2023-08-01
+Prayagraj,Phulpur,Saraswati Road,Commercial,72000,2023-08-01
+Prayagraj,Karchhana,Saraswati Nagar,Residential,31000,2023-08-01
+Prayagraj,Phulpur,Shyam Nagar,Residential,39000,2023-08-01
+Prayagraj,Phulpur,Shastri Ganj,Residential,37000,2023-08-01
+Prayagraj,Karchhana,Laxmi Chowk,Residential,34000,2023-08-01
+Prayagraj,Phulpur,Nehru Nagar,Residential,27000,2023-08-01
+Prayagraj,Karchhana,Govind Road,Residential,29000,2023-08-01
+Prayagraj,Phulpur,Shastri Puram,Commercial,85000,2023-08-01
+Prayagraj,Phulpur,Rajiv Nagar,Residential,34000,2023-08-01
+Prayagraj,Karchhana,Krishna Road,Residential,33000,2023-08-01
+Prayagraj,Karchhana,Shastri Chowk,Residential,30000,2023-08-01
+Prayagraj,Karchhana,Patel Katra,Residential,23000,2023-08-01
+Prayagraj,Sadar,Vivekananda Nagar,Residential,25000,2023-08-01
+Prayagraj,Phulpur,Patel Ganj,Commercial,67000,2023-08-01
+Prayagraj,Phulpur,Ram Katra,Residential,23000,2023-08-01
+Prayagraj,Sadar,Govind Ganj,Residential,41000,2023-08-01
+Prayagraj,Karchhana,Patel Road,Residential,28000,2023-08-01
+Prayagraj,Sadar,Gomti Road,Residential,38000,2023-08-01
+Prayagraj,Karchhana,Yamuna Puram,Commercial,74000,2023-08-01
+Prayagraj,Phulpur,Arya Nagar,Residential,29000,2023-08-01
+Prayagraj,Phulpur,Saket Chowk,Commercial,82000,2023-08-01
+Prayagraj,Karchhana,Krishna Chowk,Residential,37000,2023-08-01
+Prayagraj,Phulpur,Tagore Ganj,Residential,31000,2023-08-01
+Prayagraj,Karchhana,Saket Nagar,Residential,35000,2023-08-01
+Prayagraj,Sadar,Shiv Ganj,Residential,34000,2023-08-01
+Prayagraj,Phulpur,Tagore Katra,Commercial,95000,2023-08-01
+Prayagraj,Karchhana,Krishna Ganj,Residential,35000,2023-08-01
+Prayagraj,Karchhana,Shastri Katra,Residential,27000,2023-08-01
+Prayagraj,Phulpur,Tagore Nagar,Agricultural,10000,2023-08-01
+Prayagraj,Sadar,Gomti Chowk,Residential,28000,2023-08-01
+Prayagraj,Sadar,Ganga Puram,Commercial,64000,2023-08-01
+Prayagraj,Phulpur,Gomti Ganj,Agricultural,6000,2023-08-01
+Prayagraj,Sadar,Yamuna Ganj,Residential,39000,2023-08-01
+Prayagraj,Phulpur,Govind Nagar,Commercial,94000,2023-08-01
+Prayagraj,Phulpur,Ashok Road,Commercial,66000,2023-08-01
+Prayagraj,Karchhana,Nehru Road,Residential,28000,2023-08-01
+Prayagraj,Phulpur,Laxmi Nagar,Residential,36000,2023-08-01
+Prayagraj,Sadar,Shiv Puram,Commercial,86000,2023-08-01
+Prayagraj,Phulpur,Shyam Katra,Residential,35000,2023-08-01
+Prayagraj,Phulpur,Krishna Katra,Commercial,64000,2023-08-01
+Prayagraj,Karchhana,Indira Nagar,Residential,30000,2023-08-01
+Prayagraj,Karchhana,Azad Ganj,Agricultural,12000,2023-08-01
+Prayagraj,Karchhana,Vivekananda Chowk,Agricultural,7000,2023-08-01
+Prayagraj,Phulpur,Indira Chowk,Residential,22000,2023-08-01
+Prayagraj,Phulpur,Vivekananda Road,Residential,23000,2023-08-01
+Prayagraj,Sadar,Nehru Chowk,Agricultural,8000,2023-08-01
+Prayagraj,Karchhana,Saraswati Ganj,Agricultural,7000,2023-08-01
+Prayagraj,Phulpur,Ganga Chowk,Residential,29000,2023-08-01
+Prayagraj,Phulpur,Laxmi Ganj,Residential,24000,2023-08-01
+Prayagraj,Karchhana,Kalyan Ganj,Commercial,68000,2023-08-01
+Prayagraj,Sadar,Azad Puram,Commercial,88000,2023-08-01
+Meerut,Meerut,Yamuna City,Residential,39000,2023-08-01
+Meerut,Meerut,Laxmi City,Residential,23000,2023-08-01
+Meerut,Mawana,Indira Nagar,Residential,32000,2023-08-01
+Meerut,Meerut,Shiv Nagar,Residential,33000,2023-08-01
+Meerut,Meerut,Saket City,Residential,35000,2023-08-01
+Meerut,Mawana,Rajiv Road,Commercial,79000,2023-08-01
+Meerut,Meerut,Ram Nagar,Commercial,101000,2023-08-01
+Meerut,Meerut,Gandhi Enclave,Residential,25000,2023-08-01
+Meerut,Sardhana,Shyam Road,Commercial,83000,2023-08-01
+Meerut,Mawana,Ashok Enclave,Residential,29000,2023-08-01
+Meerut,Mawana,Ram City,Commercial,97000,2023-08-01
+Meerut,Mawana,Arya City,Residential,33000,2023-08-01
+Meerut,Mawana,Vasant Nagar,Residential,24000,2023-08-01
+Meerut,Mawana,Subhash Road,Residential,23000,2023-08-01
+Meerut,Mawana,Ashok City,Agricultural,8000,2023-08-01
+Meerut,Sardhana,Krishna City,Residential,24000,2023-08-01
+Meerut,Meerut,Vivekananda City,Commercial,68000,2023-08-01
+Meerut,Mawana,Yamuna Vihar,Residential,39000,2023-08-01
+Meerut,Meerut,Govind Enclave,Residential,39000,2023-08-01
+Meerut,Sardhana,Ashok Nagar,Commercial,98000,2023-08-01
+Meerut,Sardhana,Yamuna Enclave,Residential,35000,2023-08-01
+Meerut,Meerut,Ram Vihar,Residential,39000,2023-08-01
+Meerut,Sardhana,Vasant Vihar,Agricultural,9000,2023-08-01
+Meerut,Meerut,Govind Road,Commercial,99000,2023-08-01
+Meerut,Sardhana,Saket Nagar,Commercial,91000,2023-08-01
+Meerut,Sardhana,Vivekananda Enclave,Residential,29000,2023-08-01
+Meerut,Sardhana,Gandhi Road,Residential,25000,2023-08-01
+Meerut,Sardhana,Ram Road,Commercial,85000,2023-08-01
+Meerut,Mawana,Ashok Vihar,Commercial,63000,2023-08-01
+Meerut,Mawana,Gandhi City,Residential,25000,2023-08-01
+Meerut,Sardhana,Gomti Road,Agricultural,6000,2023-08-01
+Meerut,Mawana,Shastri Road,Residential,33000,2023-08-01
+Meerut,Meerut,Saket Enclave,Residential,29000,2023-08-01
+Meerut,Mawana,Kalyan Vihar,Residential,37000,2023-08-01
+Meerut,Sardhana,Shastri Vihar,Residential,33000,2023-08-01
+Meerut,Meerut,Azad Nagar,Commercial,59000,2023-08-01
+Meerut,Mawana,Tagore Nagar,Commercial,96000,2023-08-01
+Meerut,Sardhana,Krishna Nagar,Residential,39000,2023-08-01
+Meerut,Meerut,Yamuna Nagar,Residential,25000,2023-08-01
+Meerut,Mawana,Gomti Vihar,Residential,40000,2023-08-01
+Meerut,Mawana,Shastri Enclave,Residential,25000,2023-08-01
+Meerut,Meerut,Saraswati Road,Commercial,94000,2023-08-01
+Meerut,Sardhana,Patel City,Residential,34000,2023-08-01
+Meerut,Sardhana,Arya Vihar,Commercial,96000,2023-08-01
+Meerut,Meerut,Shiv Road,Commercial,85000,2023-08-01
+Meerut,Meerut,Subhash Vihar,Residential,30000,2023-08-01
+Meerut,Mawana,Saraswati City,Residential,22000,2023-08-01
+Meerut,Mawana,Vivekananda Nagar,Commercial,58000,2023-08-01
+Meerut,Meerut,Shyam City,Agricultural,9000,2023-08-01
+Meerut,Mawana,Shiv Enclave,Residential,31000,2023-08-01
+Meerut,Sardhana,Saket Road,Agricultural,12000,2023-08-01
+Meerut,Mawana,Shyam Enclave,Residential,34000,2023-08-01
+Meerut,Mawana,Krishna Enclave,Commercial,84000,2023-08-01
+Meerut,Meerut,Saraswati Vihar,Commercial,74000,2023-08-01
+Meerut,Meerut,Gomti Nagar,Residential,28000,2023-08-01
+Meerut,Mawana,Laxmi Nagar,Residential,22000,2023-08-01
+Meerut,Mawana,Saket Vihar,Residential,37000,2023-08-01
+Meerut,Meerut,Kalyan Enclave,Commercial,54000,2023-08-01
+Meerut,Mawana,Tagore Enclave,Commercial,82000,2023-08-01
+Meerut,Sardhana,Krishna Road,Residential,39000,2023-08-01
+Meerut,Meerut,Govind Nagar,Residential,28000,2023-08-01
+Ghaziabad,Loni,Azad Khand ,Residential,45000,2023-08-01
+Ghaziabad,Ghaziabad,Sector 94,Residential,50000,2023-08-01
+Ghaziabad,Ghaziabad,Saraswati Extension,Commercial,166000,2023-08-01
+Ghaziabad,Modinagar,Krishna Puram ,Residential,71000,2023-08-01
+Ghaziabad,Modinagar,Gomti Khand ,Residential,71000,2023-08-01
+Ghaziabad,Ghaziabad,Yamuna Nagar,Residential,61000,2023-08-01
+Ghaziabad,Loni,Sector 57,Commercial,183000,2023-08-01
+Ghaziabad,Ghaziabad,Nehru Nagar,Agricultural,16000,2023-08-01
+Ghaziabad,Modinagar,Patel Puram ,Commercial,195000,2023-08-01
+Ghaziabad,Modinagar,Indira Vihar,Commercial,131000,2023-08-01
+Ghaziabad,Ghaziabad,Ram Vihar,Residential,68000,2023-08-01
+Ghaziabad,Modinagar,Sector 73,Residential,59000,2023-08-01
+Ghaziabad,Modinagar,Saket Puram ,Commercial,191000,2023-08-01
+Ghaziabad,Ghaziabad,Sector 22,Residential,49000,2023-08-01
+Ghaziabad,Ghaziabad,Sector 114,Agricultural,14000,2023-08-01
+Ghaziabad,Modinagar,Azad Vihar,Residential,69000,2023-08-01
+Ghaziabad,Loni,Sector 84,Residential,62000,2023-08-01
+Ghaziabad,Loni,Sector 128,Residential,72000,2023-08-01
+Ghaziabad,Ghaziabad,Ashok Vihar,Commercial,171000,2023-08-01
+Ghaziabad,Loni,Laxmi Extension,Residential,72000,2023-08-01
+Ghaziabad,Modinagar,Subhash Khand ,Commercial,171000,2023-08-01
+Ghaziabad,Loni,Patel Nagar,Commercial,173000,2023-08-01
+Ghaziabad,Loni,Govind Khand ,Commercial,195000,2023-08-01
+Ghaziabad,Modinagar,Ashok Puram ,Commercial,163000,2023-08-01
+Ghaziabad,Ghaziabad,Shyam Nagar,Residential,61000,2023-08-01
+Ghaziabad,Ghaziabad,Ashok Extension,Residential,44000,2023-08-01
+Ghaziabad,Modinagar,Vasant Vihar,Residential,60000,2023-08-01
+Ghaziabad,Loni,Vivekananda Extension,Commercial,199000,2023-08-01
+Ghaziabad,Ghaziabad,Sector 69,Commercial,165000,2023-08-01
+Ghaziabad,Ghaziabad,Sector 24,Commercial,145000,2023-08-01
+Ghaziabad,Ghaziabad,Vasant Puram ,Commercial,165000,2023-08-01
+Ghaziabad,Ghaziabad,Patel Vihar,Commercial,200000,2023-08-01
+Ghaziabad,Modinagar,Sector 130,Residential,48000,2023-08-01
+Ghaziabad,Ghaziabad,Vasant Extension,Commercial,186000,2023-08-01
+Ghaziabad,Ghaziabad,Gomti Puram ,Residential,78000,2023-08-01
+Ghaziabad,Ghaziabad,Azad Extension,Agricultural,16000,2023-08-01
+Ghaziabad,Modinagar,Shiv Nagar,Residential,60000,2023-08-01
+Ghaziabad,Ghaziabad,Ganga Extension,Residential,60000,2023-08-01
+Ghaziabad,Ghaziabad,Shastri Puram ,Residential,55000,2023-08-01
+Ghaziabad,Loni,Gandhi Extension,Residential,65000,2023-08-01
+Ghaziabad,Ghaziabad,Saraswati Khand ,Residential,77000,2023-08-01
+Ghaziabad,Ghaziabad,Kalyan Extension,Commercial,185000,2023-08-01
+Ghaziabad,Ghaziabad,Laxmi Vihar,Residential,58000,2023-08-01
+Ghaziabad,Ghaziabad,Gomti Vihar,Residential,75000,2023-08-01
+Ghaziabad,Loni,Arya Puram ,Residential,45000,2023-08-01
+Ghaziabad,Loni,Shastri Nagar,Residential,70000,2023-08-01
+Ghaziabad,Loni,Saket Vihar,Residential,49000,2023-08-01
+Ghaziabad,Ghaziabad,Yamuna Extension,Residential,46000,2023-08-01
+Ghaziabad,Ghaziabad,Tagore Nagar,Commercial,173000,2023-08-01
+Ghaziabad,Loni,Rajiv Puram ,Commercial,193000,2023-08-01
+Ghaziabad,Loni,Kalyan Khand ,Residential,76000,2023-08-01
+Ghaziabad,Modinagar,Shyam Khand ,Commercial,192000,2023-08-01
+Ghaziabad,Ghaziabad,Shiv Vihar,Residential,68000,2023-08-01
+Ghaziabad,Ghaziabad,Subhash Vihar,Agricultural,14000,2023-08-01
+Ghaziabad,Ghaziabad,Laxmi Nagar,Residential,52000,2023-08-01
+Ghaziabad,Ghaziabad,Shiv Extension,Residential,59000,2023-08-01
+Ghaziabad,Loni,Subhash Extension,Residential,73000,2023-08-01
+Ghaziabad,Ghaziabad,Sector 120,Commercial,181000,2023-08-01
+Ghaziabad,Modinagar,Vasant Nagar,Commercial,191000,2023-08-01
+Ghaziabad,Ghaziabad,Sector 15,Commercial,198000,2023-08-01
+Ghaziabad,Loni,Arya Extension,Residential,78000,2023-08-01
+Ghaziabad,Modinagar,Shastri Extension,Residential,47000,2023-08-01
+Ghaziabad,Ghaziabad,Nehru Puram ,Residential,76000,2023-08-01
+Ghaziabad,Modinagar,Sector 101,Agricultural,19000,2023-08-01
+Ghaziabad,Modinagar,Rajiv Vihar,Residential,71000,2023-08-01
+Ghaziabad,Ghaziabad,Saket Nagar,Agricultural,13000,2023-08-01
+Ghaziabad,Modinagar,Indira Extension,Residential,77000,2023-08-01
+Ghaziabad,Loni,Tagore Vihar,Residential,81000,2023-08-01
+Ghaziabad,Modinagar,Indira Khand ,Residential,47000,2023-08-01
+Ghaziabad,Loni,Sector 143,Residential,69000,2023-08-01
+Ghaziabad,Modinagar,Patel Khand ,Residential,70000,2023-08-01
+Bareilly,Faridpur,Vivekananda Pur,Residential,15000,2023-08-01
+Bareilly,Faridpur,Laxmi Nagar,Residential,23000,2023-08-01
+Bareilly,Faridpur,Krishna Pur,Residential,20000,2023-08-01
+Bareilly,Faridpur,Kalyan Ganj,Residential,20000,2023-08-01
+Bareilly,Faridpur,Shyam Pur,Residential,17000,2023-08-01
+Bareilly,Faridpur,Indira Colony,Commercial,49000,2023-08-01
+Bareilly,Faridpur,Vivekananda Ganj,Residential,16000,2023-08-01
+Bareilly,Faridpur,Krishna Vihar,Agricultural,7000,2023-08-01
+Bareilly,Bareilly,Ganga Pur,Residential,21000,2023-08-01
+Bareilly,Aonla,Patel Ganj,Agricultural,6000,2023-08-01
+Bareilly,Bareilly,Yamuna Vihar,Commercial,44000,2023-08-01
+Bareilly,Aonla,Vasant Nagar,Residential,16000,2023-08-01
+Bareilly,Faridpur,Gandhi Pur,Residential,26000,2023-08-01
+Bareilly,Aonla,Vasant Ganj,Residential,14000,2023-08-01
+Bareilly,Bareilly,Subhash Nagar,Residential,21000,2023-08-01
+Bareilly,Bareilly,Saraswati Vihar,Commercial,54000,2023-08-01
+Bareilly,Aonla,Tagore Colony,Agricultural,6000,2023-08-01
+Bareilly,Bareilly,Ashok Vihar,Residential,15000,2023-08-01
+Bareilly,Faridpur,Shyam Vihar,Residential,18000,2023-08-01
+Bareilly,Aonla,Azad Pur,Commercial,61000,2023-08-01
+Bareilly,Aonla,Gomti Nagar,Residential,24000,2023-08-01
+Bareilly,Faridpur,Rajiv Ganj,Residential,20000,2023-08-01
+Bareilly,Aonla,Patel Nagar,Residential,15000,2023-08-01
+Bareilly,Bareilly,Vivekananda Nagar,Residential,24000,2023-08-01
+Bareilly,Bareilly,Arya Colony,Residential,20000,2023-08-01
+Bareilly,Faridpur,Vivekananda Vihar,Residential,17000,2023-08-01
+Bareilly,Aonla,Saket Pur,Residential,19000,2023-08-01
+Bareilly,Bareilly,Arya Vihar,Agricultural,6000,2023-08-01
+Bareilly,Faridpur,Shiv Pur,Agricultural,5000,2023-08-01
+Bareilly,Faridpur,Gomti Vihar,Residential,23000,2023-08-01
+Bareilly,Aonla,Kalyan Nagar,Residential,14000,2023-08-01
+Bareilly,Aonla,Nehru Pur,Residential,20000,2023-08-01
+Bareilly,Bareilly,Azad Nagar,Residential,19000,2023-08-01
+Bareilly,Faridpur,Shiv Ganj,Residential,18000,2023-08-01
+Bareilly,Bareilly,Shiv Colony,Commercial,37000,2023-08-01
+Bareilly,Bareilly,Saraswati Colony,Commercial,58000,2023-08-01
+Bareilly,Bareilly,Patel Pur,Residential,23000,2023-08-01
+Bareilly,Bareilly,Ram Colony,Residential,26000,2023-08-01
+Bareilly,Bareilly,Tagore Ganj,Commercial,49000,2023-08-01
+Bareilly,Faridpur,Arya Pur,Agricultural,6000,2023-08-01
+Bareilly,Bareilly,Kalyan Vihar,Residential,15000,2023-08-01
+Bareilly,Aonla,Ganga Vihar,Residential,25000,2023-08-01
+Bareilly,Faridpur,Nehru Colony,Residential,15000,2023-08-01
+Bareilly,Bareilly,Vasant Pur,Residential,21000,2023-08-01
+Bareilly,Faridpur,Kalyan Colony,Residential,23000,2023-08-01
+Bareilly,Faridpur,Laxmi Ganj,Residential,24000,2023-08-01
+Bareilly,Bareilly,Ashok Pur,Commercial,37000,2023-08-01
+Bareilly,Aonla,Rajiv Colony,Residential,18000,2023-08-01
+Bareilly,Faridpur,Nehru Vihar,Residential,22000,2023-08-01
+Bareilly,Bareilly,Shastri Nagar,Residential,15000,2023-08-01
+Bareilly,Bareilly,Shiv Vihar,Residential,18000,2023-08-01
+Bareilly,Bareilly,Vasant Colony,Agricultural,7000,2023-08-01
+Bareilly,Bareilly,Gandhi Vihar,Residential,14000,2023-08-01
+Bareilly,Bareilly,Rajiv Nagar,Residential,19000,2023-08-01
+Bareilly,Bareilly,Ganga Nagar,Residential,23000,2023-08-01
+Aligarh,Khair,Subhash Vihar,Agricultural,8000,2023-08-01
+Aligarh,Koil,Vasant Market,Residential,16000,2023-08-01
+Aligarh,Khair,Ashok Market,Commercial,41000,2023-08-01
+Aligarh,Koil,Krishna Nagar,Residential,23000,2023-08-01
+Aligarh,Atrauli,Saraswati Gate,Residential,22000,2023-08-01
+Aligarh,Atrauli,Indira Market,Agricultural,8000,2023-08-01
+Aligarh,Atrauli,Saket Market,Residential,25000,2023-08-01
+Aligarh,Atrauli,Vasant Road,Commercial,62000,2023-08-01
+Aligarh,Koil,Shiv Nagar,Residential,27000,2023-08-01
+Aligarh,Atrauli,Gandhi Market,Residential,25000,2023-08-01
+Aligarh,Khair,Arya Market,Commercial,59000,2023-08-01
+Aligarh,Koil,Tagore Market,Residential,27000,2023-08-01
+Aligarh,Atrauli,Gomti Nagar,Residential,24000,2023-08-01
+Aligarh,Koil,Subhash Gate,Commercial,63000,2023-08-01
+Aligarh,Koil,Subhash Market,Residential,25000,2023-08-01
+Aligarh,Koil,Arya Gate,Residential,27000,2023-08-01
+Aligarh,Koil,Shyam Vihar,Agricultural,6000,2023-08-01
+Aligarh,Atrauli,Rajiv Road,Agricultural,6000,2023-08-01
+Aligarh,Koil,Rajiv Market,Agricultural,5000,2023-08-01
+Aligarh,Khair,Indira Nagar,Commercial,55000,2023-08-01
+Aligarh,Atrauli,Laxmi Nagar,Residential,21000,2023-08-01
+Aligarh,Atrauli,Gandhi Nagar,Residential,25000,2023-08-01
+Aligarh,Khair,Gomti Gate,Residential,17000,2023-08-01
+Aligarh,Koil,Patel Vihar,Residential,26000,2023-08-01
+Aligarh,Atrauli,Patel Road,Agricultural,6000,2023-08-01
+Aligarh,Atrauli,Laxmi Road,Residential,28000,2023-08-01
+Aligarh,Atrauli,Saraswati Road,Residential,23000,2023-08-01
+Aligarh,Koil,Saraswati Vihar,Residential,17000,2023-08-01
+Aligarh,Koil,Vasant Vihar,Residential,23000,2023-08-01
+Aligarh,Atrauli,Tagore Gate,Commercial,55000,2023-08-01
+Aligarh,Atrauli,Krishna Market,Residential,17000,2023-08-01
+Aligarh,Koil,Ganga Nagar,Residential,21000,2023-08-01
+Aligarh,Khair,Indira Road,Residential,24000,2023-08-01
+Aligarh,Khair,Ganga Market,Residential,20000,2023-08-01
+Aligarh,Koil,Vivekananda Nagar,Agricultural,6000,2023-08-01
+Aligarh,Atrauli,Saraswati Market,Residential,19000,2023-08-01
+Aligarh,Khair,Gandhi Vihar,Residential,19000,2023-08-01
+Aligarh,Khair,Tagore Vihar,Residential,19000,2023-08-01
+Aligarh,Koil,Saket Road,Residential,20000,2023-08-01
+Aligarh,Khair,Vasant Nagar,Commercial,55000,2023-08-01
+Aligarh,Koil,Govind Nagar,Residential,24000,2023-08-01
+Aligarh,Koil,Azad Gate,Commercial,56000,2023-08-01
+Aligarh,Koil,Indira Gate,Commercial,49000,2023-08-01
+Aligarh,Khair,Nehru Road,Agricultural,7000,2023-08-01
+Aligarh,Atrauli,Saket Vihar,Residential,16000,2023-08-01
+Aligarh,Khair,Gomti Vihar,Residential,23000,2023-08-01
+Aligarh,Atrauli,Ashok Nagar,Residential,23000,2023-08-01
+Aligarh,Khair,Rajiv Nagar,Commercial,69000,2023-08-01
+Aligarh,Atrauli,Saraswati Nagar,Residential,27000,2023-08-01
+Aligarh,Koil,Saket Gate,Residential,23000,2023-08-01
+Aligarh,Koil,Shastri Vihar,Commercial,53000,2023-08-01
+Aligarh,Atrauli,Shiv Market,Agricultural,7000,2023-08-01
+Aligarh,Koil,Shiv Vihar,Residential,24000,2023-08-01
+Aligarh,Koil,Yamuna Road,Commercial,60000,2023-08-01
+Aligarh,Koil,Subhash Road,Residential,23000,2023-08-01
+Aligarh,Khair,Gomti Road,Agricultural,6000,2023-08-01
+Aligarh,Khair,Ram Vihar,Residential,26000,2023-08-01
+Aligarh,Koil,Shastri Road,Commercial,42000,2023-08-01
+Aligarh,Atrauli,Nehru Gate,Residential,26000,2023-08-01
+Gorakhpur,Gorakhpur,Yamuna Pur,Residential,16000,2023-08-01
+Gorakhpur,Sahjanwa,Subhash Vihar,Residential,22000,2023-08-01
+Gorakhpur,Gorakhpur,Ram Nagar,Residential,17000,2023-08-01
+Gorakhpur,Sahjanwa,Vivekananda Nagar,Residential,16000,2023-08-01
+Gorakhpur,Campierganj,Indira Nagar,Residential,28000,2023-08-01
+Gorakhpur,Sahjanwa,Laxmi Pur,Residential,21000,2023-08-01
+Gorakhpur,Sahjanwa,Ashok Pur,Commercial,57000,2023-08-01
+Gorakhpur,Campierganj,Ram Vihar,Residential,17000,2023-08-01
+Gorakhpur,Campierganj,Ganga Pur,Commercial,61000,2023-08-01
+Gorakhpur,Campierganj,Nehru Pur,Commercial,43000,2023-08-01
+Gorakhpur,Gorakhpur,Shyam Vihar,Residential,18000,2023-08-01
+Gorakhpur,Campierganj,Shastri Vihar,Commercial,71000,2023-08-01
+Gorakhpur,Sahjanwa,Patel Chowk,Residential,21000,2023-08-01
+Gorakhpur,Gorakhpur,Yamuna Ganj,Commercial,55000,2023-08-01
+Gorakhpur,Sahjanwa,Arya Ganj,Commercial,41000,2023-08-01
+Gorakhpur,Campierganj,Kalyan Chowk,Residential,27000,2023-08-01
+Gorakhpur,Sahjanwa,Gomti Vihar,Residential,24000,2023-08-01
+Gorakhpur,Gorakhpur,Govind Chowk,Commercial,66000,2023-08-01
+Gorakhpur,Gorakhpur,Shyam Nagar,Agricultural,8000,2023-08-01
+Gorakhpur,Gorakhpur,Govind Ganj,Residential,24000,2023-08-01
+Gorakhpur,Campierganj,Govind Pur,Residential,19000,2023-08-01
+Gorakhpur,Gorakhpur,Gandhi Ganj,Residential,23000,2023-08-01
+Gorakhpur,Campierganj,Ram Pur,Commercial,63000,2023-08-01
+Gorakhpur,Campierganj,Kalyan Pur,Commercial,50000,2023-08-01
+Gorakhpur,Gorakhpur,Gomti Ganj,Agricultural,5000,2023-08-01
+Gorakhpur,Sahjanwa,Saraswati Nagar,Residential,28000,2023-08-01
+Gorakhpur,Gorakhpur,Ashok Ganj,Commercial,65000,2023-08-01
+Gorakhpur,Sahjanwa,Rajiv Chowk,Commercial,44000,2023-08-01
+Gorakhpur,Campierganj,Ram Ganj,Residential,25000,2023-08-01
+Gorakhpur,Campierganj,Rajiv Ganj,Residential,29000,2023-08-01
+Gorakhpur,Sahjanwa,Krishna Chowk,Commercial,47000,2023-08-01
+Gorakhpur,Gorakhpur,Nehru Nagar,Residential,24000,2023-08-01
+Gorakhpur,Campierganj,Ganga Vihar,Commercial,60000,2023-08-01
+Gorakhpur,Sahjanwa,Arya Vihar,Residential,25000,2023-08-01
+Gorakhpur,Sahjanwa,Kalyan Vihar,Residential,28000,2023-08-01
+Gorakhpur,Gorakhpur,Ganga Ganj,Residential,28000,2023-08-01
+Gorakhpur,Gorakhpur,Saraswati Vihar,Commercial,73000,2023-08-01
+Gorakhpur,Campierganj,Nehru Vihar,Commercial,48000,2023-08-01
+Gorakhpur,Sahjanwa,Saraswati Ganj,Agricultural,5000,2023-08-01
+Gorakhpur,Gorakhpur,Saraswati Pur,Commercial,68000,2023-08-01
+Gorakhpur,Sahjanwa,Vivekananda Pur,Commercial,73000,2023-08-01
+Gorakhpur,Gorakhpur,Vasant Chowk,Commercial,55000,2023-08-01
+Gorakhpur,Campierganj,Vivekananda Vihar,Agricultural,7000,2023-08-01
+Gorakhpur,Campierganj,Vasant Vihar,Agricultural,4000,2023-08-01
+Gorakhpur,Sahjanwa,Nehru Chowk,Residential,29000,2023-08-01
+Gorakhpur,Gorakhpur,Shyam Chowk,Residential,19000,2023-08-01
+Gorakhpur,Gorakhpur,Arya Chowk,Residential,20000,2023-08-01
+Gorakhpur,Campierganj,Tagore Nagar,Residential,25000,2023-08-01
+Gorakhpur,Campierganj,Azad Ganj,Commercial,53000,2023-08-01
+Gorakhpur,Campierganj,Gandhi Nagar,Residential,18000,2023-08-01
+Gorakhpur,Gorakhpur,Vivekananda Chowk,Residential,25000,2023-08-01
+Gorakhpur,Sahjanwa,Ashok Nagar,Commercial,54000,2023-08-01
+Gorakhpur,Gorakhpur,Patel Ganj,Residential,19000,2023-08-01
+Gorakhpur,Campierganj,Patel Vihar,Residential,20000,2023-08-01
+Gorakhpur,Gorakhpur,Saket Nagar,Residential,25000,2023-08-01
+Gorakhpur,Campierganj,Yamuna Chowk,Agricultural,5000,2023-08-01
+Gorakhpur,Sahjanwa,Govind Nagar,Residential,28000,2023-08-01
+Gorakhpur,Gorakhpur,Laxmi Chowk,Agricultural,6000,2023-08-01
+Ayodhya,Sadar,Shiv Pur,Residential,26000,2023-08-01
+Ayodhya,Bikapur,Subhash Market,Commercial,58000,2023-08-01
+Ayodhya,Sadar,Shyam Ghat,Residential,28000,2023-08-01
+Ayodhya,Bikapur,Arya Nagar,Residential,31000,2023-08-01
+Ayodhya,Sadar,Shiv Ghat,Agricultural,7000,2023-08-01
+Ayodhya,SoHawal,Saket Market,Residential,25000,2023-08-01
+Ayodhya,Bikapur,Rajiv Market,Commercial,78000,2023-08-01
+Ayodhya,SoHawal,Laxmi Market,Agricultural,5000,2023-08-01
+Ayodhya,Bikapur,Gandhi Khand,Agricultural,6000,2023-08-01
+Ayodhya,Sadar,Ashok Khand,Commercial,49000,2023-08-01
+Ayodhya,Sadar,Subhash Khand,Residential,27000,2023-08-01
+Ayodhya,Sadar,Kalyan Pur,Residential,18000,2023-08-01
+Ayodhya,Sadar,Ganga Ghat,Residential,30000,2023-08-01
+Ayodhya,SoHawal,Vivekananda Khand,Agricultural,6000,2023-08-01
+Ayodhya,Bikapur,Govind Nagar,Commercial,72000,2023-08-01
+Ayodhya,SoHawal,Shastri Ghat,Commercial,66000,2023-08-01
+Ayodhya,Sadar,Ashok Pur,Commercial,65000,2023-08-01
+Ayodhya,Bikapur,Saket Khand,Commercial,44000,2023-08-01
+Ayodhya,Sadar,Saraswati Khand,Residential,19000,2023-08-01
+Ayodhya,Sadar,Ganga Nagar,Commercial,62000,2023-08-01
+Ayodhya,Sadar,Shastri Khand,Residential,28000,2023-08-01
+Ayodhya,Sadar,Rajiv Pur,Residential,29000,2023-08-01
+Ayodhya,Sadar,Rajiv Khand,Commercial,82000,2023-08-01
+Ayodhya,Sadar,Azad Ghat,Residential,21000,2023-08-01
+Ayodhya,Sadar,Laxmi Khand,Commercial,47000,2023-08-01
+Ayodhya,SoHawal,Patel Pur,Residential,22000,2023-08-01
+Ayodhya,SoHawal,Gomti Khand,Residential,28000,2023-08-01
+Ayodhya,Sadar,Vasant Market,Commercial,45000,2023-08-01
+Ayodhya,Bikapur,Gandhi Nagar,Commercial,46000,2023-08-01
+Ayodhya,Bikapur,Ram Pur,Residential,26000,2023-08-01
+Ayodhya,Sadar,Shyam Market,Commercial,65000,2023-08-01
+Ayodhya,Bikapur,Nehru Khand,Residential,32000,2023-08-01
+Ayodhya,Sadar,Kalyan Nagar,Commercial,44000,2023-08-01
+Ayodhya,Bikapur,Nehru Nagar,Residential,32000,2023-08-01
+Ayodhya,Bikapur,Ram Market,Residential,23000,2023-08-01
+Ayodhya,Bikapur,Gomti Ghat,Residential,18000,2023-08-01
+Ayodhya,SoHawal,Yamuna Khand,Residential,21000,2023-08-01
+Ayodhya,SoHawal,Indira Market,Residential,25000,2023-08-01
+Ayodhya,Sadar,Shyam Nagar,Residential,23000,2023-08-01
+Ayodhya,SoHawal,Indira Khand,Residential,26000,2023-08-01
+Ayodhya,Bikapur,Shiv Market,Commercial,46000,2023-08-01
+Ayodhya,SoHawal,Rajiv Ghat,Residential,31000,2023-08-01
+Ayodhya,SoHawal,Krishna Pur,Commercial,69000,2023-08-01
+Ayodhya,Bikapur,Indira Pur,Residential,25000,2023-08-01
+Ayodhya,SoHawal,Vivekananda Ghat,Commercial,70000,2023-08-01
+Ayodhya,SoHawal,Rajiv Nagar,Residential,21000,2023-08-01
+Ayodhya,Sadar,Govind Khand,Agricultural,9000,2023-08-01
+Ayodhya,Bikapur,Nehru Pur,Commercial,72000,2023-08-01
+Ayodhya,SoHawal,Ashok Ghat,Residential,21000,2023-08-01
+Ayodhya,Sadar,Shiv Nagar,Agricultural,9000,2023-08-01
+Ayodhya,Sadar,Laxmi Nagar,Residential,29000,2023-08-01
+Ayodhya,SoHawal,Vivekananda Pur,Residential,24000,2023-08-01
+Ayodhya,Bikapur,Kalyan Khand,Residential,24000,2023-08-01
+Ayodhya,SoHawal,Ganga Market,Agricultural,9000,2023-08-01
+Ayodhya,Bikapur,Ganga Khand,Commercial,80000,2023-08-01
+Ayodhya,Sadar,Krishna Ghat,Residential,31000,2023-08-01
+Ayodhya,Bikapur,Azad Nagar,Residential,22000,2023-08-01
+Ayodhya,SoHawal,Ashok Nagar,Commercial,56000,2023-08-01
+Ayodhya,SoHawal,Saket Ghat,Commercial,71000,2023-08-01
+Ayodhya,Sadar,Ashok Market,Residential,23000,2023-08-01
+Ayodhya,Bikapur,Laxmi Ghat,Residential,18000,2023-08-01
+Ayodhya,SoHawal,Indira Nagar,Residential,17000,2023-08-01
+Ayodhya,SoHawal,Govind Pur,Residential,23000,2023-08-01
+Ayodhya,Bikapur,Azad Khand,Residential,31000,2023-08-01

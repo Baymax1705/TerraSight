@@ -21,6 +21,7 @@ export default function App() {
     const [facilities, setFacilities] = useState<any>(null);
     const [facilitiesError, setFacilitiesError] = useState<string | null>(null);
     const [isLoadingInsights, setIsLoadingInsights] = useState(false);
+    const [sentinelEnabled, setSentinelEnabled] = useState(false);
     const [isMobilePanelExpanded, setIsMobilePanelExpanded] = useState(false);
     const dragControls = useDragControls();
     
@@ -43,9 +44,9 @@ export default function App() {
                 finalQuery += ', Uttar Pradesh, India';
             }
 
-            // Bias towards UP geography
+            // Bias towards UP geography but don't strictly bind it
             const viewbox = '77.0,30.5,84.5,23.5';
-            const res = await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(finalQuery)}&format=json&addressdetails=1&limit=5&viewbox=${viewbox}`);
+            const res = await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(finalQuery)}&format=json&addressdetails=1&limit=5&viewbox=${viewbox}&bounded=0&countrycodes=in`);
             const data = await res.json();
             setSearchResults(data);
         } catch (err) {
@@ -105,7 +106,7 @@ export default function App() {
         setIsLoadingInsights(true);
         const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000';
         try {
-            const rateRes = await fetch(`${API_BASE}/api/circle-rates?query=${encodeURIComponent(searchQuery)}`);
+            const rateRes = await fetch(`${API_BASE}/api/circle-rates?query=${encodeURIComponent(searchQuery)}&sentinel=${sentinelEnabled}`);
             if (rateRes.ok) setInsights(await rateRes.json());
 
             const facRes = await fetch(`${API_BASE}/api/facilities?lat=${targetLocation[0]}&lon=${targetLocation[1]}&radius_m=${searchRadius}`);
@@ -262,8 +263,27 @@ export default function App() {
                             </div>
                         )}
                         
+                        {/* Sentinel Toggle */}
+                        <div className={`mt-4 p-3 rounded-xl border transition-all duration-500 flex items-center justify-between ${sentinelEnabled ? 'bg-indigo-900 border-indigo-400 shadow-lg shadow-indigo-200' : 'bg-slate-50 border-slate-200 opacity-80'}`}>
+                            <div className="flex items-center gap-3">
+                                <div className={`p-2 rounded-lg transition-colors ${sentinelEnabled ? 'bg-indigo-500 text-white animate-pulse' : 'bg-slate-200 text-slate-400'}`}>
+                                    <Target size={16} />
+                                </div>
+                                <div className="flex flex-col">
+                                    <span className={`text-xs font-bold uppercase tracking-tight ${sentinelEnabled ? 'text-indigo-100' : 'text-slate-500'}`}>Sentinel Intelligence</span>
+                                    <span className={`text-[10px] ${sentinelEnabled ? 'text-indigo-300' : 'text-slate-400'}`}>{sentinelEnabled ? 'Autonomous Scraper Active' : 'Basic Mode Only'}</span>
+                                </div>
+                            </div>
+                            <button 
+                                onClick={() => setSentinelEnabled(!sentinelEnabled)}
+                                className={`relative w-10 h-5 rounded-full transition-colors duration-300 ${sentinelEnabled ? 'bg-indigo-500' : 'bg-slate-300'}`}
+                            >
+                                <div className={`absolute top-1 left-1 w-3 h-3 bg-white rounded-full transition-transform duration-300 ${sentinelEnabled ? 'translate-x-5' : 'translate-x-0'}`}></div>
+                            </button>
+                        </div>
+                        
                         <button 
-                            className="w-full bg-slate-900 hover:bg-slate-800 text-white py-3 rounded-xl font-medium transition-colors shadow-sm active:scale-95 mt-4"
+                            className="w-full bg-slate-900 hover:bg-slate-800 text-white py-3 rounded-xl font-medium transition-colors shadow-sm active:scale-95 mt-2"
                             onClick={triggerAnalytics}
                         >
                             Run Smart Analytics

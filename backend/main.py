@@ -1,13 +1,14 @@
 import os
 import httpx
 from dotenv import load_dotenv
-from fastapi import FastAPI, Query, Depends
+from fastapi import FastAPI, Query, Depends, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 import datetime
 import math
 from database import get_db, CachedRate, OfficialCircleRate
 from scraper import scrape_real_estate_data
+from sentinel import run_sentinel
 
 load_dotenv()
 
@@ -211,11 +212,17 @@ async def get_nearby_facilities(lat: float = Query(...), lon: float = Query(...)
     }
 
 @app.get("/api/circle-rates")
-def get_circle_rates(
+async def get_circle_rates(
+    background_tasks: BackgroundTasks,
     query: str = Query(..., description="Location query to match UP district"),
+    sentinel: bool = Query(False, description="Whether to trigger the Sentinel autonomous crawler"),
     db: Session = Depends(get_db)
 ):
     query_lower = query.lower().strip()
+    
+    if sentinel:
+        # Dispatch the Sentinel Protocol to hunt for live data in the background
+        background_tasks.add_task(run_sentinel, query)
     query_parts = [p.strip() for p in query_lower.split(",") if len(p.strip()) > 2]
     
     # 0. Check Official ETL Database First (Precision Matching)

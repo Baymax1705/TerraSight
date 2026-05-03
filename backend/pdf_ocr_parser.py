@@ -171,7 +171,8 @@ def get_tehsil(filename: str) -> str:
     for key, tehsil in TEHSIL_MAP.items():
         if key in filename:
             return tehsil
-    return "Unknown"
+    # For new districts, use the filename as tehsil name (strip extension)
+    return os.path.splitext(filename)[0]
 
 
 def run():

@@ -446,9 +446,47 @@ export default function App() {
 
                                 {/* Facilities UI */}
                                 <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
-                                    <div className="flex items-center gap-2 mb-3 border-b border-slate-100 pb-2">
-                                        <MapPin size={18} className="text-blue-500"/> 
-                                        <h3 className="font-semibold text-sm text-slate-800">Nearby Amenities ({facilities ? facilities.total_facilities : 0})</h3>
+                                    <div className="flex items-center justify-between mb-3 border-b border-slate-100 pb-2">
+                                        <div className="flex items-center gap-2">
+                                            <MapPin size={18} className="text-blue-500"/> 
+                                            <h3 className="font-semibold text-sm text-slate-800">Nearby Amenities ({facilities ? facilities.total_facilities : 0})</h3>
+                                        </div>
+                                        {facilities && facilities.categories && (
+                                            <div className="flex items-center gap-2">
+                                                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Map Pins</span>
+                                                <button 
+                                                    onClick={() => {
+                                                        const activeCategories = Object.entries(facilities.categories)
+                                                            .filter(([_, items]: [string, any]) => items.length > 0)
+                                                            .map(([name]) => name);
+                                                        
+                                                        const areAllHidden = activeCategories.length > 0 && activeCategories.every(cat => hiddenCategories.has(cat));
+                                                        
+                                                        if (areAllHidden) {
+                                                            setHiddenCategories(new Set()); // Show all
+                                                        } else {
+                                                            setHiddenCategories(new Set(activeCategories)); // Hide all
+                                                        }
+                                                    }}
+                                                    className="relative flex items-center w-11 h-6 rounded-full transition-colors duration-300 focus:outline-none shadow-inner"
+                                                    style={{ backgroundColor: (() => {
+                                                        const activeCats = Object.entries(facilities.categories).filter(([_, items]: [string, any]) => items.length > 0);
+                                                        const areAllHidden = activeCats.length > 0 && activeCats.every(([name]) => hiddenCategories.has(name));
+                                                        return areAllHidden ? '#cbd5e1' : '#4f46e5'; // slate-300 vs indigo-600
+                                                    })() }}
+                                                >
+                                                    {(() => {
+                                                        const activeCats = Object.entries(facilities.categories).filter(([_, items]: [string, any]) => items.length > 0);
+                                                        const areAllHidden = activeCats.length > 0 && activeCats.every(([name]) => hiddenCategories.has(name));
+                                                        return (
+                                                            <div className={`absolute w-4 h-4 rounded-full bg-white shadow flex items-center justify-center transition-all duration-300 ease-spring ${areAllHidden ? 'left-1' : 'left-[22px]'}`}>
+                                                                {areAllHidden ? <EyeOff size={10} className="text-slate-400" /> : <Eye size={10} className="text-indigo-600" />}
+                                                            </div>
+                                                        );
+                                                    })()}
+                                                </button>
+                                            </div>
+                                        )}
                                     </div>
                                     
                                     {/* Category Filter Pills */}

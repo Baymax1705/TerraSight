@@ -135,11 +135,11 @@ export default function Map({
                 center={targetPin}
                 radius={searchRadius}
                 pathOptions={{
-                    color: '#4f46e5', // indigo-600
-                    fillColor: '#4f46e5',
-                    fillOpacity: 0.05,
-                    weight: 2,
-                    dashArray: '5, 5'
+                    color: '#f97316', // orange-500 for high visibility
+                    fillColor: '#f97316',
+                    fillOpacity: 0.1,
+                    weight: 3,
+                    dashArray: '8, 6'
                 }}
             />
 

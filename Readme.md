@@ -15,6 +15,8 @@ TerraSight is a premium geospatial intelligence platform designed to revolutioni
 - **📐 Smart Unit Converter**: Seamlessly switch between **Sq.Ft**, **Sq.M**, and **Gaj** with real-time mathematical state synchronization.
 - **📱 Premium Mobile Experience**: Physics-based "Bottom Sheet" interface powered by Framer Motion, offering a native-app feel with 1:1 sliding gestures.
 - **🔍 Geographic Intelligence**: Smart search suggestions biased specifically towards Uttar Pradesh, India, using custom Nominatim bounding box logic.
+- **🤖 Sentinel Intelligence Protocol**: Autonomous background headless crawler that actively scrapes live property listing prices from real estate aggregators to compute true market averages.
+- **📄 Automated OCR Data Ingestion**: Robust web scrapers automatically download raw official circle rate PDFs across 75 district NIC portals, parsed via an advanced Optical Character Recognition (OCR) pipeline to maintain a database of 1,650+ verified government records.
 
 ---
 
@@ -29,6 +31,7 @@ TerraSight is a premium geospatial intelligence platform designed to revolutioni
 ### Backend
 - **Framework**: [FastAPI](https://fastapi.tiangolo.com/) (Python 3)
 - **Database**: [SQLite](https://sqlite.org/) with SQLAlchemy ORM
+- **Data Scraping & OCR**: [Playwright](https://playwright.dev/python/) (Headless Crawler), Tesseract OCR, Poppler, `pdf2image`, `pytesseract`, `BeautifulSoup4`
 - **API Clients**: [HTTPX](https://www.python-httpx.org/) (Async Overpass API requests)
 - **Geospatial Logic**: Haversine distance algorithms for proximity analysis
 

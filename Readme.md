@@ -1,53 +1,49 @@
-# TerraSight 🌍
-### Dual-Valuation Smart Engine | Geospatial Intelligence Platform
-
-![TerraSight Hero Banner](assets/hero_banner.png)
-
-TerraSight is a premium geospatial intelligence platform designed to revolutionize land valuation and investment analysis. By merging official government circle rates with real-time amenity density data, TerraSight provides a "Dual-Valuation" insight that helps investors identify undervalued land parcels and high-growth opportunities.
-
----
-
-## ✨ Key Features
-
-- **🚀 Dual-Valuation Engine**: Instantly compare **Official Government Rates** (IGRS) with **Estimated Market Values** driven by local amenity density.
-- **🗺️ Interactive Map Intelligence**: High-performance Leaflet-based mapping with seamless toggling between detailed Street views and Esri Satellite imagery.
-- **🛰️ Amenity Radar**: Automatically scans a 2km radius for essential infrastructure including Schools, Hospitals, Transit Hubs, Markets, Gyms, and Parks.
-- **📐 Smart Unit Converter**: Seamlessly switch between **Sq.Ft**, **Sq.M**, and **Gaj** with real-time mathematical state synchronization.
-- **📱 Premium Mobile Experience**: Physics-based "Bottom Sheet" interface powered by Framer Motion, offering a native-app feel with 1:1 sliding gestures.
-- **🔍 Geographic Intelligence**: Smart search suggestions biased specifically towards Uttar Pradesh, India, using custom Nominatim bounding box logic.
-- **🤖 Sentinel Intelligence Protocol**: Autonomous background headless crawler that actively scrapes live property listing prices from real estate aggregators to compute true market averages.
-- **📄 Automated OCR Data Ingestion**: Robust web scrapers automatically download raw official circle rate PDFs across 75 district NIC portals, parsed via an advanced Optical Character Recognition (OCR) pipeline to maintain a database of 1,650+ verified government records.
+<div align="center">
+  <img src="assets/hero_banner.png" alt="TerraSight Hero Banner" />
+  <h1>TerraSight 🌍</h1>
+  <p><strong>Geospatial Intelligence & Dual-Valuation Engine for Uttar Pradesh</strong></p>
+  <p>🚀 <strong><a href="https://terra-sight-kappa.vercel.app">Try TerraSight Live</a></strong> 🚀</p>
+</div>
 
 ---
 
-## 🛡️ Data Architecture & Three-Tier Fallback System
+## 📖 What is TerraSight?
+TerraSight is a premium geospatial intelligence platform that revolutionizes land valuation. It allows investors, buyers, and developers to pin any location on a map and instantly receive a **Dual-Valuation Report**—comparing official government circle rates with real-time market estimates based on local infrastructure density.
 
-TerraSight is engineered to never fail or show empty screens, even in regions where public government data is hidden behind captcha walls. It handles data scarcity gracefully using a three-tier redundancy model:
+## 🚀 How is it Different?
+Traditional real estate tools only show you what sellers are asking for. Government portals only show you rigid, hard-to-read PDF tables. 
 
-1. **Official OCR Data (Primary)**: The system automatically reads and serves official 2025 government circle rates directly extracted from government PDFs for 16 major districts (over 1,650+ localities).
-2. **Heuristic Engine (Fallback 1)**: If a user queries any of the remaining 59 unmapped districts, the platform instantly serves a realistic, algorithmically calculated base rate from a pre-seeded heuristic database, ensuring uninterrupted UX.
-3. **Sentinel Protocol (Fallback 2)**: For ultimate accuracy in missing regions, users can trigger a "Live Market Scan." The Sentinel Protocol autonomously spins up a headless browser, scrapes live MagicBricks property listings for that exact geo-coordinate, and returns real-time market selling prices to bypass the missing government data entirely.
+**TerraSight bridges the gap.** It dynamically calculates the *true* worth of a land parcel by pulling real official government rates via an automated OCR pipeline, and then compares it against a live algorithmic market estimate powered by local amenities (hospitals, schools, transit) within a 2km radius. 
+
+---
+
+## ✨ Core Features
+*   **⚖️ Dual-Valuation Engine**: Instantly compares Official IGRS Government Rates with Infrastructure-driven Market Values.
+*   **🗺️ Interactive Map Intelligence**: High-performance Leaflet mapping with Street/Satellite toggles and dynamic catchment area radius controls.
+*   **🤖 Sentinel Live Market Protocol**: An autonomous headless crawler that actively scrapes real estate aggregators (like MagicBricks) to compute true market averages.
+*   **📄 Automated OCR Ingestion**: Web scrapers automatically pull raw PDF circle rate lists across 75 UP districts, parsed via Tesseract OCR to maintain a database of 1,650+ verified 2025 records.
+*   **📱 Premium App Experience**: A Framer Motion-powered physics "Bottom Sheet" UI that feels like a native iOS/Android app.
+
+---
+
+## 🛡️ Data Architecture & Error Handling (Three-Tier Fallback)
+We engineered TerraSight to **never fail or show empty screens**, even when public government data is hidden behind captcha walls or simply unavailable. We handle data scarcity using a strict **Three-Tier Fallback System**:
+
+1. **Official OCR Data (Primary)**: Instantly serves verified 2025 government circle rates directly extracted from government PDFs for 16 major districts.
+2. **Heuristic Engine (Fallback 1)**: If a user queries an unmapped district, the platform instantly falls back to a realistic, algorithmically calculated base rate from a pre-seeded heuristic database.
+3. **Sentinel Protocol (Fallback 2)**: For ultimate accuracy in missing regions, users can trigger a "Live Market Scan." The Sentinel Protocol autonomously spins up a headless browser, scrapes live MagicBricks property listings for that exact coordinate, and returns real-time market selling prices.
 
 ---
 
 ## 🛠️ Tech Stack
-
-### Frontend
-- **Framework**: [React 19](https://react.dev/) + [Vite](https://vitejs.dev/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) (Glassmorphism & Custom Tokens)
-- **Animation**: [Framer Motion](https://www.framer.com/motion/)
-- **Mapping**: [Leaflet](https://leafletjs.com/)
-
-### Backend
-- **Framework**: [FastAPI](https://fastapi.tiangolo.com/) (Python 3)
-- **Database**: [SQLite](https://sqlite.org/) with SQLAlchemy ORM
-- **Data Scraping & OCR**: [Playwright](https://playwright.dev/python/) (Headless Crawler), Tesseract OCR, Poppler, `pdf2image`, `pytesseract`, `BeautifulSoup4`
-- **API Clients**: [HTTPX](https://www.python-httpx.org/) (Async Overpass API requests)
-- **Geospatial Logic**: Haversine distance algorithms for proximity analysis
+*   **Frontend**: React 19, Vite, Tailwind CSS (Glassmorphism), Framer Motion, Leaflet.js
+*   **Backend**: FastAPI (Python 3), SQLite, SQLAlchemy
+*   **Data Pipelines**: Playwright (Headless Scraping), Tesseract OCR, Poppler, BeautifulSoup4
+*   **Geospatial**: Overpass API (OSM), Haversine Proximity Algorithms, Custom Nominatim Bounding Boxes
 
 ---
 
-## 🚀 Getting Started
+## ⚙️ How to Set Up Locally
 
 ### 1. Clone the Repository
 ```bash
@@ -55,41 +51,25 @@ git clone https://github.com/Baymax1705/TerraSight.git
 cd TerraSight
 ```
 
-### 2. Backend Setup
+### 2. Start the Backend
 ```bash
 cd backend
 python -m venv venv
-source venv/bin/scripts/activate  # Windows: venv\Scripts\activate
+source venv/bin/scripts/activate  # On Windows use: venv\Scripts\activate
 pip install -r requirements.txt
 uvicorn main:app --reload
 ```
 
-### 3. Frontend Setup
+### 3. Start the Frontend
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
----
-
-## 🌐 Deployment
-
-### Backend (Render)
-- **Build Command**: `pip install -r requirements.txt`
-- **Start Command**: `uvicorn main:app --host 0.0.0.0 --port $PORT`
-- **Root Directory**: `backend`
-
-### Frontend (Vercel)
-- **Framework Preset**: `Vite`
-- **Root Directory**: `frontend`
-- **Environment Variables**: Set `VITE_API_URL` to your Render backend URL.
+*Open `http://localhost:5173` in your browser to view the app!*
 
 ---
-
-## ⚖️ Disclaimer
-TerraSight provides estimated land valuations based on public datasets and geospatial proximity analysis. All data provided is for informational purposes only and should not be considered as official legal or financial advice. Users are advised to verify all rates and property details with official government records before making any investment decisions.
-
-
----
-*Developed with ❤️ for Smart Land Intelligence.*
+<div align="center">
+  <i>Developed with ❤️ for Smart Land Intelligence.</i>
+</div>

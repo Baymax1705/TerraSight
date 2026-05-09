@@ -20,6 +20,16 @@ TerraSight is a premium geospatial intelligence platform designed to revolutioni
 
 ---
 
+## 🛡️ Data Architecture & Three-Tier Fallback System
+
+TerraSight is engineered to never fail or show empty screens, even in regions where public government data is hidden behind captcha walls. It handles data scarcity gracefully using a three-tier redundancy model:
+
+1. **Official OCR Data (Primary)**: The system automatically reads and serves official 2025 government circle rates directly extracted from government PDFs for 16 major districts (over 1,650+ localities).
+2. **Heuristic Engine (Fallback 1)**: If a user queries any of the remaining 59 unmapped districts, the platform instantly serves a realistic, algorithmically calculated base rate from a pre-seeded heuristic database, ensuring uninterrupted UX.
+3. **Sentinel Protocol (Fallback 2)**: For ultimate accuracy in missing regions, users can trigger a "Live Market Scan." The Sentinel Protocol autonomously spins up a headless browser, scrapes live MagicBricks property listings for that exact geo-coordinate, and returns real-time market selling prices to bypass the missing government data entirely.
+
+---
+
 ## 🛠️ Tech Stack
 
 ### Frontend

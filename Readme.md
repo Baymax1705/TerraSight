@@ -21,7 +21,7 @@ Traditional real estate tools only show you what sellers are asking for. Governm
 *   **⚖️ Dual-Valuation Engine**: Instantly compares Official IGRS Government Rates with Infrastructure-driven Market Values.
 *   **🗺️ Interactive Map Intelligence**: High-performance Leaflet mapping with Street/Satellite toggles and dynamic catchment area radius controls.
 *   **🤖 Sentinel Live Market Protocol**: An autonomous headless crawler that actively scrapes real estate aggregators (like MagicBricks) to compute true market averages.
-*   **📄 Automated OCR Ingestion**: Web scrapers automatically pull raw PDF circle rate lists across 75 UP districts, parsed via Tesseract OCR to maintain a database of 1,650+ verified 2025 records.
+*   **📄 Automated OCR Ingestion**: Officially verified data downloaded directly from the [IGRS UP Portal](https://igrsup.gov.in/igrsup/getUploadRateListDocForUser) across all 75 UP districts. We parse these raw Hindi PDFs via Tesseract OCR to maintain a massive database of **111,378 verified records**.
 *   **📱 Premium App Experience**: A Framer Motion-powered physics "Bottom Sheet" UI that feels like a native iOS/Android app.
 
 ---

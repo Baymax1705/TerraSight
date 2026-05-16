@@ -1,14 +1,14 @@
 <div align="center">
   <img src="assets/hero_banner.png" alt="TerraSight Hero Banner" />
   <h1>TerraSight 🌍</h1>
-  <p><strong>Geospatial Intelligence & Dual-Valuation Engine for Uttar Pradesh</strong></p>
+  <p><strong>Geospatial Intelligence & Probabilistic Geo-Economic Inference Engine for Uttar Pradesh</strong></p>
   <p>🚀 <strong><a href="https://terra-sight-kappa.vercel.app">Try TerraSight Live</a></strong> 🚀</p>
 </div>
 
 ---
 
 ## 📖 What is TerraSight?
-TerraSight is a premium geospatial intelligence platform that revolutionizes land valuation. It allows investors, buyers, and developers to pin any location on a map and instantly receive a **Dual-Valuation Report**—comparing official government circle rates with real-time market estimates based on local infrastructure density.
+TerraSight is a premium geospatial intelligence platform that revolutionizes land valuation. It allows investors, buyers, and developers to pin any location on a map and instantly receive a **Probabilistic Geo-Economic Inference Report**—comparing official government circle rates with real-time market estimates based on local infrastructure density.
 
 ## 🚀 How is it Different?
 Traditional real estate tools only show you what sellers are asking for. Government portals only show you rigid, hard-to-read PDF tables. 
@@ -18,11 +18,20 @@ Traditional real estate tools only show you what sellers are asking for. Governm
 ---
 
 ## ✨ Core Features
-*   **⚖️ Dual-Valuation Engine**: Instantly compares Official IGRS Government Rates with Infrastructure-driven Market Values.
+*   **⚖️ Probabilistic Geo-Economic Inference Engine**: Instantly compares Official IGRS Government Rates with Infrastructure-driven Market Values using advanced spatial mathematics.
 *   **🗺️ Interactive Map Intelligence**: High-performance Leaflet mapping with Street/Satellite toggles and dynamic catchment area radius controls.
 *   **🤖 Sentinel Live Market Protocol**: An autonomous headless crawler that actively scrapes real estate aggregators (like MagicBricks) to compute true market averages.
 *   **📄 Automated OCR Ingestion**: Officially verified data downloaded directly from the [IGRS UP Portal](https://igrsup.gov.in/igrsup/getUploadRateListDocForUser) across all 75 UP districts. We parse these raw Hindi PDFs via Tesseract OCR to maintain a massive database of **111,378 verified records**.
 *   **📱 Premium App Experience**: A Framer Motion-powered physics "Bottom Sheet" UI that feels like a native iOS/Android app.
+
+---
+
+## 🧮 Algorithmic Normalization & Valuation Math
+To ensure hyper-realistic Estimated Market Prices, our Inference Engine passes the raw data through four sequential mathematical layers:
+1. **Chronological Inflation**: Autonomously ages the official government rate (extracted via OCR) to the current month, applying a +0.5% compounded monthly inflation.
+2. **Market Reality Gap**: Maps the pinned coordinate to its geographical Tier (1-3) and applies a base multiplier (1.4x - 2.0x) because actual UP market selling rates inherently diverge from official "white money" circle rates.
+3. **Absolute Exponential Distance-Decay (Gravity Model)**: Amenity weight decays exponentially using `Math.exp(-(distance / 1000))`, ensuring a hospital 500m away adds premium value, while one 3km away is correctly dismissed as irrelevant, perfectly divorcing the mathematical valuation from the user's UI radius slider.
+4. **Logarithmic Dampening**: Hyper-dense urban clusters are mathematically "braked" using `Math.log10`, capping massive clusters so that 100 nearby schools don't artificially inflate the price to infinity.
 
 ---
 

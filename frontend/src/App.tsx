@@ -149,17 +149,58 @@ export default function App() {
 
         const govtRateTotal = insights.estimated_rate_sqm * areaInSqM;
         
-        // Compute Premium based on Facilities
-        let premiumPercent = 0;
-        if (facilities && facilities.total_facilities) {
-            const totalFacs = facilities.total_facilities;
-            if (totalFacs > 30) premiumPercent = 35;
-            else if (totalFacs > 15) premiumPercent = 20;
-            else if (totalFacs > 5) premiumPercent = 10;
+        // --- 3-STAGE VALUATION ALGORITHM ---
+
+        // STEP 1: Inflation Adjustment
+        let adjustedBaseRate = insights.estimated_rate_sqm;
+        if (insights.effective_date) {
+            const effectiveDate = new Date(insights.effective_date);
+            const today = new Date();
+            const monthsPassed = (today.getFullYear() - effectiveDate.getFullYear()) * 12 + (today.getMonth() - effectiveDate.getMonth());
+            if (monthsPassed > 0) {
+                // Flat 6% annual inflation -> 0.5% per month
+                const inflationMultiplier = 1 + ((monthsPassed * 0.5) / 100);
+                adjustedBaseRate = insights.estimated_rate_sqm * inflationMultiplier;
+            }
         }
-        
-        const marketRateSqm = insights.estimated_rate_sqm * (1 + premiumPercent / 100);
+
+        // STEP 2: Distance-Decay Amenity Score (Gravity Model)
+        let rawAmenityPremium = 0;
+        if (facilities && facilities.locations) {
+            facilities.locations.forEach((fac: any) => {
+                const maxRadius = facilities.radius || 2000;
+                const distance = fac.distance_m || maxRadius;
+                
+                // Base weight per amenity type
+                let weight = 0;
+                if (fac.type === 'Transit Station' || fac.type === 'Medical') weight = 5.0; // High value (+5% max)
+                else if (fac.type === 'Education' || fac.type === 'Market') weight = 3.0;   // Med value (+3% max)
+                else weight = 1.5; // Parks, Gyms (+1.5% max)
+                
+                // Distance Decay: (1 - (Distance / Max_Radius))
+                const decayFactor = Math.max(0, 1 - (distance / maxRadius));
+                rawAmenityPremium += weight * decayFactor;
+            });
+        }
+
+        // STEP 3: District Tier Multiplier
+        let tierMultiplier = 0.5; // Default Tier 3 (Rural/Unknown)
+        if (insights.district) {
+            const d = insights.district.toLowerCase();
+            const tier1 = ['noida', 'gb nagar', 'lucknow', 'ghaziabad', 'kanpur nagar', 'kanpur'];
+            const tier2 = ['agra', 'meerut', 'varanasi', 'prayagraj', 'bareilly', 'aligarh', 'moradabad', 'saharanpur', 'gorakhpur', 'jhansi', 'mathura', 'ayodhya'];
+            
+            if (tier1.some(t => d.includes(t))) tierMultiplier = 1.0;
+            else if (tier2.some(t => d.includes(t))) tierMultiplier = 0.75;
+        }
+
+        // Final Sequential Calculation
+        let finalPremiumPercent = rawAmenityPremium * tierMultiplier;
+        finalPremiumPercent = Math.min(finalPremiumPercent, 100); // Cap at 100% max premium
+
+        const marketRateSqm = adjustedBaseRate * (1 + (finalPremiumPercent / 100));
         const marketRateTotal = marketRateSqm * areaInSqM;
+        const premiumPercent = finalPremiumPercent;
 
         return {
             govtRateTotal,

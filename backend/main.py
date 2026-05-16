@@ -243,11 +243,13 @@ async def get_circle_rates(
     if official_match:
         return {
             "location": f"{official_match.locality}, {official_match.district}",
+            "district": official_match.district,
             "estimated_rate_sqm": int(official_match.rate_sqm),
             "growth_potential": "High (Verified)",
             "risk_factors": "Official government rate. No heuristic estimation risk.",
             "smart_insight": f"This is an EXACT official circle rate for {official_match.property_type} property in {official_match.tehsil} tehsil, effective since {official_match.effective_date.strftime('%Y-%m-%d')}.",
-            "source": "Official IGRS Data Pipeline"
+            "source": "Official IGRS Data Pipeline",
+            "effective_date": official_match.effective_date.isoformat()
         }
     
     # 1. Check Database Cache First (Heuristic Fallback)
@@ -259,11 +261,13 @@ async def get_circle_rates(
         if age_in_days < 30:
             return {
                 "location": query.title(),
+                "district": query.split(",")[-1].strip() if "," in query else query,
                 "estimated_rate_sqm": cached_entry.estimated_rate_sqm,
                 "growth_potential": cached_entry.growth_potential,
                 "risk_factors": cached_entry.risk_factors,
                 "smart_insight": cached_entry.smart_insight,
-                "source": "Database Cache (0 latency)"
+                "source": "Database Cache (0 latency)",
+                "effective_date": cached_entry.updated_at.isoformat()
             }
 
     # 2. Scrape Live Data (or fallback heuristic)
@@ -292,9 +296,11 @@ async def get_circle_rates(
     
     return {
         "location": query.title(),
+        "district": query.split(",")[-1].strip() if "," in query else query,
         "estimated_rate_sqm": scraped_data["estimated_rate_sqm"],
         "growth_potential": scraped_data["growth_potential"],
         "risk_factors": scraped_data["risk_factors"],
         "smart_insight": scraped_data["smart_insight"],
-        "source": scraped_data["source"]
+        "source": scraped_data["source"],
+        "effective_date": datetime.datetime.utcnow().isoformat()
     }

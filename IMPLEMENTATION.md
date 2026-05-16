@@ -48,5 +48,18 @@ This document outlines the evolutionary steps and architectural decisions made d
 *   **Catchment Visibility**: Re-engineered the 2km search radius circle. Changed it from a blending indigo color to a highly contrasting, vibrant orange (`#f97316`) with increased opacity and dynamic dash sizing, ensuring absolute visibility over both street maps and dark satellite imagery.
 *   **Dead Code Elimination**: Conducted a final repository scrub, deleting over 10 obsolete scripts (e.g., `etl_loader.py`, old CSV mock data, and initial test parsers) to guarantee a pristine, production-ready codebase for deployment on Vercel and Render.
 
+## 🧮 Phase 7: Algorithmic Normalization & Probabilistic Inference
+**Goal**: Transition from a basic flat-premium valuation model to a mathematically sound Probabilistic Geo-Economic Inference Engine.
+
+*   **Chronological Inflation**: Upgraded the frontend algorithm to parse the `effective_date` of government OCR records. It autonomously applies a compounded `+0.5%` monthly inflation to age historical rates into the present day.
+*   **Market Reality Gap**: Engineered a district-tier modifier. Realizing that UP market selling rates inherently diverge from official "white money" circle rates, the system now applies a base multiplier (1.4x for rural, up to 2.0x for Tier 1 cities) *before* adding amenity premiums.
+*   **Absolute Exponential Distance-Decay**: Replaced the linear, slider-dependent radius calculation with an absolute gravity model. Amenity weights now decay exponentially using `Math.exp(-(distance / 1000))`. This ensures a hospital 500m away adds value, while one 3km away is penalized to near-zero, perfectly divorcing the valuation from UI interactions.
+*   **Logarithmic Dampening**: Implemented a mathematical "brake" using `Math.log10` on hyper-dense urban clusters. This strictly caps the maximum possible amenity premium at `+45%`, ensuring that 100 nearby schools cannot artificially inflate the estimated price to infinity.
+
+## 🔮 Future Scope & Roadmap (Phase 8+)
+**Working On:** *Right now, the system is incredibly strong at data aggregation (OCR pipelines, Sentinel scraping, Overpass routing). The next massive leap is becoming strong at true spatial intelligence.* 
+
+Future implementations will focus on geographic geometry mapping—automatically identifying if a dropped pin is a commercial "corner plot", calculating road-width frontage, and generating predictive heatmaps for investment growth based on micro-market infrastructure trends.
+
 ---
 *This document acts as the definitive architectural history of TerraSight.*

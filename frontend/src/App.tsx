@@ -191,9 +191,8 @@ export default function App() {
             rawAmenityPremium = 15 + Math.log10(rawAmenityPremium - 14) * 10;
         }
 
-        // STEP 3: District Tier Multiplier & Market Reality Gap
+        // STEP 3: ML-Predicted Market Reality Gap & District Tier Multiplier
         let tierMultiplier = 0.5; // Default Tier 3 (Rural/Unknown)
-        let marketRealityGap = 1.4; // Market rate is generally 1.4x govt rate in rural areas
         
         if (insights.district) {
             const d = insights.district.toLowerCase();
@@ -202,12 +201,13 @@ export default function App() {
             
             if (tier1.some(t => d.includes(t))) {
                 tierMultiplier = 1.0;
-                marketRealityGap = 2.0; // In Tier 1, market rates are often double the govt rate
             } else if (tier2.some(t => d.includes(t))) {
                 tierMultiplier = 0.75;
-                marketRealityGap = 1.6;
             }
         }
+
+        // Dynamically use the ML model's predicted multiplier (fallback to 1.4 if unavailable)
+        let marketRealityGap = insights.predicted_multiplier || 1.4;
 
         // Final Sequential Calculation
         let finalPremiumPercent = rawAmenityPremium * tierMultiplier;
@@ -494,11 +494,21 @@ export default function App() {
                                     </div>
                                     <div className="bg-indigo-600 border border-indigo-700 rounded-xl p-4 shadow-md flex flex-col justify-between text-white relative overflow-hidden">
                                         <div className="absolute -right-3 -top-3 opacity-10"><TrendingUp size={64}/></div>
-                                        <div className="flex items-center gap-2 mb-2">
-                                            <HandCoins size={16}/> <span className="text-xs font-semibold uppercase">Est. Market</span>
+                                        <div className="flex items-center justify-between mb-2">
+                                            <div className="flex items-center gap-2">
+                                                <HandCoins size={16}/> <span className="text-xs font-semibold uppercase">Est. Market</span>
+                                            </div>
+                                            {insights.ml_confidence && (
+                                                <span className={`text-[8px] font-bold px-1.5 py-0.5 rounded-full ${insights.ml_confidence > 0.7 ? 'bg-green-500/20 text-green-200 border border-green-500/30' : 'bg-yellow-500/20 text-yellow-200 border border-yellow-500/30'}`}>
+                                                    ML Conf: {Math.round(insights.ml_confidence * 100)}%
+                                                </span>
+                                            )}
                                         </div>
                                         <p className="text-lg font-bold">₹{Math.round(valuations?.marketRateTotal || 0).toLocaleString()}</p>
-                                        <p className="text-[10px] text-indigo-200 mt-1">+{valuations?.premiumPercent?.toFixed(2) || '0.00'}% Amenities Premium</p>
+                                        <div className="flex flex-col mt-1">
+                                            <p className="text-[10px] text-indigo-200">+{valuations?.premiumPercent?.toFixed(2) || '0.00'}% Amenities Premium</p>
+                                            <p className="text-[9px] text-indigo-300/80 mt-0.5">Base Gap: {insights.predicted_multiplier || 1.4}x (Model)</p>
+                                        </div>
                                     </div>
                                 </div>
 

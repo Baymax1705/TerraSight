@@ -9,6 +9,7 @@ import math
 from database import get_db, CachedRate, OfficialCircleRate
 from scraper import scrape_real_estate_data
 from sentinel import run_sentinel
+from ml_multiplier import predict_multiplier
 
 load_dotenv()
 
@@ -241,6 +242,7 @@ async def get_circle_rates(
             break
     
     if official_match:
+        ml_data = predict_multiplier(official_match.district, float(official_match.rate_sqm), official_match.effective_date)
         return {
             "location": f"{official_match.locality}, {official_match.district}",
             "district": official_match.district,
@@ -249,7 +251,9 @@ async def get_circle_rates(
             "risk_factors": "Official government rate. No heuristic estimation risk.",
             "smart_insight": f"This is an EXACT official circle rate for {official_match.property_type} property in {official_match.tehsil} tehsil, effective since {official_match.effective_date.strftime('%Y-%m-%d')}.",
             "source": "Official IGRS Data Pipeline",
-            "effective_date": official_match.effective_date.isoformat()
+            "effective_date": official_match.effective_date.isoformat(),
+            "predicted_multiplier": ml_data["predicted_multiplier"],
+            "ml_confidence": ml_data["confidence"]
         }
     
     # 1. Check Database Cache First (Heuristic Fallback)
@@ -259,15 +263,19 @@ async def get_circle_rates(
         # Check if data is fresher than 30 days
         age_in_days = (datetime.datetime.utcnow() - cached_entry.updated_at).days
         if age_in_days < 30:
+            dist = query.split(",")[-1].strip() if "," in query else query
+            ml_data = predict_multiplier(dist, float(cached_entry.estimated_rate_sqm), cached_entry.updated_at)
             return {
                 "location": query.title(),
-                "district": query.split(",")[-1].strip() if "," in query else query,
+                "district": dist,
                 "estimated_rate_sqm": cached_entry.estimated_rate_sqm,
                 "growth_potential": cached_entry.growth_potential,
                 "risk_factors": cached_entry.risk_factors,
                 "smart_insight": cached_entry.smart_insight,
                 "source": "Database Cache (0 latency)",
-                "effective_date": cached_entry.updated_at.isoformat()
+                "effective_date": cached_entry.updated_at.isoformat(),
+                "predicted_multiplier": ml_data["predicted_multiplier"],
+                "ml_confidence": ml_data["confidence"]
             }
 
     # 2. Scrape Live Data (or fallback heuristic)
@@ -294,13 +302,17 @@ async def get_circle_rates(
         
     db.commit()
     
+    dist = query.split(",")[-1].strip() if "," in query else query
+    ml_data = predict_multiplier(dist, float(scraped_data["estimated_rate_sqm"]), datetime.datetime.utcnow())
     return {
         "location": query.title(),
-        "district": query.split(",")[-1].strip() if "," in query else query,
+        "district": dist,
         "estimated_rate_sqm": scraped_data["estimated_rate_sqm"],
         "growth_potential": scraped_data["growth_potential"],
         "risk_factors": scraped_data["risk_factors"],
         "smart_insight": scraped_data["smart_insight"],
         "source": scraped_data["source"],
-        "effective_date": datetime.datetime.utcnow().isoformat()
+        "effective_date": datetime.datetime.utcnow().isoformat(),
+        "predicted_multiplier": ml_data["predicted_multiplier"],
+        "ml_confidence": ml_data["confidence"]
     }

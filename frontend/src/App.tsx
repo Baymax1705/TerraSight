@@ -171,34 +171,51 @@ export default function App() {
                 const maxRadius = facilities.radius || 2000;
                 const distance = fac.distance_m || maxRadius;
                 
-                // Base weight per amenity type
+                // Base weight per amenity type (Normalized to prevent runaway inflation)
                 let weight = 0;
-                if (fac.type === 'Transit Station' || fac.type === 'Medical') weight = 5.0; // High value (+5% max)
-                else if (fac.type === 'Education' || fac.type === 'Market') weight = 3.0;   // Med value (+3% max)
-                else weight = 1.5; // Parks, Gyms (+1.5% max)
+                if (fac.type === 'Transit Station' || fac.type === 'Medical') weight = 1.2; // High value
+                else if (fac.type === 'Education' || fac.type === 'Market') weight = 0.6;   // Med value
+                else weight = 0.2; // Parks, Gyms
                 
-                // Distance Decay: (1 - (Distance / Max_Radius))
-                const decayFactor = Math.max(0, 1 - (distance / maxRadius));
+                // Absolute Distance Decay (Exponential)
+                // Divorces the calculation from the user's slider radius.
+                // An amenity 1000m away is worth ~36% of its max value. 3000m away is worth ~4%.
+                const decayFactor = Math.exp(-(distance / 1000));
                 rawAmenityPremium += weight * decayFactor;
             });
         }
+        
+        // Diminishing Returns: Cap massive clusters so 100 schools don't equal a 100% premium
+        // Using a logarithmic dampening curve
+        if (rawAmenityPremium > 15) {
+            rawAmenityPremium = 15 + Math.log10(rawAmenityPremium - 14) * 10;
+        }
 
-        // STEP 3: District Tier Multiplier
+        // STEP 3: District Tier Multiplier & Market Reality Gap
         let tierMultiplier = 0.5; // Default Tier 3 (Rural/Unknown)
+        let marketRealityGap = 1.4; // Market rate is generally 1.4x govt rate in rural areas
+        
         if (insights.district) {
             const d = insights.district.toLowerCase();
             const tier1 = ['noida', 'gb nagar', 'lucknow', 'ghaziabad', 'kanpur nagar', 'kanpur'];
             const tier2 = ['agra', 'meerut', 'varanasi', 'prayagraj', 'bareilly', 'aligarh', 'moradabad', 'saharanpur', 'gorakhpur', 'jhansi', 'mathura', 'ayodhya'];
             
-            if (tier1.some(t => d.includes(t))) tierMultiplier = 1.0;
-            else if (tier2.some(t => d.includes(t))) tierMultiplier = 0.75;
+            if (tier1.some(t => d.includes(t))) {
+                tierMultiplier = 1.0;
+                marketRealityGap = 2.0; // In Tier 1, market rates are often double the govt rate
+            } else if (tier2.some(t => d.includes(t))) {
+                tierMultiplier = 0.75;
+                marketRealityGap = 1.6;
+            }
         }
 
         // Final Sequential Calculation
         let finalPremiumPercent = rawAmenityPremium * tierMultiplier;
-        finalPremiumPercent = Math.min(finalPremiumPercent, 100); // Cap at 100% max premium
+        finalPremiumPercent = Math.min(finalPremiumPercent, 45); // Hard cap at 45% premium strictly for amenities
 
-        const marketRateSqm = adjustedBaseRate * (1 + (finalPremiumPercent / 100));
+        // Real world market base: Apply reality gap to the government rate first, THEN apply amenity premium
+        const trueMarketBaseSqm = adjustedBaseRate * marketRealityGap;
+        const marketRateSqm = trueMarketBaseSqm * (1 + (finalPremiumPercent / 100));
         const marketRateTotal = marketRateSqm * areaInSqM;
         const premiumPercent = finalPremiumPercent;
 
@@ -481,7 +498,7 @@ export default function App() {
                                             <HandCoins size={16}/> <span className="text-xs font-semibold uppercase">Est. Market</span>
                                         </div>
                                         <p className="text-lg font-bold">₹{Math.round(valuations?.marketRateTotal || 0).toLocaleString()}</p>
-                                        <p className="text-[10px] text-indigo-200 mt-1">+{valuations?.premiumPercent}% Amenities Premium</p>
+                                        <p className="text-[10px] text-indigo-200 mt-1">+{valuations?.premiumPercent?.toFixed(2) || '0.00'}% Amenities Premium</p>
                                     </div>
                                 </div>
 

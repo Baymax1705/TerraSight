@@ -1,4 +1,4 @@
-import { Search, MapPin, Building, ShieldAlert, Loader2, Navigation, Target, TrendingUp, HandCoins, Eye, EyeOff, Maximize } from 'lucide-react';
+import { Search, MapPin, Building, ShieldAlert, Loader2, Navigation, Target, TrendingUp, HandCoins, Eye, EyeOff, Maximize, Calculator } from 'lucide-react';
 import { useState, useMemo, useEffect } from 'react';
 import { motion, useDragControls } from 'framer-motion';
 import Map from './components/Map';
@@ -225,13 +225,32 @@ export default function App() {
         const marketRateSqm = trueMarketBaseSqm * (1 + (finalPremiumPercent / 100));
         const marketRateTotal = marketRateSqm * areaInSqM;
         const premiumPercent = finalPremiumPercent;
+        
+        // Confidence Range Generation
+        const uncertainty = insights.confidence_engine?.uncertainty_percent || 0.15;
+        const marketRateMin = marketRateTotal * (1 - uncertainty);
+        const marketRateMax = marketRateTotal * (1 + uncertainty);
+
+        // Feature 6: Explainability Engine
+        const explainability = {
+            base_rate: adjustedBaseRate,
+            adjustments: [
+                { factor: "Market Reality Multiplier", impact_percent: Math.round((marketRealityGap - 1) * 100) },
+                { factor: "Amenity Score", impact_percent: Math.round(premiumPercent - roadPremium) },
+                { factor: "Road Connectivity", impact_percent: Math.round(roadPremium) }
+            ],
+            confidence_penalty: Math.round(uncertainty * 100)
+        };
 
         return {
             govtRateTotal,
             marketRateSqm,
             marketRateTotal,
+            marketRateMin,
+            marketRateMax,
             premiumPercent,
-            roadPremium
+            roadPremium,
+            explainability
         };
     }, [insights, facilities, landArea, areaUnit]);
 
@@ -506,13 +525,16 @@ export default function App() {
                                             <div className="flex items-center gap-2">
                                                 <HandCoins size={16}/> <span className="text-xs font-semibold uppercase">Est. Market</span>
                                             </div>
-                                            {insights.ml_confidence && (
-                                                <span className={`text-[8px] font-bold px-1.5 py-0.5 rounded-full ${insights.ml_confidence > 0.7 ? 'bg-green-500/20 text-green-200 border border-green-500/30' : 'bg-yellow-500/20 text-yellow-200 border border-yellow-500/30'}`}>
-                                                    ML Conf: {Math.round(insights.ml_confidence * 100)}%
+                                            {insights.confidence_engine && (
+                                                <span className={`text-[8px] font-bold px-1.5 py-0.5 rounded-full ${insights.confidence_engine.confidence_score > 0.7 ? 'bg-green-500/20 text-green-200 border border-green-500/30' : 'bg-yellow-500/20 text-yellow-200 border border-yellow-500/30'}`}>
+                                                    {insights.confidence_engine.confidence_label} Conf: {Math.round(insights.confidence_engine.confidence_score * 100)}%
                                                 </span>
                                             )}
                                         </div>
-                                        <p className="text-lg font-bold">₹{Math.round(valuations?.marketRateTotal || 0).toLocaleString()}</p>
+                                        <p className="text-[9px] text-indigo-200 font-medium uppercase tracking-widest mb-0.5">Estimated Value Range</p>
+                                        <p className="text-base font-bold text-white tracking-tight">
+                                            ₹{Math.round(valuations?.marketRateMin || 0).toLocaleString()} <span className="text-indigo-300 font-normal mx-0.5">-</span> ₹{Math.round(valuations?.marketRateMax || 0).toLocaleString()}
+                                        </p>
                                         <div className="flex flex-col mt-1">
                                             <p className="text-[10px] text-indigo-200">+{((valuations?.premiumPercent || 0) - (valuations?.roadPremium || 0)).toFixed(2)}% Amenities</p>
                                             <p className={`text-[10px] ${(valuations?.roadPremium || 0) >= 0 ? 'text-green-300' : 'text-red-300'}`}>
@@ -520,7 +542,6 @@ export default function App() {
                                             </p>
                                             <p className="text-[9px] text-indigo-300/80 mt-0.5">Base Gap: {insights.predicted_multiplier || 1.4}x (Model)</p>
                                         </div>
-                                    </div>
                                     </div>
                                 </div>
                                 
@@ -548,6 +569,47 @@ export default function App() {
                                             {facilities.road_intelligence.dead_end_penalty < 0 && (
                                                 <span className="text-[9px] text-red-500 font-medium">Dead-End / Poor Access</span>
                                             )}
+                                        </div>
+                                    </div>
+                                )}
+                                
+                                {/* Confidence Intelligence UI */}
+                                {insights.confidence_engine && insights.confidence_engine.factors && (
+                                    <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 shadow-sm flex flex-col gap-2">
+                                        <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Uncertainty Factors (±{Math.round(insights.confidence_engine.uncertainty_percent * 100)}%)</span>
+                                        <ul className="flex flex-col gap-1 pl-1">
+                                            {insights.confidence_engine.factors.map((factor: string, idx: number) => (
+                                                <li key={idx} className="text-[10px] text-slate-600 flex items-start gap-1.5">
+                                                    <span className="text-slate-400 mt-0.5">•</span> 
+                                                    <span>{factor}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                )}
+                                
+                                {/* Price Explainability Engine UI */}
+                                {valuations?.explainability && (
+                                    <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 shadow-sm flex flex-col gap-2">
+                                        <div className="flex items-center gap-2 border-b border-slate-200 pb-2 mb-1">
+                                            <Calculator size={14} className="text-indigo-600"/>
+                                            <span className="text-[10px] font-bold text-slate-700 uppercase tracking-wider">Price Explainability Engine</span>
+                                        </div>
+                                        <div className="flex justify-between items-center text-[11px] text-slate-600">
+                                            <span>Base Government Rate</span>
+                                            <span className="font-semibold">₹{Math.round(valuations.explainability.base_rate).toLocaleString()} / sq.m</span>
+                                        </div>
+                                        {valuations.explainability.adjustments.map((adj: any, idx: number) => (
+                                            <div key={idx} className="flex justify-between items-center text-[11px] text-slate-600">
+                                                <span>↳ {adj.factor}</span>
+                                                <span className={`font-semibold ${adj.impact_percent > 0 ? 'text-green-600' : adj.impact_percent < 0 ? 'text-red-500' : ''}`}>
+                                                    {adj.impact_percent > 0 ? '+' : ''}{adj.impact_percent}%
+                                                </span>
+                                            </div>
+                                        ))}
+                                        <div className="flex justify-between items-center text-[11px] text-slate-500 border-t border-slate-200 pt-1 mt-1">
+                                            <span>↳ Confidence Uncertainty</span>
+                                            <span className="font-semibold text-amber-600">±{valuations.explainability.confidence_penalty}%</span>
                                         </div>
                                     </div>
                                 )}

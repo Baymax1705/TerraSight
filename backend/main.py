@@ -11,6 +11,8 @@ from scraper import scrape_real_estate_data
 from sentinel import run_sentinel
 from ml_multiplier import predict_multiplier
 from road_intelligence import get_road_intelligence
+from confidence_engine import compute_confidence
+from geoname.resolver import resolve_geoname
 
 load_dotenv()
 
@@ -229,25 +231,51 @@ async def get_circle_rates(
     if sentinel:
         # Dispatch the Sentinel Protocol to hunt for live data in the background
         background_tasks.add_task(run_sentinel, query)
-    query_parts = [p.strip() for p in query_lower.split(",") if len(p.strip()) > 2]
+    query_parts = [p.strip() for p in query.split(",") if len(p.strip()) > 2]
     
-    # 0. Check Official ETL Database First (Precision Matching)
-    # Intelligently parse the comma-separated address (e.g. "Gomti Nagar, Lucknow, UP")
-    # and try to match the most specific geographic identifier first.
+    # 0. GeoName Resolution Layer (Phonetic & Transliteration Matching)
     official_match = None
-    
-    for part in query_parts:
-        match = db.query(OfficialCircleRate).filter(
-            OfficialCircleRate.locality.ilike(f"%{part}%") |
-            OfficialCircleRate.district.ilike(f"%{part}%")
-        ).first()
+    if query_parts:
+        district_part = query_parts[-1] if len(query_parts) > 1 else query_parts[0]
+        locality_part = query_parts[0]
         
-        if match:
-            official_match = match
-            break
+        # Pull all known localities for the target district
+        localities = db.query(OfficialCircleRate.locality).filter(OfficialCircleRate.district.ilike(f"%{district_part}%")).all()
+        locality_strings = [loc[0] for loc in localities]
+        
+        if locality_strings:
+            # Run Fuzzy RapidFuzz Engine
+            resolved_info = resolve_geoname(locality_part, locality_strings)
+            
+            # If match is strong, extract the exact resolved record
+            if resolved_info["match_confidence"] >= 0.75:
+                official_match = db.query(OfficialCircleRate).filter(
+                    OfficialCircleRate.district.ilike(f"%{district_part}%"),
+                    OfficialCircleRate.locality == resolved_info["resolved_name"]
+                ).first()
+                
+        # 0.5. Fallback Precision Match (if fuzzy fails or district was wrong)
+        if not official_match:
+            for part in query_parts:
+                match = db.query(OfficialCircleRate).filter(
+                    OfficialCircleRate.locality.ilike(f"%{part}%") |
+                    OfficialCircleRate.district.ilike(f"%{part}%")
+                ).first()
+                
+                if match:
+                    official_match = match
+                    break
     
     if official_match:
         ml_data = predict_multiplier(official_match.district, float(official_match.rate_sqm), official_match.effective_date)
+        eff_date_iso = official_match.effective_date.isoformat()
+        
+        confidence_obj = compute_confidence(
+            source_type="Official IGRS Data Pipeline",
+            effective_date_iso=eff_date_iso,
+            ml_confidence=ml_data["confidence"]
+        )
+        
         return {
             "location": f"{official_match.locality}, {official_match.district}",
             "district": official_match.district,
@@ -256,9 +284,10 @@ async def get_circle_rates(
             "risk_factors": "Official government rate. No heuristic estimation risk.",
             "smart_insight": f"This is an EXACT official circle rate for {official_match.property_type} property in {official_match.tehsil} tehsil, effective since {official_match.effective_date.strftime('%Y-%m-%d')}.",
             "source": "Official IGRS Data Pipeline",
-            "effective_date": official_match.effective_date.isoformat(),
+            "effective_date": eff_date_iso,
             "predicted_multiplier": ml_data["predicted_multiplier"],
-            "ml_confidence": ml_data["confidence"]
+            "ml_confidence": ml_data["confidence"],
+            "confidence_engine": confidence_obj
         }
     
     # 1. Check Database Cache First (Heuristic Fallback)
@@ -270,6 +299,14 @@ async def get_circle_rates(
         if age_in_days < 30:
             dist = query.split(",")[-1].strip() if "," in query else query
             ml_data = predict_multiplier(dist, float(cached_entry.estimated_rate_sqm), cached_entry.updated_at)
+            eff_date_iso = cached_entry.updated_at.isoformat()
+            
+            confidence_obj = compute_confidence(
+                source_type="Database Cache (0 latency)",
+                effective_date_iso=eff_date_iso,
+                ml_confidence=ml_data["confidence"]
+            )
+            
             return {
                 "location": query.title(),
                 "district": dist,
@@ -278,9 +315,10 @@ async def get_circle_rates(
                 "risk_factors": cached_entry.risk_factors,
                 "smart_insight": cached_entry.smart_insight,
                 "source": "Database Cache (0 latency)",
-                "effective_date": cached_entry.updated_at.isoformat(),
+                "effective_date": eff_date_iso,
                 "predicted_multiplier": ml_data["predicted_multiplier"],
-                "ml_confidence": ml_data["confidence"]
+                "ml_confidence": ml_data["confidence"],
+                "confidence_engine": confidence_obj
             }
 
     # 2. Scrape Live Data (or fallback heuristic)
@@ -308,7 +346,15 @@ async def get_circle_rates(
     db.commit()
     
     dist = query.split(",")[-1].strip() if "," in query else query
+    eff_date_iso = datetime.datetime.utcnow().isoformat()
     ml_data = predict_multiplier(dist, float(scraped_data["estimated_rate_sqm"]), datetime.datetime.utcnow())
+    
+    confidence_obj = compute_confidence(
+        source_type=scraped_data["source"],
+        effective_date_iso=eff_date_iso,
+        ml_confidence=ml_data["confidence"]
+    )
+    
     return {
         "location": query.title(),
         "district": dist,
@@ -317,7 +363,8 @@ async def get_circle_rates(
         "risk_factors": scraped_data["risk_factors"],
         "smart_insight": scraped_data["smart_insight"],
         "source": scraped_data["source"],
-        "effective_date": datetime.datetime.utcnow().isoformat(),
+        "effective_date": eff_date_iso,
         "predicted_multiplier": ml_data["predicted_multiplier"],
-        "ml_confidence": ml_data["confidence"]
+        "ml_confidence": ml_data["confidence"],
+        "confidence_engine": confidence_obj
     }

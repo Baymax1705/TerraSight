@@ -212,6 +212,13 @@ export default function App() {
         // Final Sequential Calculation
         let finalPremiumPercent = rawAmenityPremium * tierMultiplier;
         finalPremiumPercent = Math.min(finalPremiumPercent, 45); // Hard cap at 45% premium strictly for amenities
+        
+        // STEP 4: Road Intelligence Premium
+        let roadPremium = 0;
+        if (facilities && facilities.road_intelligence) {
+            roadPremium = facilities.road_intelligence.road_premium_percent || 0;
+            finalPremiumPercent += roadPremium;
+        }
 
         // Real world market base: Apply reality gap to the government rate first, THEN apply amenity premium
         const trueMarketBaseSqm = adjustedBaseRate * marketRealityGap;
@@ -223,7 +230,8 @@ export default function App() {
             govtRateTotal,
             marketRateSqm,
             marketRateTotal,
-            premiumPercent
+            premiumPercent,
+            roadPremium
         };
     }, [insights, facilities, landArea, areaUnit]);
 
@@ -506,11 +514,43 @@ export default function App() {
                                         </div>
                                         <p className="text-lg font-bold">₹{Math.round(valuations?.marketRateTotal || 0).toLocaleString()}</p>
                                         <div className="flex flex-col mt-1">
-                                            <p className="text-[10px] text-indigo-200">+{valuations?.premiumPercent?.toFixed(2) || '0.00'}% Amenities Premium</p>
+                                            <p className="text-[10px] text-indigo-200">+{((valuations?.premiumPercent || 0) - (valuations?.roadPremium || 0)).toFixed(2)}% Amenities</p>
+                                            <p className={`text-[10px] ${(valuations?.roadPremium || 0) >= 0 ? 'text-green-300' : 'text-red-300'}`}>
+                                                {(valuations?.roadPremium || 0) >= 0 ? '+' : ''}{valuations?.roadPremium?.toFixed(2) || '0.00'}% Road Quality
+                                            </p>
                                             <p className="text-[9px] text-indigo-300/80 mt-0.5">Base Gap: {insights.predicted_multiplier || 1.4}x (Model)</p>
                                         </div>
                                     </div>
+                                    </div>
                                 </div>
+                                
+                                {/* Road Intelligence UI */}
+                                {facilities?.road_intelligence && (
+                                    <div className="bg-white border border-slate-200 rounded-xl p-3 shadow-sm flex items-center justify-between">
+                                        <div className="flex items-center gap-3">
+                                            <div className="p-2 bg-slate-100 rounded-lg text-slate-600">
+                                                <Navigation size={16} />
+                                            </div>
+                                            <div className="flex flex-col">
+                                                <span className="text-xs font-bold text-slate-800 uppercase tracking-tight">Road Access</span>
+                                                <span className="text-[10px] text-slate-500 capitalize">
+                                                    {facilities.road_intelligence.nearest_road_type} • {facilities.road_intelligence.nearest_road_dist_m}m away
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div className="flex flex-col items-end">
+                                            <span className={`text-xs font-bold ${facilities.road_intelligence.road_premium_percent >= 0 ? 'text-green-600' : 'text-red-500'}`}>
+                                                {facilities.road_intelligence.road_premium_percent >= 0 ? '+' : ''}{facilities.road_intelligence.road_premium_percent}%
+                                            </span>
+                                            {facilities.road_intelligence.intersection_bonus > 0 && (
+                                                <span className="text-[9px] text-amber-600 font-medium">Corner Potential</span>
+                                            )}
+                                            {facilities.road_intelligence.dead_end_penalty < 0 && (
+                                                <span className="text-[9px] text-red-500 font-medium">Dead-End / Poor Access</span>
+                                            )}
+                                        </div>
+                                    </div>
+                                )}
 
                                 {/* Facilities UI */}
                                 <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">

@@ -10,6 +10,7 @@ from database import get_db, CachedRate, OfficialCircleRate
 from scraper import scrape_real_estate_data
 from sentinel import run_sentinel
 from ml_multiplier import predict_multiplier
+from road_intelligence import get_road_intelligence
 
 load_dotenv()
 
@@ -205,11 +206,15 @@ async def get_nearby_facilities(lat: float = Query(...), lon: float = Query(...)
                     categories[category].append(fac_obj)
                     locations.append(fac_obj)
                 
+    # Fetch Road Intelligence (Geometry & Connectivity)
+    road_data = await get_road_intelligence(lat, lon)
+    
     return {
         "categories": categories,
         "locations": locations,
         "total_facilities": len(locations),
-        "radius": radius_m
+        "radius": radius_m,
+        "road_intelligence": road_data
     }
 
 @app.get("/api/circle-rates")
